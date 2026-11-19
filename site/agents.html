@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agents | CoFlow</title>
+<meta name="description" content="CoFlow writes one reviewed set of rules out for Claude Code, Codex, Cursor and Copilot.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 48 48"><polygon points="24,4 41.3,14 41.3,34 24,44 6.7,34 6.7,14" fill="#2148E0" stroke="#2148E0" stroke-width="3.5" stroke-linejoin="round"/><path d="M14 16 C23 16 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><path d="M14 32 C23 32 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="14" cy="16" r="3.2" fill="#fff"/><circle cx="14" cy="32" r="3.2" fill="#fff"/><circle cx="34" cy="24" r="4.2" fill="#fff"/></symbol></svg>
+
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <nav aria-label="Pages">
+    <div class="dd">
+      <button class="dd-btn cur" type="button" aria-expanded="false" aria-controls="dd-tech">Technology</button>
+      <div class="dd-panel" id="dd-tech">
+        <div class="dd-grid">
+        <a href="standards.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Standards</b><small>Rule sets mapped to OWASP, CWE, WCAG, MISRA C and NIST SSDF.</small></span></a>
+        <a href="evaluation.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Evaluation</b><small>An independent AI review grades every merged change.</small></span></a>
+        <a href="integrations.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Integrations</b><small>GitHub, GitLab, Bitbucket, Jira, Linear, Slack and Teams.</small></span></a>
+        <a href="agents.html" aria-current="page"><span class="dd-hex" aria-hidden="true"></span><span><b>Agents</b><small>One rulebook for Claude Code, Codex, Cursor and Copilot.</small></span></a>
+        </div>
+        <a class="dd-foot" href="playground.html"><span>See the rules change the code</span><b>Open the playground</b></a>
+      </div>
+    </div>
+    <div class="dd">
+      <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-uc">Use cases</button>
+      <div class="dd-panel" id="dd-uc">
+        <div class="dd-grid">
+        <a href="security.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Security</b><small>Auth, secrets, injection and access control.</small></span></a>
+        <a href="applications.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Applications</b><small>Web and mobile back ends and APIs.</small></span></a>
+        <a href="firmware.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Hardware and firmware</b><small>Embedded C with MISRA C and CERT C.</small></span></a>
+        <a href="frontend.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Front end</b><small>Design systems and accessibility.</small></span></a>
+        <a href="data.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Data pipelines</b><small>Idempotent jobs, schemas and PII.</small></span></a>
+        <a href="infrastructure.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Infrastructure as code</b><small>Terraform and cloud baselines.</small></span></a>
+        </div>
+        <a class="dd-foot" href="use-cases.html"><span>Or browse by situation, from a first team to audit season</span><b>All use cases</b></a>
+      </div>
+    </div>
+    <a href="playground.html">Playground</a>
+    <a href="pricing.html">Pricing</a>
+  </nav>
+  <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+</header>
+
+<main>
+<div class="phero">
+  <canvas class="hexbg" aria-hidden="true"></canvas>
+  <div class="eyebrow">Agents</div>
+  <h1>One rulebook. <span>Every agent your team uses.</span></h1>
+  <p class="lede">CoFlow does not replace your coding agents. It gives each of them the same reviewed set of rules, in the format that agent already reads, so a change made in Cursor meets the same standard as one made in Claude Code.</p>
+</div>
+
+<section class="band dark">
+  <div class="eyebrow">Supported agents</div>
+  <h2>Written out in each agent's own format.</h2>
+  <div class="agents">
+    <div class="agent">
+      <div class="agent-name"><img src="logos/claude-code.svg" alt="" height="28" loading="lazy" onerror="this.remove()"><b>Claude Code</b></div>
+      <dl><div><dt>Reads</dt><dd>Skills and AGENTS.md</dd></div><div><dt>CoFlow writes</dt><dd>Each approved rule as a skill folder, plus the shared AGENTS.md.</dd></div></dl>
+    </div>
+    <div class="agent">
+      <div class="agent-name"><img src="logos/codex.svg" alt="" height="28" loading="lazy" onerror="this.remove()"><b>Codex</b></div>
+      <dl><div><dt>Reads</dt><dd>AGENTS.md</dd></div><div><dt>CoFlow writes</dt><dd>Approved rules in AGENTS.md files, scoped to the folders they apply to.</dd></div></dl>
+    </div>
+    <div class="agent">
+      <div class="agent-name"><img src="logos/cursor.svg" alt="" height="28" loading="lazy" onerror="this.remove()"><b>Cursor</b></div>
+      <dl><div><dt>Reads</dt><dd>Project rules</dd></div><div><dt>CoFlow writes</dt><dd>One project rule per approved rule, with its file patterns attached.</dd></div></dl>
+    </div>
+    <div class="agent">
+      <div class="agent-name"><img src="logos/copilot.svg" alt="" height="28" loading="lazy" onerror="this.remove()"><b>Copilot</b></div>
+      <dl><div><dt>Reads</dt><dd>Repository instructions</dd></div><div><dt>CoFlow writes</dt><dd>Approved rules in the repository instruction files Copilot loads.</dd></div></dl>
+    </div>
+  </div>
+  <p class="fine">File locations follow each agent's documented conventions and are kept current as those conventions change.</p>
+</section>
+
+<section class="band">
+  <div class="split">
+    <div class="split-copy">
+      <div class="eyebrow">How a rule reaches an agent</div>
+      <h2>Approve once. Every agent gets it.</h2>
+      <ol class="steps">
+        <li><b>1</b><div><h3>One source of truth</h3><p>Each rule is a small file in your repository, with a scope and the evidence it came from.</p></div></li>
+        <li><b>2</b><div><h3>Compiled per agent</h3><p>CoFlow writes the approved rule out in the format each agent reads. Nobody maintains four copies.</p></div></li>
+        <li><b>3</b><div><h3>Loaded only when relevant</h3><p>Rules are scoped by path and technology, so a migration rule stays out of a CSS change and context cost stays flat.</p></div></li>
+        <li><b>4</b><div><h3>Kept in sync</h3><p>A required check fails if an agent's files drift from the approved rules.</p></div></li>
+      </ol>
+    </div>
+    <div>
+      <div class="compile" role="img" aria-label="One approved rule file compiled into four agent formats">
+      <div class="compile-src">
+        <div class="compile-cap">Approved rule</div>
+        <pre><span>---</span><span>applies_to: ["migrations/**"]</span><span>technologies: [postgres, alembic]</span><span>---</span><span>Run data backfills with the</span><span>tenant context set.</span></pre>
+      </div>
+      <div class="compile-out">
+        <div class="compile-cap">Written out for</div>
+        <div class="out" style="--i:0"><b>Claude Code</b><code>.claude/skills/tenant-context/</code></div>
+        <div class="out" style="--i:1"><b>Codex</b><code>migrations/AGENTS.md</code></div>
+        <div class="out" style="--i:2"><b>Cursor</b><code>.cursor/rules/tenant-context</code></div>
+        <div class="out" style="--i:3"><b>Copilot</b><code>repository instructions</code></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="band tint">
+  <div class="eyebrow">Beyond the instruction files</div>
+  <h2>Context is the start. Enforcement follows the agent.</h2>
+  <div class="cards">
+    <div class="card"><i>01</i><b>Plan checks</b><span>The agent's plan is checked against the rules that apply before any code exists.</span></div>
+    <div class="card t"><i>02</i><b>Guardrail hooks</b><span>For agents that support hooks, risky commands are blocked or need confirmation, and every decision is logged.</span></div>
+    <div class="card d"><i>03</i><b>Hosted MCP server</b><span>On Business, agents can ask CoFlow for the rules that apply to a file or task as they work.</span></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="split">
+    <div class="split-copy">
+      <div class="eyebrow">Mixed teams</div>
+      <h2>Let each developer keep the agent they like.</h2>
+      <p class="lede">Standardizing on one agent is a hard conversation and a short-lived decision. CoFlow makes the choice of agent a personal one and keeps the standard a team one.</p>
+    </div>
+    <div class="vs">
+      <div class="vs-card no"><h3><span class="mark" aria-hidden="true"></span>Four agents alone</h3><ul><li>Four rule files, maintained by hand.</li><li>Each one drifts from the others.</li><li>Review catches what the context missed.</li></ul></div>
+      <div class="vs-card yes"><h3><span class="mark" aria-hidden="true"></span>Four agents with CoFlow</h3><ul><li>One approved set of rules.</li><li>Written out for each agent automatically.</li><li>Adherence graded the same way for all four.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="band flush">
+  <div class="banners">
+    <a class="banner" href="playground.html"><div><div class="eyebrow">Playground</div><b>Switch the rules on and off yourself.</b><small>Four requests, and what the agent writes with and without each rule.</small></div><span class="go">Open the playground</span></a>
+    <a class="banner" href="integrations.html"><div><div class="eyebrow">Integrations</div><b>Code hosts, trackers, chat and your stack.</b><small>GitHub, GitLab, Bitbucket, Jira, Linear, Slack and Microsoft Teams.</small></div><span class="go">See the integrations</span></a>
+  </div>
+</section>
+
+<section class="band flush">
+  <div class="talk">
+    <div>
+      <h2>Start with one repository.</h2>
+      <p class="lede">We are onboarding a small number of teams first.</p>
+    </div>
+    <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="f-top">
+    <div class="f-brand"><a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a><p>Engineering, security and design standards for teams that build with coding agents.</p><code>getcoflow.ai</code></div>
+    <div class="f-col"><b>Technology</b><a href="standards.html">Standards</a><a href="evaluation.html">Evaluation</a><a href="integrations.html">Integrations</a><a href="agents.html">Agents</a></div>
+    <div class="f-col"><b>Use cases</b><a href="security.html">Security</a><a href="applications.html">Applications</a><a href="firmware.html">Hardware and firmware</a><a href="frontend.html">Front end</a><a href="data.html">Data pipelines</a><a href="infrastructure.html">Infrastructure as code</a><a href="use-cases.html">By situation</a></div>
+    <div class="f-col"><b>Company</b><a href="playground.html">Playground</a><a href="pricing.html">Pricing</a><a href="pricing.html#talk">Talk to us</a><a href="index.html#faq">Questions</a></div>
+  </div>
+  <p class="f-legal">&copy; 2026 CoFlow. In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

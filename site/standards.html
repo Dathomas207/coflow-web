@@ -14,11 +14,33 @@
 <header class="nav">
   <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
   <nav aria-label="Pages">
-    <a href="standards.html" aria-current="page">Standards</a>
-    <a href="use-cases.html">Use cases</a>
+    <div class="dd">
+      <button class="dd-btn cur" type="button" aria-expanded="false" aria-controls="dd-tech">Technology</button>
+      <div class="dd-panel" id="dd-tech">
+        <div class="dd-grid">
+        <a href="standards.html" aria-current="page"><span class="dd-hex" aria-hidden="true"></span><span><b>Standards</b><small>Rule sets mapped to OWASP, CWE, WCAG, MISRA C and NIST SSDF.</small></span></a>
+        <a href="evaluation.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Evaluation</b><small>An independent AI review grades every merged change.</small></span></a>
+        <a href="integrations.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Integrations</b><small>GitHub, GitLab, Bitbucket, Jira, Linear, Slack and Teams.</small></span></a>
+        <a href="agents.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Agents</b><small>One rulebook for Claude Code, Codex, Cursor and Copilot.</small></span></a>
+        </div>
+        <a class="dd-foot" href="playground.html"><span>See the rules change the code</span><b>Open the playground</b></a>
+      </div>
+    </div>
+    <div class="dd">
+      <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-uc">Use cases</button>
+      <div class="dd-panel" id="dd-uc">
+        <div class="dd-grid">
+        <a href="security.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Security</b><small>Auth, secrets, injection and access control.</small></span></a>
+        <a href="applications.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Applications</b><small>Web and mobile back ends and APIs.</small></span></a>
+        <a href="firmware.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Hardware and firmware</b><small>Embedded C with MISRA C and CERT C.</small></span></a>
+        <a href="frontend.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Front end</b><small>Design systems and accessibility.</small></span></a>
+        <a href="data.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Data pipelines</b><small>Idempotent jobs, schemas and PII.</small></span></a>
+        <a href="infrastructure.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Infrastructure as code</b><small>Terraform and cloud baselines.</small></span></a>
+        </div>
+        <a class="dd-foot" href="use-cases.html"><span>Or browse by situation, from a first team to audit season</span><b>All use cases</b></a>
+      </div>
+    </div>
     <a href="playground.html">Playground</a>
-    <a href="integrations.html">Integrations</a>
-    <a href="evaluation.html">Evaluation</a>
     <a href="pricing.html">Pricing</a>
   </nav>
   <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
@@ -91,9 +113,9 @@
 <footer>
   <div class="f-top">
     <div class="f-brand"><a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a><p>Engineering, security and design standards for teams that build with coding agents.</p><code>getcoflow.ai</code></div>
-    <div class="f-col"><b>Product</b><a href="standards.html">Standards</a><a href="integrations.html">Integrations</a><a href="playground.html">Playground</a><a href="evaluation.html">Evaluation</a><a href="pricing.html">Pricing</a></div>
-    <div class="f-col"><b>Solutions</b><a href="use-cases.html">Use cases</a><a href="firmware.html">Firmware</a><a href="index.html#examples">Examples</a></div>
-    <div class="f-col"><b>Company</b><a href="pricing.html#talk">Talk to us</a><a href="index.html#faq">Questions</a></div>
+    <div class="f-col"><b>Technology</b><a href="standards.html">Standards</a><a href="evaluation.html">Evaluation</a><a href="integrations.html">Integrations</a><a href="agents.html">Agents</a></div>
+    <div class="f-col"><b>Use cases</b><a href="security.html">Security</a><a href="applications.html">Applications</a><a href="firmware.html">Hardware and firmware</a><a href="frontend.html">Front end</a><a href="data.html">Data pipelines</a><a href="infrastructure.html">Infrastructure as code</a><a href="use-cases.html">By situation</a></div>
+    <div class="f-col"><b>Company</b><a href="playground.html">Playground</a><a href="pricing.html">Pricing</a><a href="pricing.html#talk">Talk to us</a><a href="index.html#faq">Questions</a></div>
   </div>
   <p class="f-legal">&copy; 2026 CoFlow. In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
 </footer>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data pipelines | CoFlow</title>
+<meta name="description" content="CoFlow keeps coding agents to your rules for idempotent jobs, schemas and personal data.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 48 48"><polygon points="24,4 41.3,14 41.3,34 24,44 6.7,34 6.7,14" fill="#2148E0" stroke="#2148E0" stroke-width="3.5" stroke-linejoin="round"/><path d="M14 16 C23 16 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><path d="M14 32 C23 32 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="14" cy="16" r="3.2" fill="#fff"/><circle cx="14" cy="32" r="3.2" fill="#fff"/><circle cx="34" cy="24" r="4.2" fill="#fff"/></symbol></svg>
+
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <nav aria-label="Pages">
+    <div class="dd">
+      <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-tech">Technology</button>
+      <div class="dd-panel" id="dd-tech">
+        <div class="dd-grid">
+        <a href="standards.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Standards</b><small>Rule sets mapped to OWASP, CWE, WCAG, MISRA C and NIST SSDF.</small></span></a>
+        <a href="evaluation.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Evaluation</b><small>An independent AI review grades every merged change.</small></span></a>
+        <a href="integrations.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Integrations</b><small>GitHub, GitLab, Bitbucket, Jira, Linear, Slack and Teams.</small></span></a>
+        <a href="agents.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Agents</b><small>One rulebook for Claude Code, Codex, Cursor and Copilot.</small></span></a>
+        </div>
+        <a class="dd-foot" href="playground.html"><span>See the rules change the code</span><b>Open the playground</b></a>
+      </div>
+    </div>
+    <div class="dd">
+      <button class="dd-btn cur" type="button" aria-expanded="false" aria-controls="dd-uc">Use cases</button>
+      <div class="dd-panel" id="dd-uc">
+        <div class="dd-grid">
+        <a href="security.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Security</b><small>Auth, secrets, injection and access control.</small></span></a>
+        <a href="applications.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Applications</b><small>Web and mobile back ends and APIs.</small></span></a>
+        <a href="firmware.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Hardware and firmware</b><small>Embedded C with MISRA C and CERT C.</small></span></a>
+        <a href="frontend.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Front end</b><small>Design systems and accessibility.</small></span></a>
+        <a href="data.html" aria-current="page"><span class="dd-hex" aria-hidden="true"></span><span><b>Data pipelines</b><small>Idempotent jobs, schemas and PII.</small></span></a>
+        <a href="infrastructure.html"><span class="dd-hex" aria-hidden="true"></span><span><b>Infrastructure as code</b><small>Terraform and cloud baselines.</small></span></a>
+        </div>
+        <a class="dd-foot" href="use-cases.html"><span>Or browse by situation, from a first team to audit season</span><b>All use cases</b></a>
+      </div>
+    </div>
+    <a href="playground.html">Playground</a>
+    <a href="pricing.html">Pricing</a>
+  </nav>
+  <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+</header>
+
+<main>
+<div class="phero">
+  <canvas class="hexbg" aria-hidden="true"></canvas>
+  <div class="eyebrow">Use case: data pipelines</div>
+  <h1>Pipelines you can <span>rerun at 3am.</span></h1>
+  <p class="lede">A data job that works once is easy. One that can be rerun, rejects bad input and never copies personal data into the warehouse takes rules. CoFlow gives every agent the rules your data team learned the hard way.</p>
+  <div class="cta"><a class="btn btn-go" href="pricing.html#talk">Talk to us</a><a class="btn btn-line" href="playground.html">Try the playground</a></div>
+</div>
+
+<section class="band dark">
+  <div class="eyebrow">See it work</div>
+  <h2>The same request, with and without your standards.</h2>
+  <div class="ex-panel">
+    <p class="ex-ask"><i>Request</i>Load the daily events file into the warehouse.</p>
+    <div class="codes">
+      <div class="code"><header><span>Agent alone</span><span>load_events.py</span></header><pre><span>def load_daily(day):</span><span>    df = pd.read_csv(f&quot;s3://raw/events/{day}.csv&quot;)</span><span class="bad">    df.to_sql(&quot;events&quot;, engine, if_exists=&quot;append&quot;)</span></pre><ul class="notes bad"><li><b>Team rule</b>A rerun of the same day duplicates every row.</li><li><b>Team rule</b>Bad input is loaded without a check.</li><li><b>Privacy rule</b>Email addresses land in the warehouse in plain text.</li></ul></div>
+      <div class="code"><header><span>With CoFlow</span><span>load_events.py</span></header><pre><span>def load_daily(day):</span><span>    df = pd.read_csv(f&quot;s3://raw/events/{day}.csv&quot;)</span><span class="good">    df = EventSchema.validate(df)</span><span class="good">    df[&quot;email&quot;] = hash_pii(df[&quot;email&quot;])</span><span class="good">    with engine.begin() as tx:</span><span class="good">        tx.execute(delete(events).where(events.c.day == day))</span><span class="good">        df.to_sql(&quot;events&quot;, tx, if_exists=&quot;append&quot;, index=False)</span></pre><ul class="notes good"><li><b>Team rule</b>The day is replaced in one transaction, so reruns are safe.</li><li><b>Team rule</b>The declared schema rejects bad input before it loads.</li><li><b>Privacy rule</b>Personal fields are hashed before they leave the raw zone.</li></ul></div>
+    </div>
+    <div class="applied"><i>Where the rules came from</i><span>Two incident tickets about duplicated rows and one review comment from your data lead.</span></div>
+  </div>
+  <p class="fine">Illustrative example. Rule labels name the standard or team rule each finding maps to.</p>
+</section>
+
+<section class="band">
+  <div class="eyebrow">Starter standards</div>
+  <h2>The rules behind a pipeline nobody has to babysit.</h2>
+  <div class="cards"><div class="card "><i>01</i><b>Every job is idempotent</b><span>Running the same day twice gives the same result as running it once.</span></div><div class="card t"><i>02</i><b>Schemas are declared</b><span>Input is validated against a schema before it is loaded.</span></div><div class="card "><i>03</i><b>Personal data stays in the raw zone</b><span>Personal fields are hashed or dropped before they reach shared tables.</span></div><div class="card t"><i>04</i><b>Loads are transactional</b><span>A failed load leaves the target table as it was.</span></div><div class="card "><i>05</i><b>Backfills run in batches</b><span>Large backfills run in bounded chunks with progress logged.</span></div><div class="card t"><i>06</i><b>Credentials come from the vault</b><span>No connection strings in code or notebooks.</span></div></div>
+</section>
+
+<section class="band tint">
+  <div class="eyebrow">Beyond the starter set</div>
+  <h2>Incidents become rules before they repeat.</h2>
+  <div class="cards"><div class="card d"><i>A</i><b>Incidents as evidence</b><span>A failed run or a data quality ticket is evidence. CoFlow drafts the rule and links the ticket.</span></div><div class="card d"><i>B</i><b>Scoped to the pipeline</b><span>Rules for one warehouse or one source load only for that code.</span></div><div class="card d"><i>C</i><b>Repeat rate per rule</b><span>The scorecard shows whether the same incident comes back after its rule was approved.</span></div></div>
+</section>
+
+<section class="band">
+  <div class="banners">
+    <a class="banner" href="playground.html"><div><div class="eyebrow">Playground</div><b>Switch the rules on and off yourself.</b><small>Four requests, and what the agent writes with and without each rule.</small></div><span class="go">Open the playground</span></a>
+    <a class="banner" href="use-cases.html"><div><div class="eyebrow">Use cases</div><b>Browse by situation.</b><small>From a first software team to audit season.</small></div><span class="go">See all use cases</span></a>
+  </div>
+</section>
+
+<section class="band flush">
+  <div class="talk">
+    <div><h2>Start with one repository.</h2><p class="lede">We are onboarding a small number of teams first.</p></div>
+    <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="f-top">
+    <div class="f-brand"><a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a><p>Engineering, security and design standards for teams that build with coding agents.</p><code>getcoflow.ai</code></div>
+    <div class="f-col"><b>Technology</b><a href="standards.html">Standards</a><a href="evaluation.html">Evaluation</a><a href="integrations.html">Integrations</a><a href="agents.html">Agents</a></div>
+    <div class="f-col"><b>Use cases</b><a href="security.html">Security</a><a href="applications.html">Applications</a><a href="firmware.html">Hardware and firmware</a><a href="frontend.html">Front end</a><a href="data.html">Data pipelines</a><a href="infrastructure.html">Infrastructure as code</a><a href="use-cases.html">By situation</a></div>
+    <div class="f-col"><b>Company</b><a href="playground.html">Playground</a><a href="pricing.html">Pricing</a><a href="pricing.html#talk">Talk to us</a><a href="index.html#faq">Questions</a></div>
+  </div>
+  <p class="f-legal">&copy; 2026 CoFlow. In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

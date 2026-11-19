@@ -92,11 +92,12 @@ if (form) form.addEventListener("submit", async (e) => {
     document.querySelectorAll(".tile b").forEach((el) => tick.observe(el));
   }
 
-  // Hexagon field behind each page header.
+  // Hexagon field behind each page header: outlines, a slow shimmer, hexes that trace their own outline, and a glow that follows the pointer.
   document.querySelectorAll("canvas.hexbg").forEach((cv) => {
-    const ctx = cv.getContext("2d");
-    const R = 30, W3 = Math.sqrt(3) * R;
-    let w = 0, h = 0, cells = [], lit = [], on = true, last = 0;
+    const ctx = cv.getContext("2d"), host = cv.parentElement;
+    const R = 34, W3 = Math.sqrt(3) * R, P = 6 * R;
+    let w = 0, h = 0, cells = [], lit = [], traces = [], on = true, last = 0;
+    let px = -1e4, py = -1e4, inside = false, pe = 0;
     const size = () => {
       const r = cv.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
       w = r.width; h = r.height; cv.width = w * d; cv.height = h * d;
@@ -104,38 +105,61 @@ if (form) form.addEventListener("submit", async (e) => {
       cells = [];
       for (let row = 0; row * R * 1.5 < h + R; row++) {
         for (let x = row % 2 ? W3 / 2 : 0; x < w + W3; x += W3) {
-          const f = Math.max(0, (x / w - 0.42) / 0.58);
+          const u = x / w, f = u < 0.26 ? 0 : Math.min(1, (u - 0.26) / 0.46);
           if (f > 0) cells.push([x, row * R * 1.5, f]);
         }
       }
-      lit = [];
+      lit = []; traces = [];
     };
-    const hex = (x, y) => {
+    const hex = (x, y, r = R) => {
       ctx.beginPath();
       for (let i = 0; i < 6; i++) {
-        const a = Math.PI / 3 * i + Math.PI / 6;
-        ctx[i ? "lineTo" : "moveTo"](x + R * Math.cos(a), y + R * Math.sin(a));
+        const a = Math.PI / 3 * i - Math.PI / 2;
+        ctx[i ? "lineTo" : "moveTo"](x + r * Math.cos(a), y + r * Math.sin(a));
       }
       ctx.closePath();
     };
     const draw = (t) => {
       ctx.clearRect(0, 0, w, h);
+      ctx.setLineDash([]);
       ctx.lineWidth = 1;
-      for (const [x, y, f] of cells) { hex(x, y); ctx.strokeStyle = "rgba(33,72,224," + 0.12 * f + ")"; ctx.stroke(); }
+      for (const [x, y, f] of cells) { hex(x, y); ctx.strokeStyle = "rgba(33,72,224," + 0.17 * f + ")"; ctx.stroke(); }
       for (const l of lit) {
         const c = cells[l.i]; if (!c) continue;
         const a = Math.sin(Math.PI * Math.min(1, Math.max(0, (t - l.t0) / l.dur)));
         hex(c[0], c[1]);
-        ctx.fillStyle = l.o ? "rgba(255,107,26," + 0.3 * a * c[2] + ")" : "rgba(33,72,224," + 0.17 * a * c[2] + ")";
+        ctx.fillStyle = l.o ? "rgba(255,107,26," + 0.22 * a * c[2] + ")" : "rgba(33,72,224," + 0.12 * a * c[2] + ")";
         ctx.fill();
       }
+      if (pe > 0.01) {
+        ctx.lineWidth = 1.6;
+        for (const [x, y, f] of cells) {
+          const d = Math.hypot(x - px, y - py);
+          if (d < 190) { hex(x, y, R - 3); ctx.strokeStyle = "rgba(33,72,224," + 0.6 * (1 - d / 190) * pe * Math.max(f, 0.35) + ")"; ctx.stroke(); }
+        }
+      }
+      ctx.lineWidth = 2;
+      for (const tr of traces) {
+        const c = cells[tr.i]; if (!c) continue;
+        const p = (t - tr.t0) / tr.dur; if (p < 0) continue;
+        ctx.setLineDash([P, P]);
+        ctx.lineDashOffset = P * (1 - Math.min(1, p * 1.7));
+        const a = p < 0.65 ? 1 : Math.max(0, (1 - p) / 0.35);
+        hex(c[0], c[1], R - 3);
+        ctx.strokeStyle = "rgba(255,107,26," + 0.85 * a * Math.max(c[2], 0.4) + ")";
+        ctx.stroke();
+      }
+      ctx.setLineDash([]);
     };
     const frame = (t) => {
       if (!on) return;
       if (t - last > 33) {
         last = t;
+        pe += ((inside ? 1 : 0) - pe) * 0.12;
         lit = lit.filter((l) => t - l.t0 < l.dur);
-        while (cells.length && lit.length < 10) lit.push({ i: Math.floor(Math.random() * cells.length), t0: t + Math.random() * 900, dur: 2200 + Math.random() * 2400, o: Math.random() < 0.18 });
+        traces = traces.filter((l) => t - l.t0 < l.dur);
+        while (cells.length && lit.length < 9) lit.push({ i: Math.floor(Math.random() * cells.length), t0: t + Math.random() * 900, dur: 2400 + Math.random() * 2600, o: Math.random() < 0.2 });
+        while (cells.length && traces.length < 3) traces.push({ i: Math.floor(Math.random() * cells.length), t0: t + Math.random() * 1800, dur: 2600 + Math.random() * 1400 });
         draw(t);
       }
       requestAnimationFrame(frame);
@@ -143,7 +167,23 @@ if (form) form.addEventListener("submit", async (e) => {
     size();
     if (calm) { draw(0); return; }
     window.addEventListener("resize", size);
+    host.addEventListener("pointermove", (e) => { const r = cv.getBoundingClientRect(); px = e.clientX - r.left; py = e.clientY - r.top; inside = true; });
+    host.addEventListener("pointerleave", () => { inside = false; });
     if (canWatch) new IntersectionObserver((es) => { const was = on; on = es[0].isIntersecting; if (on && !was) requestAnimationFrame(frame); }).observe(cv);
     requestAnimationFrame(frame);
   });
+})();
+
+// ---------- nav menus ----------
+(() => {
+  const dds = [...document.querySelectorAll(".dd")];
+  const set = (dd, open) => { dd.classList.toggle("open", open); dd.querySelector(".dd-btn").setAttribute("aria-expanded", String(open)); };
+  dds.forEach((dd) => {
+    const btn = dd.querySelector(".dd-btn");
+    btn.addEventListener("click", (e) => { e.stopPropagation(); const o = !dd.classList.contains("open"); dds.forEach((d) => set(d, false)); set(dd, o); });
+    dd.addEventListener("keydown", (e) => { if (e.key === "Escape") { set(dd, false); btn.focus(); } });
+    dd.addEventListener("focusout", (e) => { if (!dd.contains(e.relatedTarget)) set(dd, false); });
+    dd.addEventListener("mouseleave", () => set(dd, false));
+  });
+  document.addEventListener("click", (e) => dds.forEach((d) => { if (!d.contains(e.target)) set(d, false); }));
 })();
