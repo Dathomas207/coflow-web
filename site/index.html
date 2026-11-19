@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CoFlow</title>
+<meta name="description" content="CoFlow gives your coding agents the engineering, security and design standards an experienced team would enforce.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 48 48"><polygon points="24,4 41.3,14 41.3,34 24,44 6.7,34 6.7,14" fill="#2148E0" stroke="#2148E0" stroke-width="3.5" stroke-linejoin="round"/><path d="M14 16 C23 16 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><path d="M14 32 C23 32 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="14" cy="16" r="3.2" fill="#fff"/><circle cx="14" cy="32" r="3.2" fill="#fff"/><circle cx="34" cy="24" r="4.2" fill="#fff"/></symbol></svg>
+
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <nav aria-label="Pages">
+    <a href="standards.html">Standards</a>
+    <a href="use-cases.html">Use cases</a>
+    <a href="integrations.html">Integrations</a>
+    <a href="evaluation.html">Evaluation</a>
+    <a href="pricing.html">Pricing</a>
+  </nav>
+  <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+</header>
+
+<main>
+<div class="hero">
+  <div class="status"><i></i>In private build. Working with teams of 3 to 100.</div>
+  <h1>Build like a team that has <span>done this before.</span></h1>
+  <div class="hero-row">
+    <div>
+      <p class="lede">CoFlow gives your coding agents the engineering, security and design standards an experienced team would enforce. It starts from public standards, reads your existing code, reviews and Jira tickets, and pulls in your design system.</p>
+      <div class="cta">
+        <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+        <a class="btn btn-line" href="use-cases.html">See the use cases</a>
+      </div>
+    </div>
+    <div class="aside">
+      <div><b>For companies new to running a software team</b><span>Good practice becomes the default on every change, whoever or whatever wrote it.</span></div>
+      <div><b>Software and firmware</b><span>Web apps, back ends and the code that runs on your hardware.</span></div>
+    </div>
+  </div>
+  <div class="flow">
+    <div class="flow-col">
+      <div class="flow-cap">Where standards come from</div>
+      <div class="node"><b>Public standards</b><span>OWASP, WCAG, MISRA C, CERT C</span></div>
+      <div class="node"><b>Your existing codebase</b><span>the conventions it already follows</span></div>
+      <div class="node"><b>Pull request reviews</b><span>what your team corrected</span></div>
+      <div class="node"><b>Jira tickets</b><span>bugs, incidents and decisions</span></div>
+      <div class="node"><b>Your design system</b><span>tokens and components</span></div>
+    </div>
+    <div class="flow-mid"><svg aria-hidden="true"><use href="#logo"/></svg><div class="flow-cap">One reviewed set</div></div>
+    <div class="flow-col">
+      <div class="flow-cap">Every agent</div>
+      <div class="node"><b>Claude Code</b><span>skills and AGENTS.md</span></div>
+      <div class="node"><b>Codex</b><span>AGENTS.md</span></div>
+      <div class="node"><b>Cursor</b><span>project rules</span></div>
+      <div class="node"><b>Copilot</b><span>repository instructions</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="strip tint">
+  <div>
+    <div class="eyebrow">Works where your code lives</div>
+    <div class="pills"><span class="pill on">GitHub</span><span class="pill on">GitLab</span><span class="pill on">Bitbucket</span><span class="pill">Jira</span><span class="pill">Slack</span><span class="pill">Microsoft Teams</span></div>
+  </div>
+  <div>
+    <div class="eyebrow">Standards built in</div>
+    <div class="pills"><span class="pill">OWASP Top 10</span><span class="pill">OWASP ASVS</span><span class="pill">CWE Top 25</span><span class="pill">WCAG 2.2</span><span class="pill">MISRA C</span><span class="pill">CERT C</span><span class="pill">NIST SSDF</span></div>
+  </div>
+</div>
+
+<section class="band dark" id="examples">
+  <div class="uc-head">
+    <div>
+      <div class="eyebrow">Examples</div>
+      <h2>The same request, with and without your standards.</h2>
+    </div>
+    <p class="lede">Four changes an agent wrote alone, and the same four with CoFlow in the loop. Each finding names the rule it comes from.</p>
+  </div>
+
+  <div class="ex">
+    <div class="ex-tabs" role="tablist" aria-label="Code examples">
+      <button class="ex-tab" role="tab" id="ex-t1" aria-controls="ex-p1" aria-selected="true">Firmware <i>C</i></button>
+      <button class="ex-tab" role="tab" id="ex-t2" aria-controls="ex-p2" aria-selected="false">API security <i>Python</i></button>
+      <button class="ex-tab" role="tab" id="ex-t3" aria-controls="ex-p3" aria-selected="false">Design system <i>TypeScript</i></button>
+      <button class="ex-tab" role="tab" id="ex-t4" aria-controls="ex-p4" aria-selected="false">Migrations <i>Python</i></button>
+    </div>
+
+    <div class="ex-panels">
+      <div class="ex-panel" role="tabpanel" id="ex-p1" aria-labelledby="ex-t1">
+        <p class="ex-ask"><i>Request</i>Log each line received on the UART.</p>
+        <div class="codes">
+          <div class="code">
+            <header><span>Agent alone</span><span>uart_isr.c</span></header>
+            <pre><span>void USART1_IRQHandler(void) {</span><span class="bad">    char *line = malloc(128);</span><span class="bad">    read_line(line, 128);</span><span class="bad">    printf("rx: %s\n", line);</span><span class="bad">    free(line);</span><span>}</span></pre>
+            <ul class="notes bad">
+              <li><b>MISRA C 21.3</b>Heap allocation with malloc and free.</li>
+              <li><b>MISRA C 21.6</b>Standard input and output called from firmware.</li>
+              <li><b>Team rule</b>A blocking read inside an interrupt handler.</li>
+            </ul>
+          </div>
+          <div class="code">
+            <header><span>With CoFlow</span><span>uart_isr.c</span></header>
+            <pre><span>void USART1_IRQHandler(void) {</span><span class="good">    rx_ring_push(USART1-&gt;DR);</span><span class="good">    rx_pending = true;</span><span>}</span><span> </span><span class="good">/* main loop drains rx_ring and logs */</span></pre>
+            <ul class="notes good">
+              <li><b>MISRA C 21.3</b>A fixed ring buffer, allocated at startup.</li>
+              <li><b>MISRA C 21.6</b>Logging moved to the project logger in the main loop.</li>
+              <li><b>Team rule</b>The handler stores one byte, sets a flag and returns.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applied"><i>Where the team rule came from</i><span>A failed hardware-in-the-loop run, approved by your team as a rule.</span></div>
+      </div>
+
+      <div class="ex-panel" role="tabpanel" id="ex-p2" aria-labelledby="ex-t2">
+        <p class="ex-ask"><i>Request</i>Add an endpoint that returns one invoice.</p>
+        <div class="codes">
+          <div class="code">
+            <header><span>Agent alone</span><span>invoices.py</span></header>
+            <pre><span>@router.get("/invoices/{invoice_id}")</span><span>def get_invoice(invoice_id: str, db=Depends(get_db)):</span><span class="bad">    q = f"SELECT * FROM invoices WHERE id = '{invoice_id}'"</span><span class="bad">    return db.execute(text(q)).first()</span></pre>
+            <ul class="notes bad">
+              <li><b>CWE-89</b>The query is built from user input.</li>
+              <li><b>OWASP Top 10 A01</b>Any caller can read any tenant's invoice.</li>
+              <li><b>FastAPI standard</b>No response model, so every column is returned.</li>
+            </ul>
+          </div>
+          <div class="code">
+            <header><span>With CoFlow</span><span>invoices.py</span></header>
+            <pre><span class="good">@router.get("/invoices/{invoice_id}", response_model=InvoiceOut)</span><span>def get_invoice(</span><span class="good">    invoice_id: UUID,</span><span class="good">    user=Depends(current_user),</span><span>    db=Depends(get_db),</span><span>):</span><span class="good">    invoice = invoices.get_for_tenant(db, user.tenant_id, invoice_id)</span><span>    if invoice is None:</span><span>        raise HTTPException(status_code=404)</span><span>    return invoice</span></pre>
+            <ul class="notes good">
+              <li><b>CWE-89</b>A typed id and a parameterized repository call.</li>
+              <li><b>OWASP Top 10 A01</b>The lookup is scoped to the caller's tenant.</li>
+              <li><b>FastAPI standard</b>The response model lists the fields that leave the API.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applied"><i>Where the rules came from</i><span>Public security standards, plus the practices keyed to the framework this repository uses.</span></div>
+      </div>
+
+      <div class="ex-panel" role="tabpanel" id="ex-p3" aria-labelledby="ex-t3">
+        <p class="ex-ask"><i>Request</i>Add a pay button to the checkout page.</p>
+        <div class="codes">
+          <div class="code">
+            <header><span>Agent alone</span><span>CheckoutButton.tsx</span></header>
+            <pre><span>export function PayButton() {</span><span>  return (</span><span class="bad">    &lt;button style={{ background: "#2f6fed",</span><span class="bad">      padding: "11px 18px", borderRadius: 7 }}&gt;</span><span>      Pay now</span><span class="bad">    &lt;/button&gt;</span><span>  );</span><span>}</span></pre>
+            <ul class="notes bad">
+              <li><b>Color tokens</b>A hard-coded hex value that is close to the brand blue.</li>
+              <li><b>Spacing scale</b>Padding and radius that match nothing else in the app.</li>
+              <li><b>Shared components</b>A native button with no focus or disabled states.</li>
+            </ul>
+          </div>
+          <div class="code">
+            <header><span>With CoFlow</span><span>CheckoutButton.tsx</span></header>
+            <pre><span class="good">import { Button } from "@/ui/button";</span><span> </span><span>export function PayButton() {</span><span>  return (</span><span class="good">    &lt;Button variant="primary" size="md"&gt;</span><span>      Pay now</span><span class="good">    &lt;/Button&gt;</span><span>  );</span><span>}</span></pre>
+            <ul class="notes good">
+              <li><b>Color tokens</b>Color comes from the primary variant.</li>
+              <li><b>Spacing scale</b>Size comes from the scale.</li>
+              <li><b>Shared components</b>Focus, hover and disabled states come with the component.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applied"><i>Where the rules came from</i><span>Your design system, pulled in as tokens and components.</span></div>
+      </div>
+
+      <div class="ex-panel" role="tabpanel" id="ex-p4" aria-labelledby="ex-t4">
+        <p class="ex-ask"><i>Request</i>Add a region column to orders and backfill it.</p>
+        <div class="codes">
+          <div class="code">
+            <header><span>Agent alone</span><span>0042_order_region.py</span></header>
+            <pre><span>def upgrade():</span><span>    op.add_column("orders", sa.Column("region", sa.Text()))</span><span class="bad">    op.execute("UPDATE orders SET region = 'us'")</span></pre>
+            <ul class="notes bad">
+              <li><b>Team rule</b>The backfill runs with no tenant context, so it sees no rows and passes.</li>
+              <li><b>Team rule</b>One statement updates the whole table in a single lock.</li>
+            </ul>
+          </div>
+          <div class="code">
+            <header><span>With CoFlow</span><span>0042_order_region.py</span></header>
+            <pre><span>def upgrade():</span><span>    op.add_column("orders", sa.Column("region", sa.Text()))</span><span class="good">    for tenant in all_tenants():</span><span class="good">        with tenant_context(tenant):</span><span class="good">            backfill_in_batches("orders", region="us")</span></pre>
+            <ul class="notes good">
+              <li><b>Team rule</b>Each tenant is backfilled with its context set.</li>
+              <li><b>Team rule</b>Rows are updated in batches.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applied"><i>Where the rules came from</i><span>Two review comments and one incident ticket in your own history.</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="fine">Illustrative examples. Standard and rule identifiers refer to MISRA C:2012, the CWE list and the OWASP Top 10.</p>
+</section>
+
+<section class="band" id="get">
+  <div class="eyebrow">What you get</div>
+  <h2>Start with good defaults. End up with your own.</h2>
+  <div class="cards">
+    <div class="card d"><i>01</i><b>Standards built in</b><span>Rule sets mapped to OWASP, WCAG, MISRA C and CERT C that you switch on and edit.</span></div>
+    <div class="card t"><i>02</i><b>Your design system, enforced</b><span>Agents reach for your Button, your spacing scale and your colors.</span></div>
+    <div class="card"><i>03</i><b>Rules from what you already have</b><span>CoFlow reads your existing codebase, past reviews and Jira tickets and proposes rules. Your team approves each one.</span></div>
+    <div class="card"><i>04</i><b>Enforced in four places</b><span>In the agent's context, on its plan, on the pull request, and on risky commands.</span></div>
+    <div class="card t"><i>05</i><b>Application: firmware</b><span>The same product on embedded C. Rules for interrupts, memory and registers, with bench failures as evidence.</span></div>
+    <div class="card d"><i>06</i><b>A scorecard for adherence</b><span>An independent AI review grades every merged change against the rules that applied.</span></div>
+  </div>
+</section>
+
+<section class="band flush">
+  <div class="banners">
+    <a class="banner" href="use-cases.html"><div><div class="eyebrow">Use cases</div><b>Six situations CoFlow is built for.</b><small>From a first software team to audit season.</small></div><span class="go">See the use cases</span></a>
+    <a class="banner" href="integrations.html"><div><div class="eyebrow">Integrations</div><b>Code hosts, agents, trackers, chat and your stack.</b><small>GitHub, GitLab, Bitbucket, Jira, Linear, Slack and Microsoft Teams.</small></div><span class="go">See the integrations</span></a>
+    <a class="banner" href="firmware.html"><div><div class="eyebrow">Application</div><b>Firmware: keep the magic smoke inside.</b><small>How CoFlow applies to embedded C, with MISRA C and CERT C mappings.</small></div><span class="go">Read the application</span></a>
+  </div>
+</section>
+
+<section class="band flush">
+  <div class="talk">
+    <div>
+      <h2>Start with one repository.</h2>
+      <p class="lede">We are onboarding a small number of teams first.</p>
+    </div>
+    <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <p>In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
+  <code>getcoflow.ai</code>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

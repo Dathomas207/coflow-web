@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluation | CoFlow</title>
+<meta name="description" content="An independent AI review grades every merged change against your standards.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 48 48"><polygon points="24,4 41.3,14 41.3,34 24,44 6.7,34 6.7,14" fill="#2148E0" stroke="#2148E0" stroke-width="3.5" stroke-linejoin="round"/><path d="M14 16 C23 16 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><path d="M14 32 C23 32 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="14" cy="16" r="3.2" fill="#fff"/><circle cx="14" cy="32" r="3.2" fill="#fff"/><circle cx="34" cy="24" r="4.2" fill="#fff"/></symbol></svg>
+
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <nav aria-label="Pages">
+    <a href="standards.html">Standards</a>
+    <a href="use-cases.html">Use cases</a>
+    <a href="integrations.html">Integrations</a>
+    <a href="evaluation.html" aria-current="page">Evaluation</a>
+    <a href="pricing.html">Pricing</a>
+  </nav>
+  <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+</header>
+
+<main>
+<div class="phero">
+  <div class="eyebrow">Evaluation</div>
+  <h1>Know whether the standards are <span>working.</span></h1>
+  <p class="lede">After you deploy CoFlow, an independent AI review grades every merged change against the rules that applied to it. You get a scorecard for control, adherence and improvement, and a list of what to fix next.</p>
+</div>
+
+<section class="band flush">
+  <div class="score">
+    <div class="score-head"><b>Standards scorecard</b><span>Example data, last 30 days</span></div>
+    <div class="tiles"><div class="tile"><i>Adherence rate</i><b>94%</b><span class="up">up from 81%</span></div><div class="tile"><i>First-pass adherence</i><b>88%</b><span class="up">up from 62%</span></div><div class="tile"><i>Repeat rate</i><b>3%</b><span class="up">down from 19%</span></div><div class="tile"><i>Coverage</i><b>100%</b><span class="up">all agent sessions</span></div><div class="tile"><i>Time to rule</i><b>4 days</b><span>median</span></div></div>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col">Merged change</th><th scope="col">Title</th><th scope="col">Rules met</th><th scope="col">AI review finding</th></tr></thead>
+    <tbody>
+      <tr><td>#412</td><td>Add refund endpoint</td><td>9 of 9</td><td><span class="pass">Pass</span></td></tr>
+      <tr><td>#409</td><td>Checkout button restyle</td><td>6 of 7</td><td>Design tokens: hard-coded color</td></tr>
+      <tr><td>#405</td><td>Nightly export job</td><td>11 of 11</td><td><span class="pass">Pass</span></td></tr>
+      <tr><td>#398</td><td>UART driver update</td><td>7 of 8</td><td>Interrupt length: blocking call</td></tr>
+    </tbody>
+  </table></div>
+  </div>
+</section>
+
+<section class="band dark">
+  <div class="eyebrow">How the AI review works</div>
+  <h2>A second model checks the first one's work.</h2>
+  <div class="cards four">
+    <div class="card g"><i>01</i><b>Independent grader</b><span>A separate model reads each merged change and the rules that applied, and grades each rule as met, missed or not applicable.</span></div>
+    <div class="card g"><i>02</i><b>Cause codes</b><span>Every miss is labeled with why it happened: rule not loaded, rule unclear, rule ignored, or rule wrong.</span></div>
+    <div class="card g"><i>03</i><b>Checked against people</b><span>A sample of grades goes to your reviewers. Their agreement rate is on the scorecard.</span></div>
+    <div class="card g"><i>04</i><b>Feeds the next rule</b><span>Unclear rules get rewritten, ignored rules get enforcement, wrong rules get retired.</span></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="eyebrow">What gets measured</div>
+  <h2>Nine numbers, in four groups.</h2>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col">Group</th><th scope="col">Metric</th><th scope="col">What it measures</th><th scope="col">Healthy direction</th></tr></thead>
+    <tbody>
+      <tr><td>Control</td><td>Coverage</td><td>Share of agent sessions and pull requests that had standards loaded</td><td>100%</td></tr>
+      <tr><td>Control</td><td>Override rate</td><td>Guardrail blocks that a person overrode</td><td>Low and explained</td></tr>
+      <tr><td>Adherence</td><td>Adherence rate</td><td>Applicable rules satisfied per merged change, graded by AI review</td><td>Rising</td></tr>
+      <tr><td>Adherence</td><td>First-pass adherence</td><td>The same, measured before any human review</td><td>Rising</td></tr>
+      <tr><td>Evaluation</td><td>Repeat rate</td><td>How often a mistake recurs after its rule was approved</td><td>Falling to zero</td></tr>
+      <tr><td>Evaluation</td><td>Reviewer agreement</td><td>How often people agree with the AI review on a sampled set</td><td>Above 90%</td></tr>
+      <tr><td>Optimization</td><td>Time to rule</td><td>Days from the first correction to an approved rule</td><td>Under a week</td></tr>
+      <tr><td>Optimization</td><td>Context cost</td><td>Tokens of rules loaded per task</td><td>Flat as rules grow</td></tr>
+      <tr><td>Optimization</td><td>Dead rules</td><td>Rules that applied to nothing in 90 days</td><td>Retired</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="band flush">
+  <div class="talk">
+    <div>
+      <h2>Start with one repository.</h2>
+      <p class="lede">We are onboarding a small number of teams first.</p>
+    </div>
+    <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <p>In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
+  <code>getcoflow.ai</code>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

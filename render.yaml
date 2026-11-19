@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: coflow-site
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: ./site

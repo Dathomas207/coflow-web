@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use cases | CoFlow</title>
+<meta name="description" content="Six situations CoFlow is built for.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 48 48"><polygon points="24,4 41.3,14 41.3,34 24,44 6.7,34 6.7,14" fill="#2148E0" stroke="#2148E0" stroke-width="3.5" stroke-linejoin="round"/><path d="M14 16 C23 16 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><path d="M14 32 C23 32 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="14" cy="16" r="3.2" fill="#fff"/><circle cx="14" cy="32" r="3.2" fill="#fff"/><circle cx="34" cy="24" r="4.2" fill="#fff"/></symbol></svg>
+
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <nav aria-label="Pages">
+    <a href="standards.html">Standards</a>
+    <a href="use-cases.html" aria-current="page">Use cases</a>
+    <a href="integrations.html">Integrations</a>
+    <a href="evaluation.html">Evaluation</a>
+    <a href="pricing.html">Pricing</a>
+  </nav>
+  <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+</header>
+
+<main>
+<div class="phero">
+  <div class="eyebrow">Use cases</div>
+  <h1>Six situations CoFlow is <span>built for.</span></h1>
+  <p class="lede">Pick the one closest to yours. Each shows what CoFlow draws on, where it steps in, and one rule it would hold your agents to.</p>
+</div>
+
+<section class="band tint">
+  <div class="uc">
+    <div class="uc-tabs" role="tablist" aria-label="Use cases">
+      <button class="uc-tab" role="tab" id="uc-t1" aria-controls="uc-p1" aria-selected="true"><span class="hex">01</span><span><b>Your first software team</b><small>A company hiring its first developers</small></span></button>
+      <button class="uc-tab" role="tab" id="uc-t2" aria-controls="uc-p2" aria-selected="false"><span class="hex">02</span><span><b>Several agents, one standard</b><small>Every developer picked a different tool</small></span></button>
+      <button class="uc-tab" role="tab" id="uc-t3" aria-controls="uc-p3" aria-selected="false"><span class="hex">03</span><span><b>Audit season</b><small>Heading into SOC 2 or ISO 27001</small></span></button>
+      <button class="uc-tab" role="tab" id="uc-t4" aria-controls="uc-p4" aria-selected="false"><span class="hex">04</span><span><b>Front ends that stay on brand</b><small>A design system the agents ignore</small></span></button>
+      <button class="uc-tab" role="tab" id="uc-t5" aria-controls="uc-p5" aria-selected="false"><span class="hex">05</span><span><b>Firmware and hardware</b><small>Agents writing embedded C</small></span></button>
+      <button class="uc-tab" role="tab" id="uc-t6" aria-controls="uc-p6" aria-selected="false"><span class="hex">06</span><span><b>An inherited codebase</b><small>Code from a contractor or an acquisition</small></span></button>
+    </div>
+
+    <div class="uc-panels">
+      <article class="uc-panel" role="tabpanel" id="uc-p1" aria-labelledby="uc-t1">
+        <div class="uc-who">A manufacturer, distributor or lab hiring its first developers</div>
+        <h3>Ship like the team you have not hired yet.</h3>
+        <p>You have two developers, four agents and nobody whose job is to say how things are done here. CoFlow starts you on public standards and turns each review into a rule the next change follows.</p>
+        <div class="uc-meta">
+          <div><div class="flow-cap">Draws on</div><div class="pills"><span class="pill">Public standards</span><span class="pill">Pull request reviews</span></div></div>
+          <div><div class="flow-cap">Steps in</div><div class="pills"><span class="pill">Agent context</span><span class="pill">Pull request</span></div></div>
+        </div>
+        <div class="uc-rule"><q>Every endpoint checks the caller's permission before it reads data.</q><span>Source: OWASP ASVS, access control</span></div>
+      </article>
+
+      <article class="uc-panel" role="tabpanel" id="uc-p2" aria-labelledby="uc-t2">
+        <div class="uc-who">A team where each developer picked a different agent</div>
+        <h3>One rulebook for Claude Code, Codex, Cursor and Copilot.</h3>
+        <p>A rule approved once is written out in the format each agent reads. Nobody maintains four copies, and a change made in Cursor meets the same standard as one made in Claude Code.</p>
+        <div class="uc-meta">
+          <div><div class="flow-cap">Draws on</div><div class="pills"><span class="pill">Pull request reviews</span><span class="pill">Existing codebase</span></div></div>
+          <div><div class="flow-cap">Written out as</div><div class="pills"><span class="pill">AGENTS.md</span><span class="pill">Skills</span><span class="pill">Project rules</span><span class="pill">Repository instructions</span></div></div>
+        </div>
+        <div class="uc-rule"><q>Paginate every list endpoint. Default 50, maximum 200.</q><span>Source: three review comments on one pull request</span></div>
+      </article>
+
+      <article class="uc-panel" role="tabpanel" id="uc-p3" aria-labelledby="uc-t3">
+        <div class="uc-who">A company heading into SOC 2 or ISO 27001</div>
+        <h3>Show the auditor the rule, the change and the grade.</h3>
+        <p>Controls map to rules. Each merged change is graded against the rules that applied, and every approved exception records the reason and the approver. The evidence builds while you work.</p>
+        <div class="uc-meta">
+          <div><div class="flow-cap">Draws on</div><div class="pills"><span class="pill">SOC 2</span><span class="pill">ISO 27001</span><span class="pill">NIST SSDF</span><span class="pill">OWASP ASVS</span></div></div>
+          <div><div class="flow-cap">Leaves behind</div><div class="pills"><span class="pill">Adherence scorecard</span><span class="pill">Deviation log</span></div></div>
+        </div>
+        <div class="uc-rule"><q>Secrets come from the vault. None in code, config or logs.</q><span>Source: security starter standards, NIST SSDF mapping</span></div>
+      </article>
+
+      <article class="uc-panel" role="tabpanel" id="uc-p4" aria-labelledby="uc-t4">
+        <div class="uc-who">A product team with a design system and agents that ignore it</div>
+        <h3>Agents reach for your Button first.</h3>
+        <p>CoFlow pulls in your tokens and components, so generated screens use your spacing scale, your colors and your accessible patterns. A hard-coded hex value gets caught on the pull request.</p>
+        <div class="uc-meta">
+          <div><div class="flow-cap">Draws on</div><div class="pills"><span class="pill">Design tokens</span><span class="pill">Components</span><span class="pill">WCAG 2.2</span></div></div>
+          <div><div class="flow-cap">Steps in</div><div class="pills"><span class="pill">Agent context</span><span class="pill">Pull request</span></div></div>
+        </div>
+        <div class="uc-rule"><q>Use the shared Button and color tokens. Never hard-code colors or spacing.</q><span>Source: your design system</span></div>
+      </article>
+
+      <article class="uc-panel" role="tabpanel" id="uc-p5" aria-labelledby="uc-t5">
+        <div class="uc-who">A hardware team with agents writing embedded C</div>
+        <h3>Keep the magic smoke inside.</h3>
+        <p>Agents write firmware fast. They have never bricked a board or burned out a driver. CoFlow gives them MISRA C and CERT C mappings plus the rules your bench taught you, with failed hardware-in-the-loop runs as evidence.</p>
+        <div class="uc-meta">
+          <div><div class="flow-cap">Draws on</div><div class="pills"><span class="pill">MISRA C</span><span class="pill">CERT C</span><span class="pill">Bench failures</span></div></div>
+          <div><div class="flow-cap">Steps in</div><div class="pills"><span class="pill">Agent plan</span><span class="pill">Pull request</span><span class="pill">Risky commands</span></div></div>
+        </div>
+        <div class="uc-rule"><q>Interrupts stay short: no allocation, blocking calls or printing.</q><span>Source: firmware starter standards, MISRA C mapping</span></div>
+      </article>
+
+      <article class="uc-panel" role="tabpanel" id="uc-p6" aria-labelledby="uc-t6">
+        <div class="uc-who">A team taking over code from a contractor or an acquisition</div>
+        <h3>Learn the house rules from the house.</h3>
+        <p>CoFlow reads the existing code, past reviews and Jira tickets and proposes the conventions already in use. Your team approves each one, and new hires and agents follow them from their first change.</p>
+        <div class="uc-meta">
+          <div><div class="flow-cap">Draws on</div><div class="pills"><span class="pill">Existing codebase</span><span class="pill">Pull request reviews</span><span class="pill">Jira tickets</span></div></div>
+          <div><div class="flow-cap">Steps in</div><div class="pills"><span class="pill">Agent context</span><span class="pill">Agent plan</span><span class="pill">Pull request</span></div></div>
+        </div>
+        <div class="uc-rule"><q>Data backfills run with the tenant context set.</q><span>Source: one review comment and one incident ticket</span></div>
+      </article>
+    </div>
+  </div>
+  <p class="fine">Rules and sources shown are illustrative.</p>
+</section>
+
+<section class="band">
+  <div class="banners">
+    <a class="banner" href="index.html#examples"><div><div class="eyebrow">Examples</div><b>The same request, with and without your standards.</b><small>Four before and after changes, each finding tied to a rule.</small></div><span class="go">See the examples</span></a>
+    <a class="banner" href="firmware.html"><div><div class="eyebrow">Application</div><b>Firmware: keep the magic smoke inside.</b><small>How CoFlow applies to embedded C, with MISRA C and CERT C mappings.</small></div><span class="go">Read the application</span></a>
+  </div>
+</section>
+
+<section class="band flush">
+  <div class="talk">
+    <div>
+      <h2>Start with one repository.</h2>
+      <p class="lede">We are onboarding a small number of teams first.</p>
+    </div>
+    <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <p>In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
+  <code>getcoflow.ai</code>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

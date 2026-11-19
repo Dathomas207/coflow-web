@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing | CoFlow</title>
+<meta name="description" content="Planned CoFlow pricing.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 48 48"><polygon points="24,4 41.3,14 41.3,34 24,44 6.7,34 6.7,14" fill="#2148E0" stroke="#2148E0" stroke-width="3.5" stroke-linejoin="round"/><path d="M14 16 C23 16 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><path d="M14 32 C23 32 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="14" cy="16" r="3.2" fill="#fff"/><circle cx="14" cy="32" r="3.2" fill="#fff"/><circle cx="34" cy="24" r="4.2" fill="#fff"/></symbol></svg>
+
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <nav aria-label="Pages">
+    <a href="standards.html">Standards</a>
+    <a href="use-cases.html">Use cases</a>
+    <a href="integrations.html">Integrations</a>
+    <a href="evaluation.html">Evaluation</a>
+    <a href="pricing.html" aria-current="page">Pricing</a>
+  </nav>
+  <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+</header>
+
+<main>
+<div class="phero">
+  <div class="eyebrow">Pricing</div>
+  <h1>Priced as an add-on to the <span>agents you already pay for.</span></h1>
+  <p class="lede">Planned pricing for general availability. Only developers who open pull requests or merge requests need a seat.</p>
+</div>
+
+<section class="band flush">
+  <div class="plans">
+    <div class="plan"><div><h3>Solo</h3><div class="who">One developer</div></div><div><div class="amt">$0</div><div class="per">1 developer, up to 3 repositories</div></div><ul><li>Standards built in</li><li>Rules stored in your repository</li><li>Delivery to all four agents</li><li>Guardrails with a decision log</li></ul></div>
+    <div class="plan main"><div><h3>Team</h3><div class="who">2 to 25 developers</div></div><div><div class="amt">$12</div><div class="per">per developer a month, billed annually. $15 monthly.</div></div><ul><li>Everything in Solo, unlimited repositories</li><li>Rule proposals from your reviews and checks</li><li>Repeat count for every rule</li><li>GitHub, GitLab and Bitbucket</li><li>Jira, Slack and Microsoft Teams</li></ul></div>
+    <div class="plan"><div><h3>Business</h3><div class="who">Up to 100 developers</div></div><div><div class="amt">$24</div><div class="per">per developer a month, billed annually. $29 monthly.</div></div><ul><li>Everything in Team</li><li>Design system connection</li><li>Plan and pull request checks</li><li>AI review scorecard</li><li>Hosted MCP server, single sign-on, audit export</li></ul></div>
+    <div class="plan"><div><h3>Custom</h3><div class="who">More than 100, or self-hosted</div></div><div><div class="amt">Quote</div><div class="per">volume pricing</div></div><ul><li>Deployment in your cloud</li><li>Firmware and safety programs</li><li>Support terms</li></ul></div>
+  </div>
+  <p class="note">Prices are in US dollars and exclude tax. A team of ten on Team pays $120 a month on annual billing.</p>
+</section>
+
+<section class="band dark" id="talk">
+  <div class="eyebrow">Get started</div>
+  <h2>Tell us about your team.</h2>
+  <div class="contact">
+    <p class="lede">CoFlow is in private build. We are onboarding a small number of teams first, starting with one repository each.</p>
+    <form class="tform" id="talk-form" novalidate>
+      <label for="talk-email">Work email<input id="talk-email" name="email" type="email" autocomplete="email" placeholder="you@yourcompany.com" required></label>
+      <label for="talk-size">Developers on the team<select id="talk-size" name="size"><option>3 to 10</option><option>11 to 30</option><option>31 to 100</option><option>More than 100</option></select></label>
+      <button class="btn btn-go" type="submit">Talk to us</button>
+      <div id="talk-msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <p>In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
+  <code>getcoflow.ai</code>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Firmware | CoFlow</title>
+<meta name="description" content="How CoFlow applies to embedded C.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 48 48"><polygon points="24,4 41.3,14 41.3,34 24,44 6.7,34 6.7,14" fill="#2148E0" stroke="#2148E0" stroke-width="3.5" stroke-linejoin="round"/><path d="M14 16 C23 16 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><path d="M14 32 C23 32 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="14" cy="16" r="3.2" fill="#fff"/><circle cx="14" cy="32" r="3.2" fill="#fff"/><circle cx="34" cy="24" r="4.2" fill="#fff"/></symbol></svg>
+
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <nav aria-label="Pages">
+    <a href="standards.html">Standards</a>
+    <a href="use-cases.html">Use cases</a>
+    <a href="integrations.html">Integrations</a>
+    <a href="evaluation.html">Evaluation</a>
+    <a href="pricing.html">Pricing</a>
+  </nav>
+  <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+</header>
+
+<main>
+<div class="phero">
+  <div class="fw">
+    <div>
+      <div class="eyebrow">Application: firmware</div>
+      <h1>Keep the <span>magic smoke</span> inside.</h1>
+      <p class="lede">Agents write firmware fast. They have never bricked a board, burned out a driver or chased a bug that only shows up at 60 degrees. CoFlow gives them the rules your bench has taught you, plus MISRA C and CERT C from day one.</p>
+      <div class="cta"><a class="btn btn-go" href="pricing.html#talk">Talk to us</a><a class="btn btn-line" href="standards.html">See the standards</a></div>
+    </div>
+    <svg aria-hidden="true" width="300" height="300" viewBox="0 0 300 300"><g fill="#2148E0"><rect x="60" y="14" width="10" height="46" rx="3"/><rect x="60" y="240" width="10" height="46" rx="3"/><rect x="14" y="60" width="46" height="10" rx="3"/><rect x="240" y="60" width="46" height="10" rx="3"/><rect x="90" y="14" width="10" height="46" rx="3"/><rect x="90" y="240" width="10" height="46" rx="3"/><rect x="14" y="90" width="46" height="10" rx="3"/><rect x="240" y="90" width="46" height="10" rx="3"/><rect x="120" y="14" width="10" height="46" rx="3"/><rect x="120" y="240" width="10" height="46" rx="3"/><rect x="14" y="120" width="46" height="10" rx="3"/><rect x="240" y="120" width="46" height="10" rx="3"/><rect x="150" y="14" width="10" height="46" rx="3"/><rect x="150" y="240" width="10" height="46" rx="3"/><rect x="14" y="150" width="46" height="10" rx="3"/><rect x="240" y="150" width="46" height="10" rx="3"/><rect x="180" y="14" width="10" height="46" rx="3"/><rect x="180" y="240" width="10" height="46" rx="3"/><rect x="14" y="180" width="46" height="10" rx="3"/><rect x="240" y="180" width="46" height="10" rx="3"/><rect x="210" y="14" width="10" height="46" rx="3"/><rect x="210" y="240" width="10" height="46" rx="3"/><rect x="14" y="210" width="46" height="10" rx="3"/><rect x="240" y="210" width="46" height="10" rx="3"/><rect x="240" y="14" width="10" height="46" rx="3"/><rect x="240" y="240" width="10" height="46" rx="3"/><rect x="14" y="240" width="46" height="10" rx="3"/><rect x="240" y="240" width="46" height="10" rx="3"/></g><rect x="50" y="50" width="200" height="200" rx="20" fill="#0B1640"/><circle cx="78" cy="78" r="7" fill="#FF6B1A"/><use href="#logo" x="96" y="96" width="108" height="108"/></svg>
+  </div>
+</div>
+
+<section class="band dark">
+  <div class="eyebrow">See it work</div>
+  <h2>An agent's first interrupt handler, and the one you would have written.</h2>
+  <div class="ex-panel">
+        <p class="ex-ask"><i>Request</i>Log each line received on the UART.</p>
+        <div class="codes">
+          <div class="code">
+            <header><span>Agent alone</span><span>uart_isr.c</span></header>
+            <pre><span>void USART1_IRQHandler(void) {</span><span class="bad">    char *line = malloc(128);</span><span class="bad">    read_line(line, 128);</span><span class="bad">    printf("rx: %s\n", line);</span><span class="bad">    free(line);</span><span>}</span></pre>
+            <ul class="notes bad">
+              <li><b>MISRA C 21.3</b>Heap allocation with malloc and free.</li>
+              <li><b>MISRA C 21.6</b>Standard input and output called from firmware.</li>
+              <li><b>Team rule</b>A blocking read inside an interrupt handler.</li>
+            </ul>
+          </div>
+          <div class="code">
+            <header><span>With CoFlow</span><span>uart_isr.c</span></header>
+            <pre><span>void USART1_IRQHandler(void) {</span><span class="good">    rx_ring_push(USART1-&gt;DR);</span><span class="good">    rx_pending = true;</span><span>}</span><span> </span><span class="good">/* main loop drains rx_ring and logs */</span></pre>
+            <ul class="notes good">
+              <li><b>MISRA C 21.3</b>A fixed ring buffer, allocated at startup.</li>
+              <li><b>MISRA C 21.6</b>Logging moved to the project logger in the main loop.</li>
+              <li><b>Team rule</b>The handler stores one byte, sets a flag and returns.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applied"><i>Where the team rule came from</i><span>A failed hardware-in-the-loop run, approved by your team as a rule.</span></div>
+      </div>
+  <p class="fine">Illustrative example. Rule identifiers refer to MISRA C:2012.</p>
+</section>
+
+<section class="band">
+  <div class="eyebrow">Firmware starter standards</div>
+  <h2>The rules every hardware engineer learns the hard way.</h2>
+  <div class="cards ">
+    <div class="card "><i>01</i><b>Interrupts stay short</b><span>No blocking calls, allocation or printing inside an interrupt handler. Set a flag and return.</span></div>
+    <div class="card t"><i>02</i><b>No heap after startup</b><span>Allocate at init. After that, fixed buffers and pools only.</span></div>
+    <div class="card "><i>03</i><b>Registers go through the HAL</b><span>No raw addresses in application code.</span></div>
+    <div class="card t"><i>04</i><b>The pin map is the source of truth</b><span>Pins are named once, in one file, and never by number elsewhere.</span></div>
+    <div class="card "><i>05</i><b>Units live in the name</b><span>timeout_ms, not timeout. current_ma, not current.</span></div>
+    <div class="card t"><i>06</i><b>Every watchdog has an owner</b><span>One task feeds it, and the reason is written down.</span></div>
+  </div>
+</section>
+
+<section class="band flush">
+  <div class="cards ">
+    <div class="card d"><i>A</i><b>Bench failures become rules</b><span>A failed hardware-in-the-loop run or a logged brown-out is evidence. CoFlow drafts the rule and your team approves it.</span></div>
+    <div class="card d"><i>B</i><b>Deviations on the record</b><span>When a rule has to be broken, the rule, the reason and the approver are logged.</span></div>
+    <div class="card d"><i>C</i><b>One standard for firmware and app</b><span>The same review flow covers the board, the back end and the screen.</span></div>
+  </div>
+</section>
+
+<section class="band flush">
+  <div class="talk">
+    <div>
+      <h2>Start with one repository.</h2>
+      <p class="lede">We are onboarding a small number of teams first.</p>
+    </div>
+    <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <p>In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
+  <code>getcoflow.ai</code>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
