@@ -210,3 +210,14 @@ document.querySelectorAll(".mega").forEach((m) => {
   const cur = items.find((a) => a.getAttribute("aria-current") === "page") || items[0];
   if (cur) show(cur);
 });
+
+// ---------- menu button ----------
+(() => {
+  const nav = document.querySelector(".nav"), btn = document.querySelector(".nav-toggle");
+  if (!nav || !btn) return;
+  const set = (open) => { nav.classList.toggle("open", open); btn.setAttribute("aria-expanded", String(open)); btn.setAttribute("aria-label", open ? "Close menu" : "Open menu"); };
+  btn.addEventListener("click", (e) => { e.stopPropagation(); set(!nav.classList.contains("open")); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && nav.classList.contains("open")) { set(false); btn.focus(); } });
+  document.addEventListener("click", (e) => { if (!nav.contains(e.target)) set(false); });
+  nav.querySelectorAll("nav a").forEach((a) => a.addEventListener("click", () => set(false)));
+})();
