@@ -187,3 +187,26 @@ if (form) form.addEventListener("submit", async (e) => {
   });
   document.addEventListener("click", (e) => dds.forEach((d) => { if (!d.contains(e.target)) set(d, false); }));
 })();
+
+// ---------- legal page contents highlight ----------
+(() => {
+  const links = [...document.querySelectorAll(".toc a")];
+  if (!links.length || !("IntersectionObserver" in window)) return;
+  const map = new Map(links.map((a) => [a.getAttribute("href").slice(1), a]));
+  const io = new IntersectionObserver((es) => {
+    es.forEach((e) => { if (e.isIntersecting) { links.forEach((a) => a.classList.remove("on")); const a = map.get(e.target.id); if (a) a.classList.add("on"); } });
+  }, { rootMargin: "-20% 0px -70% 0px" });
+  document.querySelectorAll(".prose section[id]").forEach((s) => io.observe(s));
+})();
+
+// ---------- mega menu previews ----------
+document.querySelectorAll(".mega").forEach((m) => {
+  const items = [...m.querySelectorAll(".mg-list > a[data-pv]")];
+  const show = (a) => {
+    items.forEach((x) => x.classList.toggle("act", x === a));
+    m.querySelectorAll(".pv").forEach((p) => p.classList.toggle("on", p.id === a.dataset.pv));
+  };
+  items.forEach((a) => { a.addEventListener("mouseenter", () => show(a)); a.addEventListener("focus", () => show(a)); });
+  const cur = items.find((a) => a.getAttribute("aria-current") === "page") || items[0];
+  if (cur) show(cur);
+});

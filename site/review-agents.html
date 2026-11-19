@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Review agents | CoFlow</title>
+<meta name="description" content="CoFlow review agents: security monitor, migration guard, dependency watch, test guard, change control and standards reviewer.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 48 48"><polygon points="24,4 41.3,14 41.3,34 24,44 6.7,34 6.7,14" fill="#2148E0" stroke="#2148E0" stroke-width="3.5" stroke-linejoin="round"/><path d="M14 16 C23 16 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><path d="M14 32 C23 32 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="14" cy="16" r="3.2" fill="#fff"/><circle cx="14" cy="32" r="3.2" fill="#fff"/><circle cx="34" cy="24" r="4.2" fill="#fff"/></symbol></svg>
+
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <nav aria-label="Pages">
+    <div class="dd mega">
+      <button class="dd-btn cur" type="button" aria-expanded="false" aria-controls="mg-tech">Technology</button>
+      <div class="dd-panel" id="mg-tech">
+        <div class="mg">
+          <div class="mg-list"><a href="standards.html" data-pv="mg-tech-0"><b>Standards and rule packs</b><small>185 rules in 17 packs.</small></a><a href="review-agents.html" data-pv="mg-tech-1" aria-current="page"><b>Review agents</b><small>Six agents you set up and control.</small></a><a href="context.html" data-pv="mg-tech-2"><b>Project memory</b><small>Facts agents learn once.</small></a><a href="mcp.html" data-pv="mg-tech-3"><b>MCP server and CLI</b><small>Rules and context inside any agent.</small></a><a href="evaluation.html" data-pv="mg-tech-4"><b>Evaluation</b><small>Know the rules are working.</small></a><a href="integrations.html" data-pv="mg-tech-5"><b>Integrations</b><small>Code hosts, trackers and chat.</small></a><a href="agents.html" data-pv="mg-tech-6"><b>Coding agents</b><small>One rulebook for every agent.</small></a>
+            <a class="mg-foot" href="playground.html"><span>See the rules change the code</span><b>Playground</b></a>
+          </div>
+          <div class="mg-pv" aria-hidden="true"><div class="pv on" id="mg-tech-0"><div class="pv-eye">Standards and rule packs</div><div class="pv-vis"><div class="pv-packs"><span><b>python</b>19</span><span><b>websec</b>18</span><span><b>typescript</b>16</span><span><b>c</b>13</span><span><b>cpp</b>13</span><span><b>supplychain</b>11</span><span><b>fastapi</b>10</span><span><b>react</b>10</span><span><b>access</b>10</span></div></div><p>Rule packs for the languages, frameworks and controls your team uses, each mapped to the public standard it comes from.</p><a class="pv-go" href="standards.html">See the packs</a></div><div class="pv" id="mg-tech-1"><div class="pv-eye">Review agents</div><div class="pv-vis"><div class="pv-rows"><div><b>Security monitor</b><i class="pp on">Enforce</i></div><div><b>Migration guard</b><i class="pp on">Enforce</i></div><div><b>Standards reviewer</b><i class="pp ">Comment</i></div><div><b>Dependency watch</b><i class="pp dim">Observe</i></div></div></div><p>Agents that review every pull request against the rules you choose. Start them in observe mode and turn on enforcement when you trust them.</p><a class="pv-go" href="review-agents.html">Meet the agents</a></div><div class="pv" id="mg-tech-2"><div class="pv-eye">Project memory</div><div class="pv-vis"><div class="code "><header><span>Agent</span><span>where_is</span></header><pre><span>where_is(&quot;orders database&quot;)</span><span class="dim"> </span><span class="good">postgres  orders-db  (verified)</span><span class="dim">source: .coflow/context/system.yaml</span></pre></div></div><p>Where the databases are, how to reach the logs, which service owns what. Learned once, reviewed by a person, and served to every session.</p><a class="pv-go" href="context.html">How memory works</a></div><div class="pv" id="mg-tech-3"><div class="pv-eye">MCP server and CLI</div><div class="pv-vis"><div class="code "><header><span>Claude Code</span><span>.mcp.json</span></header><pre><span>{ &quot;mcpServers&quot;: { &quot;coflow&quot;: {</span><span>  &quot;type&quot;: &quot;http&quot;,</span><span>  &quot;url&quot;: &quot;https://mcp.getcoflow.ai/mcp&quot;</span><span>} } }</span></pre></div></div><p>A local stdio server for one developer and a hosted HTTP service for teams, with scoped tokens and no approve tool.</p><a class="pv-go" href="mcp.html">Set up MCP</a></div><div class="pv" id="mg-tech-4"><div class="pv-eye">Evaluation</div><div class="pv-vis"><div class="pv-tiles"><span><i>Adherence</i><b>94%</b></span><span><i>Repeat rate</i><b>3%</b></span><span><i>Time to rule</i><b>4 days</b></span></div></div><p>An independent AI review grades every merged change, and a test harness replays tasks with and without each rule before it ships.</p><a class="pv-go" href="evaluation.html">See the scorecard</a></div><div class="pv" id="mg-tech-5"><div class="pv-eye">Integrations</div><div class="pv-vis"><div class="pv-names"><span>GitHub</span><span>GitLab</span><span>Bitbucket</span><span>Jira</span><span>Linear</span><span>Slack</span><span>Microsoft Teams</span></div></div><p>GitHub, GitLab and Bitbucket for code and reviews. Jira and Linear for evidence. Slack and Microsoft Teams for approvals.</p><a class="pv-go" href="integrations.html">See the integrations</a></div><div class="pv" id="mg-tech-6"><div class="pv-eye">Coding agents</div><div class="pv-vis"><div class="pv-rows"><div><b>Claude Code</b><code>skills, AGENTS.md</code></div><div><b>Codex</b><code>AGENTS.md</code></div><div><b>Cursor</b><code>.cursor/rules</code></div><div><b>Copilot</b><code>copilot-instructions</code></div></div></div><p>Each approved rule is written out in the format Claude Code, Codex, Cursor and Copilot already read.</p><a class="pv-go" href="agents.html">See the agents</a></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="dd mega">
+      <button class="dd-btn" type="button" aria-expanded="false" aria-controls="mg-uc">Use cases</button>
+      <div class="dd-panel" id="mg-uc">
+        <div class="mg">
+          <div class="mg-list"><a href="security.html" data-pv="mg-uc-0"><b>Security</b><small>Auth, secrets, injection and access control.</small></a><a href="applications.html" data-pv="mg-uc-1"><b>Applications</b><small>Web and mobile back ends and APIs.</small></a><a href="firmware.html" data-pv="mg-uc-2"><b>Hardware and firmware</b><small>Embedded C with MISRA C and CERT C.</small></a><a href="frontend.html" data-pv="mg-uc-3"><b>Front end</b><small>Design systems and accessibility.</small></a><a href="data.html" data-pv="mg-uc-4"><b>Data pipelines</b><small>Idempotent jobs, schemas and PII.</small></a><a href="infrastructure.html" data-pv="mg-uc-5"><b>Infrastructure as code</b><small>Terraform and cloud baselines.</small></a>
+            <a class="mg-foot" href="use-cases.html"><span>Browse by situation</span><b>All use cases</b></a>
+          </div>
+          <div class="mg-pv" aria-hidden="true"><div class="pv on" id="mg-uc-0"><div class="pv-eye">Security</div><div class="pv-vis"><div class="code pvc"><header><span>Rule</span><span>CWE-916</span></header><pre><span class="bad">digest = sha256(password)</span><span class="good">digest = ph.hash(password)</span></pre></div></div><p>OWASP, CWE and your own security lessons in front of every agent.</p><a class="pv-go" href="security.html">See the example</a></div><div class="pv" id="mg-uc-1"><div class="pv-eye">Applications</div><div class="pv-vis"><div class="code pvc"><header><span>Rule</span><span>Team rule</span></header><pre><span class="bad">orders = db.query(Order).all()</span><span class="good">return paginate(db, q, cursor, limit)</span></pre></div></div><p>Your conventions for routes, queries and errors, on every endpoint.</p><a class="pv-go" href="applications.html">See the example</a></div><div class="pv" id="mg-uc-2"><div class="pv-eye">Hardware and firmware</div><div class="pv-vis"><div class="code pvc"><header><span>Rule</span><span>MISRA C 21.3</span></header><pre><span class="bad">char *line = malloc(128);</span><span class="good">rx_ring_push(USART1-&gt;DR);</span></pre></div></div><p>The rules your bench taught you, plus MISRA C from day one.</p><a class="pv-go" href="firmware.html">See the example</a></div><div class="pv" id="mg-uc-3"><div class="pv-eye">Front end</div><div class="pv-vis"><div class="code pvc"><header><span>Rule</span><span>WCAG 2.1.1</span></header><pre><span class="bad">&lt;div onClick={submit}&gt;Sign up&lt;/div&gt;</span><span class="good">&lt;Button type=&quot;submit&quot;&gt;Sign up&lt;/Button&gt;</span></pre></div></div><p>Your tokens and components, and WCAG 2.2 on every screen.</p><a class="pv-go" href="frontend.html">See the example</a></div><div class="pv" id="mg-uc-4"><div class="pv-eye">Data pipelines</div><div class="pv-vis"><div class="code pvc"><header><span>Rule</span><span>Team rule</span></header><pre><span class="bad">df.to_sql(&quot;events&quot;, engine)</span><span class="good">df = EventSchema.validate(df)</span></pre></div></div><p>Pipelines you can rerun safely, with personal data kept out of shared tables.</p><a class="pv-go" href="data.html">See the example</a></div><div class="pv" id="mg-uc-5"><div class="pv-eye">Infrastructure as code</div><div class="pv-vis"><div class="code pvc"><header><span>Rule</span><span>Cloud baseline</span></header><pre><span class="bad">acl = &quot;public-read&quot;</span><span class="good">block_public_acls = true</span></pre></div></div><p>Your cloud baseline on every Terraform change, with guardrails on risky commands.</p><a class="pv-go" href="infrastructure.html">See the example</a></div></div>
+        </div>
+      </div>
+    </div>
+    <a href="playground.html">Playground</a>
+    <a href="pricing.html">Pricing</a>
+  </nav>
+  <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+</header>
+
+<main>
+<div class="phero">
+  <canvas class="hexbg" aria-hidden="true"></canvas>
+  <div class="eyebrow">Review agents</div>
+  <h1>Reviewers you set up <span>and control.</span></h1>
+  <p class="lede">Each agent watches for one kind of problem, with the rules you pick and a mode you set. Start every agent in observe mode, read what it finds, and turn on enforcement when you trust it.</p>
+</div>
+
+<section class="band flush">
+  <div class="win"><div class="win-bar"><span class="dots" aria-hidden="true"></span><span class="url">app.getcoflow.ai/acme/api/agents</span></div><div class="app"><aside class="app-side"><div class="app-brand"><svg width="18" height="18" aria-hidden="true"><use href="#logo"/></svg>acme / api</div><span>Overview</span><span>Proposals<em>3</em></span><span>Rules<em>48</em></span><span>Scorecard</span><span class="on">Agents<em>6</em></span><span>Settings</span></aside><div class="app-main"><div class="crumbs">Agents</div><div class="app-title"><b>Review agents</b></div><div class="tbl"><table><thead><tr><th>Agent</th><th>Mode</th><th>Findings, 7 days</th><th>Last run</th></tr></thead><tbody><tr><td>Security monitor</td><td><i class="pp on">Enforce</i></td><td>4</td><td>12 min ago</td></tr><tr><td>Migration guard</td><td><i class="pp on">Enforce</i></td><td>1</td><td>2 h ago</td></tr><tr><td>Dependency watch</td><td><i class="pp dim">Observe</i></td><td>6</td><td>35 min ago</td></tr><tr><td>Test guard</td><td><i class="pp dim">Observe</i></td><td>3</td><td>12 min ago</td></tr><tr><td>Change control</td><td><i class="pp on">Enforce</i></td><td>0</td><td>12 min ago</td></tr><tr><td>Standards reviewer</td><td><i class="pp ">Comment</i></td><td>11</td><td>12 min ago</td></tr></tbody></table></div></div></div></div>
+  <p class="fine">Illustrative screen.</p>
+</section>
+
+<section class="band tint">
+  <div class="eyebrow">Six agents to start</div>
+  <h2>Pick the ones your team needs.</h2>
+  <div class="ragents"><div class="ragent"><div class="ra-top"><span class="dd-hex" aria-hidden="true"></span><b>Security monitor</b></div><p>Watches every change for web security, access control and secret handling problems.</p><dl><div><dt>Rules</dt><dd>websec, access</dd></div><div><dt>Runs on</dt><dd>Every pull request and nightly</dd></div><div><dt>Starts in</dt><dd><i class="pp dim">Observe</i> then <i class="pp on">Enforce</i></dd></div></dl></div><div class="ragent"><div class="ra-top"><span class="dd-hex" aria-hidden="true"></span><b>Migration guard</b></div><p>Reviews database migrations for locking, reversibility, grants and a single head.</p><dl><div><dt>Rules</dt><dd>alembic, sqlalchemy</dd></div><div><dt>Runs on</dt><dd>Migration changes</dd></div><div><dt>Starts in</dt><dd><i class="pp dim">Observe</i> then <i class="pp on">Enforce</i></dd></div></dl></div><div class="ragent"><div class="ra-top"><span class="dd-hex" aria-hidden="true"></span><b>Dependency watch</b></div><p>Reviews manifest and lockfile changes for unpinned versions and unreviewed new dependencies.</p><dl><div><dt>Rules</dt><dd>Dependency rules</dd></div><div><dt>Runs on</dt><dd>Dependency changes</dd></div><div><dt>Starts in</dt><dd><i class="pp dim">Observe</i> then <i class="pp on">Enforce</i></dd></div></dl></div><div class="ragent"><div class="ra-top"><span class="dd-hex" aria-hidden="true"></span><b>Test guard</b></div><p>Flags tests that hit the network or use production data, and files no check covers.</p><dl><div><dt>Rules</dt><dd>Test rules</dd></div><div><dt>Runs on</dt><dd>Every pull request</dd></div><div><dt>Starts in</dt><dd><i class="pp dim">Observe</i> then <i class="pp on">Enforce</i></dd></div></dl></div><div class="ragent"><div class="ra-top"><span class="dd-hex" aria-hidden="true"></span><b>Change control</b></div><p>Checks that each pull request follows the change management rules before it merges.</p><dl><div><dt>Rules</dt><dd>change</dd></div><div><dt>Runs on</dt><dd>Every pull request</dd></div><div><dt>Starts in</dt><dd><i class="pp dim">Observe</i> then <i class="pp on">Enforce</i></dd></div></dl></div><div class="ragent"><div class="ra-top"><span class="dd-hex" aria-hidden="true"></span><b>Standards reviewer</b></div><p>Reports language and framework conventions as comments and never fails the check.</p><dl><div><dt>Rules</dt><dd>python, typescript, fastapi, react</dd></div><div><dt>Runs on</dt><dd>Every pull request</dd></div><div><dt>Starts in</dt><dd><i class="pp dim">Observe</i> then <i class="pp ">Comment</i></dd></div></dl></div></div>
+</section>
+
+<section class="band">
+  <div class="split">
+    <div class="split-copy">
+      <div class="eyebrow">Modes</div>
+      <h2>Observe, then comment, then enforce.</h2>
+      <p class="lede">An agent in observe mode records findings and never blocks anyone. Comment mode posts them on the pull request. Enforce mode fails the check when a required rule is broken. You set a target mode, a minimum severity, a cap on findings per run, and whether findings appear inline.</p>
+      <p class="note">Agents never merge. The change control pack includes the rule that says so.</p>
+    </div>
+    <div class="tbl"><div class="tbl "><table><thead><tr><th scope="col">Setting</th><th scope="col">Example</th></tr></thead><tbody><tr><td>Mode</td><td>observe</td></tr><tr><td>Target mode</td><td>enforce</td></tr><tr><td>Minimum severity</td><td>advisory</td></tr><tr><td>Findings per run</td><td>20</td></tr><tr><td>Inline annotations</td><td>on</td></tr><tr><td>Triggers</td><td>pull request, migration change, nightly</td></tr></tbody></table></div></div>
+  </div>
+</section>
+
+<section class="band dark">
+  <div class="eyebrow">The review engine</div>
+  <h2>Seven steps on every pull request.</h2>
+  <ol class="rsteps"><li><span>1</span><div><b>Scope</b>Load only the rules that apply to the changed files</div></li><li><span>2</span><div><b>Coverage</b>Report changed files that no rule or check covers</div></li><li><span>3</span><div><b>Static checks</b>Map linter and scanner results onto rules</div></li><li><span>4</span><div><b>Rule review</b>An AI review of the diff against each rule that asks for one</div></li><li><span>5</span><div><b>Verification</b>Each finding must quote the changed lines, or it is dropped</div></li><li><span>6</span><div><b>Ticket</b>Check that the change links the ticket that authorized it</div></li><li><span>7</span><div><b>Disposition</b>Comment, annotate or fail the check, according to the agent's mode</div></li></ol>
+  <p class="fine">A finding that cannot point to the lines it is about never reaches your pull request.</p>
+</section>
+<section class="band flush">
+  <div class="talk">
+    <div><h2>Start with one repository.</h2><p class="lede">We are onboarding a small number of teams first.</p></div>
+    <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="f-top">
+    <div class="f-brand"><a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a><p>Engineering, security and design standards for teams that build with coding agents.</p><code>getcoflow.ai</code></div>
+    <div class="f-col"><b>Technology</b><a href="standards.html">Standards and rule packs</a><a href="review-agents.html">Review agents</a><a href="context.html">Project memory</a><a href="mcp.html">MCP server and CLI</a><a href="evaluation.html">Evaluation</a><a href="integrations.html">Integrations</a><a href="agents.html">Coding agents</a></div>
+    <div class="f-col"><b>Use cases</b><a href="security.html">Security</a><a href="applications.html">Applications</a><a href="firmware.html">Hardware and firmware</a><a href="frontend.html">Front end</a><a href="data.html">Data pipelines</a><a href="infrastructure.html">Infrastructure as code</a><a href="use-cases.html">By situation</a></div>
+    <div class="f-col"><b>Company</b><a href="playground.html">Playground</a><a href="pricing.html">Pricing</a><a href="pricing.html#talk">Talk to us</a><a href="support.html">Support</a><a href="index.html#faq">Questions</a></div>
+  </div>
+  <div class="f-bottom"><p class="f-legal">&copy; 2026 CoFlow. In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p><nav class="f-links" aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="privacy.html#subprocessors">Subprocessors</a><a href="support.html">Support</a></nav></div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
