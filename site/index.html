@@ -16,6 +16,7 @@
   <nav aria-label="Pages">
     <a href="standards.html">Standards</a>
     <a href="use-cases.html">Use cases</a>
+    <a href="playground.html">Playground</a>
     <a href="integrations.html">Integrations</a>
     <a href="evaluation.html">Evaluation</a>
     <a href="pricing.html">Pricing</a>
@@ -25,6 +26,7 @@
 
 <main>
 <div class="hero">
+  <canvas class="hexbg" aria-hidden="true"></canvas>
   <div class="status"><i></i>In private build. Working with teams of 3 to 100.</div>
   <h1>Build like a team that has <span>done this before.</span></h1>
   <div class="hero-row">
@@ -32,7 +34,7 @@
       <p class="lede">CoFlow gives your coding agents the engineering, security and design standards an experienced team would enforce. It starts from public standards, reads your existing code, reviews and Jira tickets, and pulls in your design system.</p>
       <div class="cta">
         <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
-        <a class="btn btn-line" href="use-cases.html">See the use cases</a>
+        <a class="btn btn-line" href="playground.html">Try the playground</a>
       </div>
     </div>
     <div class="aside">
@@ -60,15 +62,12 @@
   </div>
 </div>
 
-<div class="strip tint">
-  <div>
-    <div class="eyebrow">Works where your code lives</div>
-    <div class="pills"><span class="pill on">GitHub</span><span class="pill on">GitLab</span><span class="pill on">Bitbucket</span><span class="pill">Jira</span><span class="pill">Slack</span><span class="pill">Microsoft Teams</span></div>
-  </div>
-  <div>
-    <div class="eyebrow">Standards built in</div>
-    <div class="pills"><span class="pill">OWASP Top 10</span><span class="pill">OWASP ASVS</span><span class="pill">CWE Top 25</span><span class="pill">WCAG 2.2</span><span class="pill">MISRA C</span><span class="pill">CERT C</span><span class="pill">NIST SSDF</span></div>
-  </div>
+<div class="works">
+  <p class="works-cap">Works with the tools your team already runs</p>
+  <ul class="logos"><li><img src="logos/github.svg" alt="" height="24" loading="lazy" onerror="this.remove()"><span>GitHub</span></li><li><img src="logos/gitlab.svg" alt="" height="24" loading="lazy" onerror="this.remove()"><span>GitLab</span></li><li><img src="logos/bitbucket.svg" alt="" height="24" loading="lazy" onerror="this.remove()"><span>Bitbucket</span></li><li><img src="logos/claude-code.svg" alt="" height="24" loading="lazy" onerror="this.remove()"><span>Claude Code</span></li><li><img src="logos/codex.svg" alt="" height="24" loading="lazy" onerror="this.remove()"><span>Codex</span></li><li><img src="logos/cursor.svg" alt="" height="24" loading="lazy" onerror="this.remove()"><span>Cursor</span></li><li><img src="logos/copilot.svg" alt="" height="24" loading="lazy" onerror="this.remove()"><span>Copilot</span></li><li><img src="logos/jira.svg" alt="" height="24" loading="lazy" onerror="this.remove()"><span>Jira</span></li><li><img src="logos/linear.svg" alt="" height="24" loading="lazy" onerror="this.remove()"><span>Linear</span></li><li><img src="logos/slack.svg" alt="" height="24" loading="lazy" onerror="this.remove()"><span>Slack</span></li><li><img src="logos/microsoft-teams.svg" alt="" height="24" loading="lazy" onerror="this.remove()"><span>Microsoft Teams</span></li></ul>
+</div>
+<div class="marquee" aria-label="Standards built in: OWASP Top 10, OWASP ASVS, CWE Top 25, WCAG 2.2 AA, MISRA C, CERT C, NIST SSDF, SOC 2, ISO 27001">
+  <div class="marquee-track" aria-hidden="true"><span>OWASP Top 10</span><span>OWASP ASVS</span><span>CWE Top 25</span><span>WCAG 2.2 AA</span><span>MISRA C</span><span>CERT C</span><span>NIST SSDF</span><span>SOC 2</span><span>ISO 27001</span><span>OWASP Top 10</span><span>OWASP ASVS</span><span>CWE Top 25</span><span>WCAG 2.2 AA</span><span>MISRA C</span><span>CERT C</span><span>NIST SSDF</span><span>SOC 2</span><span>ISO 27001</span></div>
 </div>
 
 <section class="band dark" id="examples">
@@ -191,6 +190,46 @@
   <p class="fine">Illustrative examples. Standard and rule identifiers refer to MISRA C:2012, the CWE list and the OWASP Top 10.</p>
 </section>
 
+<section class="band" id="how">
+  <div class="split">
+    <div class="split-copy">
+      <div class="eyebrow">How it works</div>
+      <h2>From a review comment to a rule every agent follows.</h2>
+      <ol class="steps">
+        <li><b>1</b><div><h3>Connect one repository</h3><p>Install on GitHub, GitLab or Bitbucket. There is no pipeline to migrate.</p></div></li>
+        <li><b>2</b><div><h3>CoFlow reads the evidence</h3><p>Existing code, review comments, failed checks and tickets are where your corrections already live.</p></div></li>
+        <li><b>3</b><div><h3>It proposes a rule</h3><p>Each proposal has a scope and links to the comments and runs it came from.</p></div></li>
+        <li><b>4</b><div><h3>Your team approves</h3><p>Merge to approve, close to reject. Approved rules reach every agent you use.</p></div></li>
+      </ol>
+    </div>
+    <div>
+      <div class="mock" role="img" aria-label="Example pull request opened by CoFlow proposing one rule, approved and delivered to four agents">
+        <div class="mock-head"><svg width="28" height="28" aria-hidden="true"><use href="#logo"/></svg><div><b>Proposed rule: backfills run with tenant context</b><small>CoFlow opened #142 from 2 review comments and 1 failed check</small></div></div>
+        <div class="mock-file">.coflow/rules/migrations-tenant-context.md</div>
+        <pre class="mock-diff"><span class="dl" style="--i:0">+ ---</span><span class="dl" style="--i:1">+ applies_to: ["migrations/**"]</span><span class="dl" style="--i:2">+ technologies: [postgres, alembic]</span><span class="dl" style="--i:3">+ evidence: [PR #138 review, CI run 4127]</span><span class="dl" style="--i:4">+ ---</span><span class="dl" style="--i:5">+ Run data backfills with the tenant context set.</span><span class="dl" style="--i:6">+ A backfill without it sees no rows and passes.</span></pre>
+        <div class="mock-foot"><span class="ok">Checks passing</span><span class="ok appr">Approved by 2 reviewers</span></div>
+        <div class="mock-out"><i>Delivered to</i><span class="ag" style="--i:0">Claude Code</span><span class="ag" style="--i:1">Codex</span><span class="ag" style="--i:2">Cursor</span><span class="ag" style="--i:3">Copilot</span></div>
+      </div>
+      <p class="fine">Illustrative pull request. Repository, numbers and rule are examples.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band tint">
+  <div class="eyebrow">Before and after</div>
+  <h2>What changes when the standards are in the loop.</h2>
+  <div class="vs">
+    <div class="vs-card no">
+      <h3><span class="mark" aria-hidden="true"></span>Without CoFlow</h3>
+      <ul><li>Each agent relearns your conventions in every session.</li><li>The same review comment gets written again next week.</li><li>Standards sit in a wiki that no agent loads.</li><li>Nobody can say whether a rule is being followed.</li></ul>
+    </div>
+    <div class="vs-card yes">
+      <h3><span class="mark" aria-hidden="true"></span>With CoFlow</h3>
+      <ul><li>Every agent starts with the rules that apply to the task.</li><li>A correction made once becomes a rule your team approved.</li><li>Standards are checked on the plan and on the pull request.</li><li>A scorecard shows adherence for every merged change.</li></ul>
+    </div>
+  </div>
+</section>
+
 <section class="band" id="get">
   <div class="eyebrow">What you get</div>
   <h2>Start with good defaults. End up with your own.</h2>
@@ -204,11 +243,31 @@
   </div>
 </section>
 
-<section class="band flush">
+<section class="band dark">
+  <div class="eyebrow">A fair question</div>
+  <h2>"We already keep a rules file in the repo."</h2>
+  <p class="lede">That works until the team has more than one agent. Three things go wrong first.</p>
+  <div class="cards">
+    <div class="card g"><i>01</i><b>The whole file loads every time</b><span>Cost grows and the relevant line gets buried. CoFlow scopes each rule by path and technology, so a migration rule stays out of a CSS change.</span></div>
+    <div class="card g"><i>02</i><b>Nobody reviews it</b><span>The agent that made the mistake writes the rule, and rules start to contradict each other. CoFlow puts every rule through a pull request.</span></div>
+    <div class="card g"><i>03</i><b>Only one tool reads it</b><span>A teammate on a different agent never sees it. CoFlow writes each approved rule out for every agent.</span></div>
+  </div>
+  <div class="links"><a href="standards.html">See the standards</a><a href="evaluation.html">See how adherence is measured</a></div>
+</section>
+
+<section class="band">
   <div class="banners">
+    <a class="banner" href="playground.html"><div><div class="eyebrow">Playground</div><b>Switch the rules on and off yourself.</b><small>Four requests, and what the agent writes with and without each rule.</small></div><span class="go">Open the playground</span></a>
     <a class="banner" href="use-cases.html"><div><div class="eyebrow">Use cases</div><b>Six situations CoFlow is built for.</b><small>From a first software team to audit season.</small></div><span class="go">See the use cases</span></a>
     <a class="banner" href="integrations.html"><div><div class="eyebrow">Integrations</div><b>Code hosts, agents, trackers, chat and your stack.</b><small>GitHub, GitLab, Bitbucket, Jira, Linear, Slack and Microsoft Teams.</small></div><span class="go">See the integrations</span></a>
     <a class="banner" href="firmware.html"><div><div class="eyebrow">Application</div><b>Firmware: keep the magic smoke inside.</b><small>How CoFlow applies to embedded C, with MISRA C and CERT C mappings.</small></div><span class="go">Read the application</span></a>
+  </div>
+</section>
+
+<section class="band" id="faq">
+  <div class="split">
+    <div class="split-copy"><div class="eyebrow">Questions</div><h2>What teams ask first.</h2><p class="lede">Something else on your mind? <a href="pricing.html#talk">Talk to us</a>.</p></div>
+    <div class="faq"><details open><summary>Does CoFlow replace our coding agents?</summary><p>No. CoFlow works with Claude Code, Codex, Cursor and Copilot. It gives the agents you already chose the same reviewed set of rules.</p></details><details><summary>Where do the rules live?</summary><p>As plain files in your repository, versioned and reviewed like code. If you stop using CoFlow, you keep every rule.</p></details><details><summary>Who decides what becomes a rule?</summary><p>Your team. CoFlow drafts proposals from your code, reviews and tickets, and every proposal goes to a person. Approve or reject it in a pull request, or from Slack or Microsoft Teams.</p></details><details><summary>Does switching on a rule set make us compliant?</summary><p>No. CoFlow rule sets are mapped to each standard's identifiers. They do not reproduce licensed standards text, and using them is not a certification of compliance.</p></details><details><summary>Does it work for firmware?</summary><p>Yes. The same product runs on embedded C, with MISRA C and CERT C mappings and bench failures as evidence. <a href="firmware.html">Read the firmware application</a>.</p></details><details><summary>How do we start, and what does it cost?</summary><p>Start with one repository. Planned pricing is free for one developer and $12 per developer a month on Team with annual billing. <a href="pricing.html">See pricing</a>.</p></details></div>
   </div>
 </section>
 
@@ -224,9 +283,13 @@
 </main>
 
 <footer>
-  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
-  <p>In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
-  <code>getcoflow.ai</code>
+  <div class="f-top">
+    <div class="f-brand"><a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a><p>Engineering, security and design standards for teams that build with coding agents.</p><code>getcoflow.ai</code></div>
+    <div class="f-col"><b>Product</b><a href="standards.html">Standards</a><a href="integrations.html">Integrations</a><a href="playground.html">Playground</a><a href="evaluation.html">Evaluation</a><a href="pricing.html">Pricing</a></div>
+    <div class="f-col"><b>Solutions</b><a href="use-cases.html">Use cases</a><a href="firmware.html">Firmware</a><a href="index.html#examples">Examples</a></div>
+    <div class="f-col"><b>Company</b><a href="pricing.html#talk">Talk to us</a><a href="index.html#faq">Questions</a></div>
+  </div>
+  <p class="f-legal">&copy; 2026 CoFlow. In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
 </footer>
 
 <script src="site.js"></script>

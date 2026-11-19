@@ -16,6 +16,7 @@
   <nav aria-label="Pages">
     <a href="standards.html">Standards</a>
     <a href="use-cases.html">Use cases</a>
+    <a href="playground.html">Playground</a>
     <a href="integrations.html" aria-current="page">Integrations</a>
     <a href="evaluation.html">Evaluation</a>
     <a href="pricing.html">Pricing</a>
@@ -25,6 +26,7 @@
 
 <main>
 <div class="phero">
+  <canvas class="hexbg" aria-hidden="true"></canvas>
   <div class="eyebrow">Integrations</div>
   <h1>Plugs into the tools your team <span>already runs.</span></h1>
   <p class="lede">No pipeline to migrate and no new place to work. CoFlow reads from these tools and writes back to them.</p>
@@ -34,22 +36,22 @@
   <div class="integ">
     <div class="ig wide">
       <div class="flow-cap">Source control</div>
-      <div class="ig-names"><span>GitHub</span><span>GitLab</span><span>Bitbucket</span></div>
+      <div class="ig-names"><span><img src="logos/github.svg" alt="" height="24" loading="lazy" onerror="this.remove()">GitHub</span><span><img src="logos/gitlab.svg" alt="" height="24" loading="lazy" onerror="this.remove()">GitLab</span><span><img src="logos/bitbucket.svg" alt="" height="24" loading="lazy" onerror="this.remove()">Bitbucket</span></div>
       <p>Reads your code, reviews and checks. Proposes each new rule as a pull request your team merges or closes.</p>
     </div>
     <div class="ig wide">
       <div class="flow-cap">Coding agents</div>
-      <div class="ig-names"><span>Claude Code</span><span>Codex</span><span>Cursor</span><span>Copilot</span></div>
+      <div class="ig-names"><span><img src="logos/claude-code.svg" alt="" height="24" loading="lazy" onerror="this.remove()">Claude Code</span><span><img src="logos/codex.svg" alt="" height="24" loading="lazy" onerror="this.remove()">Codex</span><span><img src="logos/cursor.svg" alt="" height="24" loading="lazy" onerror="this.remove()">Cursor</span><span><img src="logos/copilot.svg" alt="" height="24" loading="lazy" onerror="this.remove()">Copilot</span></div>
       <p>Writes every approved rule in the format each agent already reads, so nobody keeps four copies.</p>
     </div>
     <div class="ig">
       <div class="flow-cap">Issue trackers</div>
-      <div class="ig-names"><span>Jira</span><span>Linear</span></div>
+      <div class="ig-names"><span><img src="logos/jira.svg" alt="" height="24" loading="lazy" onerror="this.remove()">Jira</span><span><img src="logos/linear.svg" alt="" height="24" loading="lazy" onerror="this.remove()">Linear</span></div>
       <p>Bugs, incidents and decisions become evidence for rules.</p>
     </div>
     <div class="ig">
       <div class="flow-cap">Team chat</div>
-      <div class="ig-names"><span>Slack</span><span>Microsoft Teams</span></div>
+      <div class="ig-names"><span><img src="logos/slack.svg" alt="" height="24" loading="lazy" onerror="this.remove()">Slack</span><span><img src="logos/microsoft-teams.svg" alt="" height="24" loading="lazy" onerror="this.remove()">Microsoft Teams</span></div>
       <p>Rule proposals and scorecards show up where your team already talks.</p>
     </div>
     <div class="ig">
@@ -95,9 +97,13 @@
 </main>
 
 <footer>
-  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
-  <p>In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
-  <code>getcoflow.ai</code>
+  <div class="f-top">
+    <div class="f-brand"><a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a><p>Engineering, security and design standards for teams that build with coding agents.</p><code>getcoflow.ai</code></div>
+    <div class="f-col"><b>Product</b><a href="standards.html">Standards</a><a href="integrations.html">Integrations</a><a href="playground.html">Playground</a><a href="evaluation.html">Evaluation</a><a href="pricing.html">Pricing</a></div>
+    <div class="f-col"><b>Solutions</b><a href="use-cases.html">Use cases</a><a href="firmware.html">Firmware</a><a href="index.html#examples">Examples</a></div>
+    <div class="f-col"><b>Company</b><a href="pricing.html#talk">Talk to us</a><a href="index.html#faq">Questions</a></div>
+  </div>
+  <p class="f-legal">&copy; 2026 CoFlow. In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
 </footer>
 
 <script src="site.js"></script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playground | CoFlow</title>
+<meta name="description" content="Switch rules on and off and see what a coding agent writes with and without your standards.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 48 48"><polygon points="24,4 41.3,14 41.3,34 24,44 6.7,34 6.7,14" fill="#2148E0" stroke="#2148E0" stroke-width="3.5" stroke-linejoin="round"/><path d="M14 16 C23 16 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><path d="M14 32 C23 32 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="14" cy="16" r="3.2" fill="#fff"/><circle cx="14" cy="32" r="3.2" fill="#fff"/><circle cx="34" cy="24" r="4.2" fill="#fff"/></symbol></svg>
+
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+  <nav aria-label="Pages">
+    <a href="standards.html">Standards</a>
+    <a href="use-cases.html">Use cases</a>
+    <a href="playground.html" aria-current="page">Playground</a>
+    <a href="integrations.html">Integrations</a>
+    <a href="evaluation.html">Evaluation</a>
+    <a href="pricing.html">Pricing</a>
+  </nav>
+  <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+</header>
+
+<main>
+<div class="phero">
+  <canvas class="hexbg" aria-hidden="true"></canvas>
+  <div class="eyebrow">Playground</div>
+  <h1>Same agent, same request. <span>Change the context.</span></h1>
+  <p class="lede">Pick a request, then switch rules on and off. Watch what the agent writes and what review finds.</p>
+</div>
+
+<section class="band dark" id="pg-band">
+  <div class="pg" id="pg">
+    <aside class="pg-side">
+      <div class="pg-group">
+        <div class="flow-cap">1. Pick a request</div>
+        <div class="pg-tasks" id="pg-tasks"></div>
+      </div>
+      <div class="pg-group">
+        <div class="flow-cap">2. Choose the context</div>
+        <div class="pg-rules" id="pg-rules"></div>
+        <div class="pg-presets">
+          <button type="button" class="btn btn-ghost" id="pg-none">Agent alone</button>
+          <button type="button" class="btn btn-go" id="pg-all">With CoFlow</button>
+        </div>
+      </div>
+    </aside>
+    <div class="pg-main">
+      <p class="ex-ask"><i>Request</i><span id="pg-ask"></span></p>
+      <div class="code pg-code">
+        <header><span id="pg-file"></span><span id="pg-ctx"></span></header>
+        <div class="pg-meter" id="pg-meter" aria-hidden="true"></div>
+        <pre id="pg-code" aria-live="polite"></pre>
+      </div>
+      <div class="pg-result">
+        <div class="pg-score"><b id="pg-count">0</b><span id="pg-count-label"></span></div>
+        <ul class="pg-review" id="pg-review"></ul>
+      </div>
+    </div>
+  </div>
+  <p class="fine">Scripted demonstration. The outputs are prepared examples that show how each rule changes the result. They are not live model responses.</p>
+</section>
+
+<section class="band">
+  <div class="eyebrow">What the switches stand for</div>
+  <h2>In the product, the right rules load on their own.</h2>
+  <div class="cards four">
+    <div class="card t"><i>01</i><b>In context</b><span>The rules that apply to the task are in front of the agent before it writes.</span></div>
+    <div class="card"><i>02</i><b>On the plan</b><span>The agent's plan is checked against those rules before any code exists.</span></div>
+    <div class="card t"><i>03</i><b>On the pull request</b><span>A required check flags violations and links the rule.</span></div>
+    <div class="card d"><i>04</i><b>On the scorecard</b><span>An independent AI review grades every merged change against the rules that applied.</span></div>
+  </div>
+</section>
+
+<section class="band flush">
+  <div class="talk">
+    <div>
+      <h2>Start with one repository.</h2>
+      <p class="lede">We are onboarding a small number of teams first.</p>
+    </div>
+    <a class="btn btn-go" href="pricing.html#talk">Talk to us</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="f-top">
+    <div class="f-brand"><a class="brand" href="index.html" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a><p>Engineering, security and design standards for teams that build with coding agents.</p><code>getcoflow.ai</code></div>
+    <div class="f-col"><b>Product</b><a href="standards.html">Standards</a><a href="integrations.html">Integrations</a><a href="playground.html">Playground</a><a href="evaluation.html">Evaluation</a><a href="pricing.html">Pricing</a></div>
+    <div class="f-col"><b>Solutions</b><a href="use-cases.html">Use cases</a><a href="firmware.html">Firmware</a><a href="index.html#examples">Examples</a></div>
+    <div class="f-col"><b>Company</b><a href="pricing.html#talk">Talk to us</a><a href="index.html#faq">Questions</a></div>
+  </div>
+  <p class="f-legal">&copy; 2026 CoFlow. In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p>
+</footer>
+
+<script src="site.js"></script>
+<script src="playground.js"></script>
+</body>
+</html>
