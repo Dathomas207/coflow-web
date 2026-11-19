@@ -1,18 +1,11 @@
 # Logo files
 
-Drop each vendor's official SVG here, taken from its brand or press page and used under its terms.
-The site shows the logo next to the name when the file exists, and the name alone when it does not.
+Official files supplied from each vendor's brand or press kit, used unmodified under that vendor's terms.
+`name.svg` is for light backgrounds and `name-light.svg` is for the navy sections.
 
-- github.svg (GitHub)
-- gitlab.svg (GitLab)
-- bitbucket.svg (Bitbucket)
-- claude-code.svg (Claude Code)
-- codex.svg (Codex)
-- cursor.svg (Cursor)
-- copilot.svg (Copilot)
-- jira.svg (Jira)
-- linear.svg (Linear)
-- slack.svg (Slack)
-- microsoft-teams.svg (Microsoft Teams)
+Present: github, copilot, gitlab, bitbucket, jira, claude-code, codex (OpenAI wordmark), cursor.
 
-Use single-color marks about 24px tall. Tiles on the navy background need a light version.
+Still to add (the site shows an icon and the name until the file exists):
+- linear.svg and linear-light.svg
+- slack.svg and slack-light.svg
+- microsoft-teams.svg and microsoft-teams-light.svg (check Microsoft's licence terms first)

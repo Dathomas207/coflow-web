@@ -860,3 +860,24 @@ footer::before{-webkit-mask-image:linear-gradient(90deg,transparent 35%,#000);ma
 @media (max-width:760px){.nav-toggle{order:3}.nav .btn{order:2}}
 .ig-names span + span::before{display:none !important}
 .ig-names{gap:8px 22px}
+
+/* ---------- vendor logos (official files, shown unmodified) ---------- */
+.logowall img{filter:none;opacity:1;max-height:none;height:26px;max-width:86%}
+.logowall li{min-height:96px}
+.logowall img[src*="github"],.logowall img[src*="copilot"]{height:25px}
+.logowall img[src*="jira"],.logowall img[src*="bitbucket"]{height:36px}
+.logowall img[src*="claude-code"]{height:22px}
+.logowall img[src*="cursor"]{height:23px}
+.logowall img[src*="codex"]{height:46px;margin:-8px 0 -12px}
+.logowall img[src*="gitlab"]{height:52px;margin:-8px 0 -10px}
+.logowall li.cap:not(.nologo){grid-template-rows:auto auto;gap:2px;align-content:center}
+.logowall li.cap:not(.nologo) span{display:block;font-size:13.5px;font-weight:600;color:var(--soft)}
+.ig-names{align-items:center;gap:14px 30px}
+.ig-names img{height:26px}
+.ig-names img[src*="jira"],.ig-names img[src*="bitbucket"]{height:38px}
+.ig-names img[src*="claude-code"]{height:22px}
+.ig-names img[src*="cursor"]{height:23px}
+.ig-names img[src*="codex"]{height:46px;margin:-10px -6px}
+.ig-names img[src*="gitlab"]{height:50px;margin:-12px -8px -12px -10px}
+.ig-names span:has(img){font-size:0;gap:0}
+.ig-names span.cap:has(img){font-size:20px;font-weight:700;gap:2px}
