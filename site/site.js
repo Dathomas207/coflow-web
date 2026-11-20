@@ -58,7 +58,7 @@ if (form) form.addEventListener("submit", (e) => {
     btn.addEventListener("click", (e) => { e.stopPropagation(); const o = !dd.classList.contains("open"); dds.forEach((d) => set(d, false)); set(dd, o); });
     dd.addEventListener("keydown", (e) => { if (e.key === "Escape") { set(dd, false); btn.focus(); } });
     dd.addEventListener("focusout", (e) => { if (!dd.contains(e.relatedTarget)) set(dd, false); });
-    dd.addEventListener("mouseleave", () => set(dd, false));
+    // Click-open menus stay open across pointer movement; close with Escape or an outside click.
   });
   document.addEventListener("click", (e) => dds.forEach((d) => { if (!d.contains(e.target)) set(d, false); }));
 })();
@@ -96,3 +96,17 @@ document.querySelectorAll(".mega").forEach((m) => {
   document.addEventListener("click", (e) => { if (!nav.contains(e.target)) set(false); });
   nav.querySelectorAll("nav a").forEach((a) => a.addEventListener("click", () => set(false)));
 })();
+
+// Desktop use-case previews follow pointer or keyboard focus without navigating.
+document.querySelectorAll('.case-menu').forEach((menu) => {
+  const links = [...menu.querySelectorAll('[data-case]')];
+  const show = (link) => {
+    links.forEach((item) => item.classList.toggle('active', item === link));
+    menu.querySelectorAll('.case-preview').forEach((panel) => { panel.hidden = panel.id !== link.dataset.case; });
+  };
+  links.forEach((link) => {
+    link.addEventListener('mouseenter', () => show(link));
+    link.addEventListener('focus', () => show(link));
+  });
+  if (links.length) show(links[0]);
+});
