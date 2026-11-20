@@ -17,3 +17,5 @@
 .blog-index-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.blog-index-grid .blog-card:last-child{grid-column:auto}.blog-card[hidden]{display:none}
 .blog-feature .blog-byline{margin:6px 0 0}
 @media(max-width:760px){.blog-index-grid{grid-template-columns:1fr}.blog-code{font-size:13px;padding:18px}.blog-prose :not(pre)>code{white-space:normal}}
+.blog-table th,.blog-table td{min-width:130px}.blog-table td code{white-space:normal;word-break:break-word}
+.blog-list-head{flex-direction:column;align-items:start}
