@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CoFlow: Engineering Standards for AI Coding Agents</title>
 
-<meta name="description" content="CoFlow gives Claude Code, Codex, Cursor and Copilot the engineering, security and design standards an experienced team would enforce, and checks every pull request.">
+<meta name="description" content="One reviewed rulebook for your coding agents. Turn team knowledge and engineering standards into repository-owned rules. CoFlow is in private build.">
 <link rel="canonical" href="https://getcoflow.ai/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -14,324 +14,66 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CoFlow">
 <meta property="og:title" content="CoFlow: Engineering Standards for AI Coding Agents">
-<meta property="og:description" content="CoFlow gives Claude Code, Codex, Cursor and Copilot the engineering, security and design standards an experienced team would enforce, and checks every pull request.">
+<meta property="og:description" content="One reviewed rulebook for your coding agents. Turn team knowledge and engineering standards into repository-owned rules. CoFlow is in private build.">
 <meta property="og:url" content="https://getcoflow.ai/">
 <meta property="og:image" content="https://getcoflow.ai/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CoFlow: Engineering Standards for AI Coding Agents">
-<meta name="twitter:description" content="CoFlow gives Claude Code, Codex, Cursor and Copilot the engineering, security and design standards an experienced team would enforce, and checks every pull request.">
+<meta name="twitter:description" content="One reviewed rulebook for your coding agents. Turn team knowledge and engineering standards into repository-owned rules. CoFlow is in private build.">
 <meta name="twitter:image" content="https://getcoflow.ai/og.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"CoFlow","url":"https://getcoflow.ai/","logo":"https://getcoflow.ai/icon-512.png"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CoFlow","url":"https://getcoflow.ai/"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"CoFlow","applicationCategory":"DeveloperApplication","operatingSystem":"Web","description":"CoFlow gives Claude Code, Codex, Cursor and Copilot the engineering, security and design standards an experienced team would enforce, and checks every pull request.","url":"https://getcoflow.ai/"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does CoFlow replace our coding agents?","acceptedAnswer":{"@type":"Answer","text":"No. CoFlow works with Claude Code, Codex, Cursor and Copilot. It gives the agents you already chose the same reviewed set of rules."}},{"@type":"Question","name":"Where do the rules live?","acceptedAnswer":{"@type":"Answer","text":"As plain files in your repository, versioned and reviewed like code. If you stop using CoFlow, you keep every rule."}},{"@type":"Question","name":"Who decides what becomes a rule?","acceptedAnswer":{"@type":"Answer","text":"Your team. CoFlow drafts proposals from your code, reviews and tickets, and every proposal goes to a person. Approve or reject it in a pull request, or from Slack or Microsoft Teams."}},{"@type":"Question","name":"Does switching on a rule set make us compliant?","acceptedAnswer":{"@type":"Answer","text":"No. CoFlow rule sets are mapped to each standard's identifiers. They do not reproduce licensed standards text, and using them is not a certification of compliance."}},{"@type":"Question","name":"Does it work for firmware?","acceptedAnswer":{"@type":"Answer","text":"Yes. The same product runs on embedded C, with MISRA C and CERT C mappings and bench failures as evidence. Read the firmware application."}},{"@type":"Question","name":"How do we start, and what does it cost?","acceptedAnswer":{"@type":"Answer","text":"Start with one repository. Planned pricing is free for one developer and $12 per developer a month on Team with annual billing. See pricing."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"CoFlow","applicationCategory":"DeveloperApplication","operatingSystem":"Web","description":"One reviewed rulebook for your coding agents. Turn team knowledge and engineering standards into repository-owned rules. CoFlow is in private build.","url":"https://getcoflow.ai/"}</script>
+
 <link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/refresh.css?v=20261120">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 48 48"><polygon points="24,4 41.3,14 41.3,34 24,44 6.7,34 6.7,14" fill="#2148E0" stroke="#2148E0" stroke-width="3.5" stroke-linejoin="round"/><path d="M14 16 C23 16 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><path d="M14 32 C23 32 22 24 31 24" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="14" cy="16" r="3.2" fill="#fff"/><circle cx="14" cy="32" r="3.2" fill="#fff"/><circle cx="34" cy="24" r="4.2" fill="#fff"/></symbol><symbol id="i-branch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="8" r="2.2"/><path d="M6 7.2v9.6M18 10.2c0 4-6 3.2-11.2 6.4"/></symbol><symbol id="i-term" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="M7 10l3 2.5L7 15M12.5 15h4.5"/></symbol><symbol id="i-ticket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M8 9l1.6 1.6L12.5 7.5M8 15h8M14.5 10h1.5"/></symbol><symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4h0A2.5 2.5 0 0 1 4 13.5z"/><path d="M8.5 9.5h7M8.5 12.5h4"/></symbol></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 48 48"><rect x="2" y="2" width="44" height="44" rx="14" fill="#3549E8"/><path d="M14 15h5c7 0 6 18 13 18h2M14 33h5c7 0 6-18 13-18h2" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round"/><circle cx="34" cy="15" r="3" fill="#FFB088"/></symbol><symbol id="i-branch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="8" r="2.2"/><path d="M6 7.2v9.6M18 10.2c0 4-6 3.2-11.2 6.4"/></symbol><symbol id="i-term" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="M7 10l3 2.5L7 15M12.5 15h4.5"/></symbol><symbol id="i-ticket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M8 9l1.6 1.6L12.5 7.5M8 15h8M14.5 10h1.5"/></symbol><symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4h0A2.5 2.5 0 0 1 4 13.5z"/><path d="M8.5 9.5h7M8.5 12.5h4"/></symbol></svg>
 
 <header class="nav">
-  <a class="brand" href="/" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
-  <nav id="site-nav" aria-label="Pages">
-    <div class="dd mega">
-      <button class="dd-btn" type="button" aria-expanded="false" aria-controls="mg-tech">Technology</button>
-      <div class="dd-panel" id="mg-tech">
-        <div class="mg">
-          <div class="mg-list"><a href="/technology/coding-standards/" data-pv="mg-tech-0"><b>Standards and rule packs</b><small>185 rules in 17 packs.</small></a><a href="/technology/review-agents/" data-pv="mg-tech-1"><b>Review agents</b><small>Six agents you set up and control.</small></a><a href="/technology/project-memory/" data-pv="mg-tech-2"><b>Project memory</b><small>Facts agents learn once.</small></a><a href="/technology/mcp-server/" data-pv="mg-tech-3"><b>MCP server and CLI</b><small>Rules and context inside any agent.</small></a><a href="/technology/evaluation/" data-pv="mg-tech-4"><b>Evaluation</b><small>Know the rules are working.</small></a><a href="/technology/integrations/" data-pv="mg-tech-5"><b>Integrations</b><small>Code hosts, trackers and chat.</small></a><a href="/technology/coding-agents/" data-pv="mg-tech-6"><b>Coding agents</b><small>One rulebook for every agent.</small></a>
-            <a class="mg-foot" href="/playground/"><span>See the rules change the code</span><b>Playground</b></a>
-          </div>
-          <div class="mg-pv" aria-hidden="true"><div class="pv on" id="mg-tech-0"><div class="pv-eye">Standards and rule packs</div><div class="pv-vis"><div class="pv-packs"><span><b>python</b>19</span><span><b>websec</b>18</span><span><b>typescript</b>16</span><span><b>c</b>13</span><span><b>cpp</b>13</span><span><b>supplychain</b>11</span><span><b>fastapi</b>10</span><span><b>react</b>10</span><span><b>access</b>10</span></div></div><p>Rule packs for the languages, frameworks and controls your team uses, each mapped to the public standard it comes from.</p><a class="pv-go" href="/technology/coding-standards/">See the packs</a></div><div class="pv" id="mg-tech-1"><div class="pv-eye">Review agents</div><div class="pv-vis"><div class="pv-rows"><div><b>Security monitor</b><i class="pp on">Enforce</i></div><div><b>Migration guard</b><i class="pp on">Enforce</i></div><div><b>Standards reviewer</b><i class="pp ">Comment</i></div><div><b>Dependency watch</b><i class="pp dim">Observe</i></div></div></div><p>Agents that review every pull request against the rules you choose. Start them in observe mode and turn on enforcement when you trust them.</p><a class="pv-go" href="/technology/review-agents/">Meet the agents</a></div><div class="pv" id="mg-tech-2"><div class="pv-eye">Project memory</div><div class="pv-vis"><div class="code "><header><span>Agent</span><span>where_is</span></header><pre><span>where_is(&quot;orders database&quot;)</span><span class="dim"> </span><span class="good">postgres  orders-db  (verified)</span><span class="dim">source: .coflow/context/system.yaml</span></pre></div></div><p>Where the databases are, how to reach the logs, which service owns what. Learned once, reviewed by a person, and served to every session.</p><a class="pv-go" href="/technology/project-memory/">How memory works</a></div><div class="pv" id="mg-tech-3"><div class="pv-eye">MCP server and CLI</div><div class="pv-vis"><div class="code "><header><span>Claude Code</span><span>.mcp.json</span></header><pre><span>{ &quot;mcpServers&quot;: { &quot;coflow&quot;: {</span><span>  &quot;type&quot;: &quot;http&quot;,</span><span>  &quot;url&quot;: &quot;https://mcp.getcoflow.ai/mcp&quot;</span><span>} } }</span></pre></div></div><p>A local stdio server for one developer and a hosted HTTP service for teams, with scoped tokens and no approve tool.</p><a class="pv-go" href="/technology/mcp-server/">Set up MCP</a></div><div class="pv" id="mg-tech-4"><div class="pv-eye">Evaluation</div><div class="pv-vis"><div class="pv-tiles"><span><i>Adherence</i><b>94%</b></span><span><i>Repeat rate</i><b>3%</b></span><span><i>Time to rule</i><b>4 days</b></span></div></div><p>An independent AI review grades every merged change, and a test harness replays tasks with and without each rule before it ships.</p><a class="pv-go" href="/technology/evaluation/">See the scorecard</a></div><div class="pv" id="mg-tech-5"><div class="pv-eye">Integrations</div><div class="pv-vis"><div class="pv-names"><span><svg class="gi" aria-hidden="true"><use href="#i-branch"/></svg>GitHub</span><span><svg class="gi" aria-hidden="true"><use href="#i-branch"/></svg>GitLab</span><span><svg class="gi" aria-hidden="true"><use href="#i-branch"/></svg>Bitbucket</span><span><svg class="gi" aria-hidden="true"><use href="#i-ticket"/></svg>Jira</span><span><svg class="gi" aria-hidden="true"><use href="#i-ticket"/></svg>Linear</span><span><svg class="gi" aria-hidden="true"><use href="#i-chat"/></svg>Slack</span></div></div><p>GitHub, GitLab and Bitbucket for code and reviews. Jira and Linear for evidence. Slack and Microsoft Teams for approvals.</p><a class="pv-go" href="/technology/integrations/">See the integrations</a></div><div class="pv" id="mg-tech-6"><div class="pv-eye">Coding agents</div><div class="pv-vis"><div class="pv-rows"><div><b>Claude Code</b><code>skills, AGENTS.md</code></div><div><b>Codex</b><code>AGENTS.md</code></div><div><b>Cursor</b><code>.cursor/rules</code></div><div><b>Copilot</b><code>copilot-instructions</code></div></div></div><p>Each approved rule is written out in the format Claude Code, Codex, Cursor and Copilot already read.</p><a class="pv-go" href="/technology/coding-agents/">See the agents</a></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="dd mega">
-      <button class="dd-btn" type="button" aria-expanded="false" aria-controls="mg-uc">Use cases</button>
-      <div class="dd-panel" id="mg-uc">
-        <div class="mg">
-          <div class="mg-list"><a href="/use-cases/security/" data-pv="mg-uc-0"><b>Security</b><small>Auth, secrets, injection and access control.</small></a><a href="/use-cases/applications/" data-pv="mg-uc-1"><b>Applications</b><small>Web and mobile back ends and APIs.</small></a><a href="/use-cases/firmware/" data-pv="mg-uc-2"><b>Hardware and firmware</b><small>Embedded C with MISRA C and CERT C.</small></a><a href="/use-cases/frontend/" data-pv="mg-uc-3"><b>Front end</b><small>Design systems and accessibility.</small></a><a href="/use-cases/data-pipelines/" data-pv="mg-uc-4"><b>Data pipelines</b><small>Idempotent jobs, schemas and PII.</small></a><a href="/use-cases/infrastructure-as-code/" data-pv="mg-uc-5"><b>Infrastructure as code</b><small>Terraform and cloud baselines.</small></a>
-            <a class="mg-foot" href="/use-cases/"><span>Browse by situation</span><b>All use cases</b></a>
-          </div>
-          <div class="mg-pv" aria-hidden="true"><div class="pv on" id="mg-uc-0"><div class="pv-eye">Security</div><div class="pv-vis"><div class="code pvc"><header><span>Rule</span><span>CWE-916</span></header><pre><span class="bad">digest = sha256(password)</span><span class="good">digest = ph.hash(password)</span></pre></div></div><p>OWASP, CWE and your own security lessons in front of every agent.</p><a class="pv-go" href="/use-cases/security/">See the example</a></div><div class="pv" id="mg-uc-1"><div class="pv-eye">Applications</div><div class="pv-vis"><div class="code pvc"><header><span>Rule</span><span>Team rule</span></header><pre><span class="bad">orders = db.query(Order).all()</span><span class="good">return paginate(db, q, cursor, limit)</span></pre></div></div><p>Your conventions for routes, queries and errors, on every endpoint.</p><a class="pv-go" href="/use-cases/applications/">See the example</a></div><div class="pv" id="mg-uc-2"><div class="pv-eye">Hardware and firmware</div><div class="pv-vis"><div class="code pvc"><header><span>Rule</span><span>MISRA C 21.3</span></header><pre><span class="bad">char *line = malloc(128);</span><span class="good">rx_ring_push(USART1-&gt;DR);</span></pre></div></div><p>The rules your bench taught you, plus MISRA C from day one.</p><a class="pv-go" href="/use-cases/firmware/">See the example</a></div><div class="pv" id="mg-uc-3"><div class="pv-eye">Front end</div><div class="pv-vis"><div class="code pvc"><header><span>Rule</span><span>WCAG 2.1.1</span></header><pre><span class="bad">&lt;div onClick={submit}&gt;Sign up&lt;/div&gt;</span><span class="good">&lt;Button type=&quot;submit&quot;&gt;Sign up&lt;/Button&gt;</span></pre></div></div><p>Your tokens and components, and WCAG 2.2 on every screen.</p><a class="pv-go" href="/use-cases/frontend/">See the example</a></div><div class="pv" id="mg-uc-4"><div class="pv-eye">Data pipelines</div><div class="pv-vis"><div class="code pvc"><header><span>Rule</span><span>Team rule</span></header><pre><span class="bad">df.to_sql(&quot;events&quot;, engine)</span><span class="good">df = EventSchema.validate(df)</span></pre></div></div><p>Pipelines you can rerun safely, with personal data kept out of shared tables.</p><a class="pv-go" href="/use-cases/data-pipelines/">See the example</a></div><div class="pv" id="mg-uc-5"><div class="pv-eye">Infrastructure as code</div><div class="pv-vis"><div class="code pvc"><header><span>Rule</span><span>Cloud baseline</span></header><pre><span class="bad">acl = &quot;public-read&quot;</span><span class="good">block_public_acls = true</span></pre></div></div><p>Your cloud baseline on every Terraform change, with guardrails on risky commands.</p><a class="pv-go" href="/use-cases/infrastructure-as-code/">See the example</a></div></div>
-        </div>
-      </div>
-    </div>
-    <a href="/compare/">Compare</a>
-    <a href="/playground/">Playground</a>
-    <a href="/pricing/">Pricing</a>
-  </nav>
-  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
-  <a class="btn btn-go" href="/pricing/#talk">Talk to us</a>
-</header>
+<a class="brand" href="/" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
+<nav id="site-nav" aria-label="Pages"><div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-controls="product-menu">Product</button><div class="dd-panel" id="product-menu"><a href="/technology/coding-standards/">Standards &amp; rule packs</a><a href="/technology/project-memory/">Project memory</a><a href="/technology/review-agents/">Review agents</a><a href="/technology/integrations/">Integrations</a><a href="/technology/">Explore the platform</a></div></div><a href="/use-cases/">Use cases</a><a href="/compare/">Compare</a><a href="/pricing/">Pricing</a><a href="/technology/mcp-server/">Developer docs</a></nav>
+<a class="btn btn-go" href="/pricing/#talk">Join the pilot</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button></header>
 
-<main>
-<div class="hero">
-  <canvas class="hexbg" aria-hidden="true"></canvas>
-  <h1>Build like a team that has <span>done this before.</span></h1>
-  <div class="hero-row">
-    <div>
-      <p class="lede">CoFlow gives your coding agents the engineering, security and design standards an experienced team would enforce. It starts from public standards, reads your existing code, reviews and Jira tickets, and pulls in your design system.</p>
-      <div class="cta">
-        <a class="btn btn-go" href="/pricing/#talk">Talk to us</a>
-        <a class="btn btn-line" href="/playground/">Try the playground</a>
-      </div>
-    </div>
-    <div class="aside">
-      <div><b>For companies new to running a software team</b><span>Good practice becomes the default on every change, whoever or whatever wrote it.</span></div>
-      <div><b>Software and firmware</b><span>Web apps, back ends and the code that runs on your hardware.</span></div>
-    </div>
-  </div>
-  <div class="flow">
-    <div class="flow-col">
-      <div class="flow-cap">Where standards come from</div>
-      <div class="node"><b>Public standards</b><span>OWASP, WCAG, MISRA C, CERT C</span></div>
-      <div class="node"><b>Your existing codebase</b><span>the conventions it already follows</span></div>
-      <div class="node"><b>Pull request reviews</b><span>what your team corrected</span></div>
-      <div class="node"><b>Jira tickets</b><span>bugs, incidents and decisions</span></div>
-      <div class="node"><b>Your design system</b><span>tokens and components</span></div>
-    </div>
-    <div class="flow-mid"><span class="ring" aria-hidden="true"></span><span class="ring r2" aria-hidden="true"></span><svg aria-hidden="true"><use href="#logo"/></svg><div class="flow-cap">One reviewed set</div></div>
-    <div class="flow-col">
-      <div class="flow-cap">Every agent</div>
-      <div class="node"><b>Claude Code</b><span>skills and AGENTS.md</span></div>
-      <div class="node"><b>Codex</b><span>AGENTS.md</span></div>
-      <div class="node"><b>Cursor</b><span>project rules</span></div>
-      <div class="node"><b>Copilot</b><span>repository instructions</span></div>
-    </div>
-  </div>
-</div>
+<main id="main-content" class="home">
+<section class="launch-hero">
+<div class="hero-copy"><a class="launch-pill" href="/pricing/#talk">Built for teams shipping with AI · Private pilot</a>
+<h1>Your team’s standards.<br><span>Every coding agent.</span></h1>
+<p class="hero-description">Turn code reviews, past mistakes and engineering standards into one reviewed rulebook for Claude Code, Codex, Cursor and Copilot.</p>
+<div class="cta"><a class="btn btn-go" href="/playground/">See CoFlow in action</a><a class="btn btn-line" href="/pricing/#talk">Join the pilot</a></div>
+<p class="hero-note">Rules live in your repo. Your team stays in control.</p>
+<div class="agent-row" aria-label="Coding agents"><span>Works with</span><b>Claude Code</b><b>Codex</b><b>Cursor</b><b>Copilot</b></div></div>
+<div class="hero-product"><div class="product-window">
+<div class="product-toolbar"><span class="window-dots" aria-hidden="true">● ● ●</span><span>coflow / team-standards</span><span class="demo-badge">Illustrative preview</span></div>
+<div class="product-content"><div class="product-breadcrumb">Project memory <span>/</span> Rule proposal</div><div class="proposal-heading"><div class="proposal-icon" aria-hidden="true">⌘</div><div><small>From your team’s reviews</small><h2>Keep every query tenant-scoped</h2></div></div>
+<div class="review-evidence"><span class="review-avatar" aria-hidden="true">R</span><div><b>A review that becomes a lesson</b><p>“Scope this lookup to the current tenant. We’ve caught this before.”</p><small>Example pull request · invoices.py</small></div></div>
+<div class="rule-preview"><div><span class="file-label">.coflow/rules/tenant-scope.md</span><span class="tag">Proposed</span></div><pre><code><span class="code-muted"># Tenant-scoped queries</span>
 
-<div class="works">
-  <div class="works-cap"><b>Works with the tools your team already runs</b><span>Code hosts, coding agents, trackers and chat.</span><a href="/technology/integrations/">See the integrations</a></div>
-  <ul class="logowall"><li><img src="/logos/github.svg" alt="GitHub" loading="lazy" onerror="this.parentElement.classList.add('nologo');this.remove()"><svg class="gi" aria-hidden="true"><use href="#i-branch"/></svg><span>GitHub</span></li><li class="cap"><img src="/logos/gitlab.svg" alt="GitLab" loading="lazy" onerror="this.parentElement.classList.add('nologo');this.remove()"><svg class="gi" aria-hidden="true"><use href="#i-branch"/></svg><span>GitLab</span></li><li><img src="/logos/bitbucket.svg" alt="Bitbucket" loading="lazy" onerror="this.parentElement.classList.add('nologo');this.remove()"><svg class="gi" aria-hidden="true"><use href="#i-branch"/></svg><span>Bitbucket</span></li><li><img src="/logos/claude-code.svg" alt="Claude Code" loading="lazy" onerror="this.parentElement.classList.add('nologo');this.remove()"><svg class="gi" aria-hidden="true"><use href="#i-term"/></svg><span>Claude Code</span></li><li class="cap"><img src="/logos/codex.svg" alt="Codex" loading="lazy" onerror="this.parentElement.classList.add('nologo');this.remove()"><svg class="gi" aria-hidden="true"><use href="#i-term"/></svg><span>Codex</span></li><li><img src="/logos/cursor.svg" alt="Cursor" loading="lazy" onerror="this.parentElement.classList.add('nologo');this.remove()"><svg class="gi" aria-hidden="true"><use href="#i-term"/></svg><span>Cursor</span></li><li><img src="/logos/copilot.svg" alt="Copilot" loading="lazy" onerror="this.parentElement.classList.add('nologo');this.remove()"><svg class="gi" aria-hidden="true"><use href="#i-term"/></svg><span>Copilot</span></li><li><img src="/logos/jira.svg" alt="Jira" loading="lazy" onerror="this.parentElement.classList.add('nologo');this.remove()"><svg class="gi" aria-hidden="true"><use href="#i-ticket"/></svg><span>Jira</span></li><li><img src="/logos/linear.svg" alt="Linear" loading="lazy" onerror="this.parentElement.classList.add('nologo');this.remove()"><svg class="gi" aria-hidden="true"><use href="#i-ticket"/></svg><span>Linear</span></li><li><img src="/logos/slack.png" alt="Slack" loading="lazy" onerror="this.parentElement.classList.add('nologo');this.remove()"><svg class="gi" aria-hidden="true"><use href="#i-chat"/></svg><span>Slack</span></li><li class="more"><a href="/technology/integrations/">+ your stack</a></li></ul>
-</div>
-<div class="marquee" aria-label="Standards built in: OWASP Top 10, OWASP ASVS, CWE Top 25, WCAG 2.2 AA, MISRA C, CERT C, NIST SSDF, SOC 2, ISO 27001">
-  <div class="marquee-track" aria-hidden="true"><span>OWASP Top 10</span><span>OWASP ASVS</span><span>CWE Top 25</span><span>WCAG 2.2 AA</span><span>MISRA C</span><span>CERT C</span><span>NIST SSDF</span><span>SOC 2</span><span>ISO 27001</span><span>OWASP Top 10</span><span>OWASP ASVS</span><span>CWE Top 25</span><span>WCAG 2.2 AA</span><span>MISRA C</span><span>CERT C</span><span>NIST SSDF</span><span>SOC 2</span><span>ISO 27001</span></div>
-</div>
-
-<section class="band dark" id="examples">
-  <div class="uc-head">
-    <div>
-      <div class="eyebrow">Examples</div>
-      <h2>The same request, with and without your standards.</h2>
-    </div>
-    <p class="lede">Four changes an agent wrote alone, and the same four with CoFlow in the loop. Each finding names the rule it comes from.</p>
-  </div>
-
-  <div class="ex">
-    <div class="ex-tabs" role="tablist" aria-label="Code examples">
-      <button class="ex-tab" role="tab" id="ex-t1" aria-controls="ex-p1" aria-selected="true">Firmware <i>C</i></button>
-      <button class="ex-tab" role="tab" id="ex-t2" aria-controls="ex-p2" aria-selected="false">API security <i>Python</i></button>
-      <button class="ex-tab" role="tab" id="ex-t3" aria-controls="ex-p3" aria-selected="false">Design system <i>TypeScript</i></button>
-      <button class="ex-tab" role="tab" id="ex-t4" aria-controls="ex-p4" aria-selected="false">Migrations <i>Python</i></button>
-    </div>
-
-    <div class="ex-panels">
-      <div class="ex-panel" role="tabpanel" id="ex-p1" aria-labelledby="ex-t1">
-        <p class="ex-ask"><i>Request</i>Log each line received on the UART.</p>
-        <div class="codes">
-          <div class="code">
-            <header><span>Agent alone</span><span>uart_isr.c</span></header>
-            <pre><span>void USART1_IRQHandler(void) {</span><span class="bad">    char *line = malloc(128);</span><span class="bad">    read_line(line, 128);</span><span class="bad">    printf("rx: %s\n", line);</span><span class="bad">    free(line);</span><span>}</span></pre>
-            <ul class="notes bad">
-              <li><b>MISRA C 21.3</b>Heap allocation with malloc and free.</li>
-              <li><b>MISRA C 21.6</b>Standard input and output called from firmware.</li>
-              <li><b>Team rule</b>A blocking read inside an interrupt handler.</li>
-            </ul>
-          </div>
-          <div class="code">
-            <header><span>With CoFlow</span><span>uart_isr.c</span></header>
-            <pre><span>void USART1_IRQHandler(void) {</span><span class="good">    rx_ring_push(USART1-&gt;DR);</span><span class="good">    rx_pending = true;</span><span>}</span><span> </span><span class="good">/* main loop drains rx_ring and logs */</span></pre>
-            <ul class="notes good">
-              <li><b>MISRA C 21.3</b>A fixed ring buffer, allocated at startup.</li>
-              <li><b>MISRA C 21.6</b>Logging moved to the project logger in the main loop.</li>
-              <li><b>Team rule</b>The handler stores one byte, sets a flag and returns.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="applied"><i>Where the team rule came from</i><span>A failed hardware-in-the-loop run, approved by your team as a rule.</span></div>
-      </div>
-
-      <div class="ex-panel" role="tabpanel" id="ex-p2" aria-labelledby="ex-t2">
-        <p class="ex-ask"><i>Request</i>Add an endpoint that returns one invoice.</p>
-        <div class="codes">
-          <div class="code">
-            <header><span>Agent alone</span><span>invoices.py</span></header>
-            <pre><span>@router.get("/invoices/{invoice_id}")</span><span>def get_invoice(invoice_id: str, db=Depends(get_db)):</span><span class="bad">    q = f"SELECT * FROM invoices WHERE id = '{invoice_id}'"</span><span class="bad">    return db.execute(text(q)).first()</span></pre>
-            <ul class="notes bad">
-              <li><b>CWE-89</b>The query is built from user input.</li>
-              <li><b>OWASP Top 10 A01</b>Any caller can read any tenant's invoice.</li>
-              <li><b>FastAPI standard</b>No response model, so every column is returned.</li>
-            </ul>
-          </div>
-          <div class="code">
-            <header><span>With CoFlow</span><span>invoices.py</span></header>
-            <pre><span class="good">@router.get("/invoices/{invoice_id}", response_model=InvoiceOut)</span><span>def get_invoice(</span><span class="good">    invoice_id: UUID,</span><span class="good">    user=Depends(current_user),</span><span>    db=Depends(get_db),</span><span>):</span><span class="good">    invoice = invoices.get_for_tenant(db, user.tenant_id, invoice_id)</span><span>    if invoice is None:</span><span>        raise HTTPException(status_code=404)</span><span>    return invoice</span></pre>
-            <ul class="notes good">
-              <li><b>CWE-89</b>A typed id and a parameterized repository call.</li>
-              <li><b>OWASP Top 10 A01</b>The lookup is scoped to the caller's tenant.</li>
-              <li><b>FastAPI standard</b>The response model lists the fields that leave the API.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="applied"><i>Where the rules came from</i><span>Public security standards, plus the practices keyed to the framework this repository uses.</span></div>
-      </div>
-
-      <div class="ex-panel" role="tabpanel" id="ex-p3" aria-labelledby="ex-t3">
-        <p class="ex-ask"><i>Request</i>Add a pay button to the checkout page.</p>
-        <div class="codes">
-          <div class="code">
-            <header><span>Agent alone</span><span>CheckoutButton.tsx</span></header>
-            <pre><span>export function PayButton() {</span><span>  return (</span><span class="bad">    &lt;button style={{ background: "#2f6fed",</span><span class="bad">      padding: "11px 18px", borderRadius: 7 }}&gt;</span><span>      Pay now</span><span class="bad">    &lt;/button&gt;</span><span>  );</span><span>}</span></pre>
-            <ul class="notes bad">
-              <li><b>Color tokens</b>A hard-coded hex value that is close to the brand blue.</li>
-              <li><b>Spacing scale</b>Padding and radius that match nothing else in the app.</li>
-              <li><b>Shared components</b>A native button with no focus or disabled states.</li>
-            </ul>
-          </div>
-          <div class="code">
-            <header><span>With CoFlow</span><span>CheckoutButton.tsx</span></header>
-            <pre><span class="good">import { Button } from "@/ui/button";</span><span> </span><span>export function PayButton() {</span><span>  return (</span><span class="good">    &lt;Button variant="primary" size="md"&gt;</span><span>      Pay now</span><span class="good">    &lt;/Button&gt;</span><span>  );</span><span>}</span></pre>
-            <ul class="notes good">
-              <li><b>Color tokens</b>Color comes from the primary variant.</li>
-              <li><b>Spacing scale</b>Size comes from the scale.</li>
-              <li><b>Shared components</b>Focus, hover and disabled states come with the component.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="applied"><i>Where the rules came from</i><span>Your design system, pulled in as tokens and components.</span></div>
-      </div>
-
-      <div class="ex-panel" role="tabpanel" id="ex-p4" aria-labelledby="ex-t4">
-        <p class="ex-ask"><i>Request</i>Add a region column to orders and backfill it.</p>
-        <div class="codes">
-          <div class="code">
-            <header><span>Agent alone</span><span>0042_order_region.py</span></header>
-            <pre><span>def upgrade():</span><span>    op.add_column("orders", sa.Column("region", sa.Text()))</span><span class="bad">    op.execute("UPDATE orders SET region = 'us'")</span></pre>
-            <ul class="notes bad">
-              <li><b>Team rule</b>The backfill runs with no tenant context, so it sees no rows and passes.</li>
-              <li><b>Team rule</b>One statement updates the whole table in a single lock.</li>
-            </ul>
-          </div>
-          <div class="code">
-            <header><span>With CoFlow</span><span>0042_order_region.py</span></header>
-            <pre><span>def upgrade():</span><span>    op.add_column("orders", sa.Column("region", sa.Text()))</span><span class="good">    for tenant in all_tenants():</span><span class="good">        with tenant_context(tenant):</span><span class="good">            backfill_in_batches("orders", region="us")</span></pre>
-            <ul class="notes good">
-              <li><b>Team rule</b>Each tenant is backfilled with its context set.</li>
-              <li><b>Team rule</b>Rows are updated in batches.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="applied"><i>Where the rules came from</i><span>Two review comments and one incident ticket in your own history.</span></div>
-      </div>
-    </div>
-  </div>
-  <p class="fine">Illustrative examples. Standard and rule identifiers refer to MISRA C:2012, the CWE list and the OWASP Top 10.</p>
+<span class="code-green">+ Scope invoice lookups to user.tenant_id.</span>
+<span class="code-green">+ Apply to: api/invoices/**</span>
+<span class="code-green">+ Evidence: linked review comments</span></code></pre></div>
+<div class="approval-line"><span class="approval-mark" aria-hidden="true">✓</span><span><b>Reviewed by your team</b><small>Approved rules are versioned like code.</small></span><span class="tag approved">Human approval</span></div>
+<div class="delivery"><span>One rulebook. Delivered to your agents.</span><div><b>Claude Code</b><b>Codex</b><b>Cursor</b><b>Copilot</b></div></div></div></div>
+<div class="floating-note"><span aria-hidden="true">✦</span><div>Correct it once.<br><b>Keep the lesson.</b></div></div></div>
 </section>
-
-<section class="band" id="how">
-  <div class="split">
-    <div class="split-copy">
-      <div class="eyebrow">How it works</div>
-      <h2>From a review comment to a rule every agent follows.</h2>
-      <ol class="steps">
-        <li><b>1</b><div><h3>Connect one repository</h3><p>Install on GitHub, GitLab or Bitbucket. There is no pipeline to migrate.</p></div></li>
-        <li><b>2</b><div><h3>CoFlow reads the evidence</h3><p>Existing code, review comments, failed checks and tickets are where your corrections already live.</p></div></li>
-        <li><b>3</b><div><h3>It proposes a rule</h3><p>Each proposal has a scope and links to the comments and runs it came from.</p></div></li>
-        <li><b>4</b><div><h3>Your team approves</h3><p>Merge to approve, close to reject. Approved rules reach every agent you use.</p></div></li>
-      </ol>
-    </div>
-    <div>
-      <div class="win mock" role="img" aria-label="CoFlow app showing proposed rule 142, its evidence, two approvals, and delivery to four agents">
-        <div class="win-bar"><span class="dots" aria-hidden="true"></span><span class="url">app.getcoflow.ai/acme/api/proposals/142</span></div>
-        <div class="app">
-          <aside class="app-side"><div class="app-brand"><svg width="18" height="18" aria-hidden="true"><use href="#logo"/></svg>acme / api</div><span class="">Overview</span><span class="on">Proposals<em>3</em></span><span class="">Rules<em>48</em></span><span class="">Scorecard</span><span class="">Standards</span><span class="">Agents<em>4</em></span><span class="">Settings</span></aside>
-          <div class="app-main">
-            <div class="crumbs">Proposals <i>/</i> #142</div>
-            <div class="app-title"><b>Backfills run with tenant context</b><span class="state">Open</span></div>
-            <div class="app-meta">Proposed by CoFlow from 2 review comments and 1 failed check</div>
-            <div class="app-tabs"><span class="on">Rule</span><span>Evidence <em>3</em></span><span>Agents <em>4</em></span></div>
-            <div class="mock-file">.coflow/rules/migrations-tenant-context.md</div>
-            <pre class="mock-diff"><span class="dl" style="--i:0">+ ---</span><span class="dl" style="--i:1">+ applies_to: ["migrations/**"]</span><span class="dl" style="--i:2">+ technologies: [postgres, alembic]</span><span class="dl" style="--i:3">+ evidence: [PR #138 review, CI run 4127]</span><span class="dl" style="--i:4">+ ---</span><span class="dl" style="--i:5">+ Run data backfills with the tenant context set.</span><span class="dl" style="--i:6">+ A backfill without it sees no rows and passes.</span></pre>
-            <ul class="evidence"><li><i class="ev rc"></i>Review comment on #138<small>migrations/0039_backfill.py</small></li><li><i class="ev rc"></i>Review comment on #131<small>migrations/0036_backfill.py</small></li><li><i class="ev ci"></i>CI run 4127 failed<small>test_backfill_sees_rows</small></li></ul>
-            <div class="mock-foot"><span class="ok">Checks passing</span><span class="ok appr">Approved by 2 reviewers</span><span class="fake-btn">Merge rule</span></div>
-            <div class="mock-out"><i>Delivered to</i><span class="ag" style="--i:0">Claude Code</span><span class="ag" style="--i:1">Codex</span><span class="ag" style="--i:2">Cursor</span><span class="ag" style="--i:3">Copilot</span></div>
-          </div>
-        </div>
-      </div>
-      <p class="fine">Illustrative screen. Repository, numbers and rule are examples.</p>
-    </div>
-  </div>
-</section>
-
-<section class="band tint">
-  <div class="eyebrow">Before and after</div>
-  <h2>What changes when the standards are in the loop.</h2>
-  <div class="vs">
-    <div class="vs-card no">
-      <h3><span class="mark" aria-hidden="true"></span>Without CoFlow</h3>
-      <ul><li>Each agent relearns your conventions in every session.</li><li>The same review comment gets written again next week.</li><li>Standards sit in a wiki that no agent loads.</li><li>Nobody can say whether a rule is being followed.</li></ul>
-    </div>
-    <div class="vs-card yes">
-      <h3><span class="mark" aria-hidden="true"></span>With CoFlow</h3>
-      <ul><li>Every agent starts with the rules that apply to the task.</li><li>A correction made once becomes a rule your team approved.</li><li>Standards are checked on the plan and on the pull request.</li><li>A scorecard shows adherence for every merged change.</li></ul>
-    </div>
-  </div>
-</section>
-
-<section class="band" id="get">
-  <div class="eyebrow">What you get</div>
-  <h2>Start with good defaults. End up with your own.</h2>
-  <div class="cards">
-    <div class="card d"><i>01</i><b>Standards built in</b><span>Rule sets mapped to OWASP, WCAG, MISRA C and CERT C that you switch on and edit.</span></div>
-    <div class="card t"><i>02</i><b>Your design system, enforced</b><span>Agents reach for your Button, your spacing scale and your colors.</span></div>
-    <div class="card"><i>03</i><b>Rules from what you already have</b><span>CoFlow reads your existing codebase, past reviews and Jira tickets and proposes rules. Your team approves each one.</span></div>
-    <div class="card"><i>04</i><b>Enforced in four places</b><span>In the agent's context, on its plan, on the pull request, and on risky commands.</span></div>
-    <div class="card t"><i>05</i><b>Application: firmware</b><span>The same product on embedded C. Rules for interrupts, memory and registers, with bench failures as evidence.</span></div>
-    <div class="card d"><i>06</i><b>A scorecard for adherence</b><span>An independent AI review grades every merged change against the rules that applied.</span></div>
-  </div>
-</section>
-
-<section class="band dark">
-  <div class="eyebrow">A fair question</div>
-  <h2>"We already keep a rules file in the repo."</h2>
-  <p class="lede">That works until the team has more than one agent. Three things go wrong first.</p>
-  <div class="cards">
-    <div class="card g"><i>01</i><b>The whole file loads every time</b><span>Cost grows and the relevant line gets buried. CoFlow scopes each rule by path and technology, so a migration rule stays out of a CSS change.</span></div>
-    <div class="card g"><i>02</i><b>Nobody reviews it</b><span>The agent that made the mistake writes the rule, and rules start to contradict each other. CoFlow puts every rule through a pull request.</span></div>
-    <div class="card g"><i>03</i><b>Only one tool reads it</b><span>A teammate on a different agent never sees it. CoFlow writes each approved rule out for every agent.</span></div>
-  </div>
-  <div class="links"><a href="/technology/coding-standards/">See the standards</a><a href="/technology/evaluation/">See how adherence is measured</a></div>
-</section>
-
-<section class="band">
-  <div class="banners">
-    <a class="banner" href="/compare/"><div><div class="eyebrow">Compare</div><b>CoFlow next to Straion, CodeRabbit, Harness and a rules file.</b><small>Sourced, point-by-point comparisons.</small></div><span class="go">See the comparisons</span></a>
-    <a class="banner" href="/playground/"><div><div class="eyebrow">Playground</div><b>Switch the rules on and off yourself.</b><small>Four requests, and what the agent writes with and without each rule.</small></div><span class="go">Open the playground</span></a>
-    <a class="banner" href="/use-cases/"><div><div class="eyebrow">Use cases</div><b>Six situations CoFlow is built for.</b><small>From a first software team to audit season.</small></div><span class="go">See the use cases</span></a>
-    <a class="banner" href="/technology/integrations/"><div><div class="eyebrow">Integrations</div><b>Code hosts, agents, trackers, chat and your stack.</b><small>GitHub, GitLab, Bitbucket, Jira, Linear, Slack and Microsoft Teams.</small></div><span class="go">See the integrations</span></a>
-    <a class="banner" href="/use-cases/firmware/"><div><div class="eyebrow">Application</div><b>Firmware: keep the magic smoke inside.</b><small>How CoFlow applies to embedded C, with MISRA C and CERT C mappings.</small></div><span class="go">Read the application</span></a>
-  </div>
-</section>
-
-<section class="band" id="faq">
-  <div class="split">
-    <div class="split-copy"><div class="eyebrow">Questions</div><h2>What teams ask first.</h2><p class="lede">Something else on your mind? <a href="/pricing/#talk">Talk to us</a>.</p></div>
-    <div class="faq"><details open><summary>Does CoFlow replace our coding agents?</summary><p>No. CoFlow works with Claude Code, Codex, Cursor and Copilot. It gives the agents you already chose the same reviewed set of rules.</p></details><details><summary>Where do the rules live?</summary><p>As plain files in your repository, versioned and reviewed like code. If you stop using CoFlow, you keep every rule.</p></details><details><summary>Who decides what becomes a rule?</summary><p>Your team. CoFlow drafts proposals from your code, reviews and tickets, and every proposal goes to a person. Approve or reject it in a pull request, or from Slack or Microsoft Teams.</p></details><details><summary>Does switching on a rule set make us compliant?</summary><p>No. CoFlow rule sets are mapped to each standard's identifiers. They do not reproduce licensed standards text, and using them is not a certification of compliance.</p></details><details><summary>Does it work for firmware?</summary><p>Yes. The same product runs on embedded C, with MISRA C and CERT C mappings and bench failures as evidence. <a href="/use-cases/firmware/">Read the firmware application</a>.</p></details><details><summary>How do we start, and what does it cost?</summary><p>Start with one repository. Planned pricing is free for one developer and $12 per developer a month on Team with annual billing. <a href="/pricing/">See pricing</a>.</p></details></div>
-  </div>
-</section>
-
-<section class="band flush">
-  <div class="talk">
-    <div>
-      <h2>Start with one repository.</h2>
-      <p class="lede">We are onboarding a small number of teams first.</p>
-    </div>
-    <a class="btn btn-go" href="/pricing/#talk">Talk to us</a>
-  </div>
-</section>
+<section class="trust-strip" aria-label="Product principles"><p>More context for your agents.<br><b>Less repeating yourself.</b></p><div><span>Repository-owned rules</span><span>Human-reviewed proposals</span><span>Software &amp; firmware</span></div></section>
+<section class="band story-section" id="how"><div class="section-intro"><div class="eyebrow">A better feedback loop</div><h2>Good engineering shouldn’t<br>reset with every session.</h2><p class="lede">Your team already knows what good looks like. CoFlow helps that knowledge travel from one change to the next.</p></div>
+<div class="story-grid"><a class="story-card lavender" href="/technology/project-memory/"><div class="mini-review"><span>Review comment</span><p>“Use our shared client.<br>Keep retries in one place.”</p><div class="mini-rule">✓ A lesson worth keeping</div></div><h3>Capture the lessons</h3><p>Use existing code, review comments and failed checks as evidence for proposed rules.</p><span class="text-link">Explore project memory</span></a>
+<a class="story-card peach" href="/technology/coding-standards/"><div class="mini-packs"><span>Security <b>OWASP</b></span><span>Frontend <b>WCAG</b></span><span>Firmware <b>MISRA C</b></span></div><h3>Make good practice the default</h3><p>Start with standards mapped to your stack, then add the conventions that make your codebase yours.</p><span class="text-link">See standards &amp; rule packs</span></a>
+<a class="story-card mint" href="/technology/coding-agents/"><div class="mini-agents"><span>One approved rule</span><div><b>Claude Code</b><b>Codex</b><b>Cursor</b><b>Copilot</b></div></div><h3>Keep your agents aligned</h3><p>Deliver approved rules in the formats your coding agents already read. Keep the files in your repository.</p><span class="text-link">See agent delivery</span></a></div></section>
+<section class="band tint workflow-section"><div class="workflow-copy"><div class="eyebrow">Your team has the final say</div><h2>From “we fixed this”<br>to “we follow this.”</h2><p class="lede">CoFlow proposes. Your team reviews. The lesson becomes part of the next change.</p><a class="text-link" href="/technology/review-agents/">Explore the review workflow</a></div><ol class="workflow-steps"><li><span class="step-icon" aria-hidden="true">⌁</span><div><h3>Start with one repository</h3><p>Bring the code and conventions your team already works with.</p></div></li><li><span class="step-icon" aria-hidden="true">≋</span><div><h3>Review the evidence</h3><p>Each rule proposal has a scope and links back to the corrections it came from.</p></div></li><li><span class="step-icon" aria-hidden="true">✓</span><div><h3>Approve the rule</h3><p>Merge to approve, close to reject. The decision belongs to your team.</p></div></li><li><span class="step-icon" aria-hidden="true">⌘</span><div><h3>Carry it into the next change</h3><p>Give every agent the approved rules that apply to its work.</p></div></li></ol></section>
+<section class="band demo-section" id="examples"><div><div class="eyebrow">Less abstract. More code.</div><h2>See what a rule<br>actually changes.</h2><p class="lede">Explore illustrative examples across API security, design systems, firmware and migrations. Switch rules on and off in the playground.</p><a class="btn btn-go" href="/playground/">Try the interactive playground</a><p class="fine">No account needed. Examples run in your browser.</p></div><div class="code-story"><div class="code-story-top">Example · API security <span>Tenant isolation</span></div><div class="code-story-block"><span class="code-caption">Without a scoped lookup</span><pre><code>invoice = db.get(Invoice, invoice_id)</code></pre><p>A valid ID is not the same as permission.</p></div><div class="code-story-block fixed"><span class="code-caption">With your team’s rule</span><pre><code>invoice = invoices.get_for_tenant(
+    db, user.tenant_id, invoice_id
+)</code></pre><p>Keep the lookup inside the caller’s tenant.</p></div><small>Illustrative code. Adapt and test for your application.</small></div></section>
+<section class="band integrations-section"><div class="section-intro"><div class="eyebrow">Fits the way you build</div><h2>Keep your tools.<br>Connect the knowledge.</h2><p class="lede">Code hosts, coding agents, trackers and chat. Explore how each connection fits into CoFlow.</p></div><div class="integration-logos"><a href="/technology/integrations/" aria-label="Explore GitHub integration"><img src="/logos/github.svg" alt="GitHub" loading="lazy"></a><a href="/technology/integrations/" aria-label="Explore GitLab integration"><img src="/logos/gitlab.svg" alt="GitLab" loading="lazy"></a><a href="/technology/integrations/" aria-label="Explore Claude Code integration"><img src="/logos/claude-code.svg" alt="Claude Code" loading="lazy"></a><a href="/technology/integrations/" aria-label="Explore Codex integration"><img src="/logos/codex.svg" alt="Codex" loading="lazy"></a><a href="/technology/integrations/" aria-label="Explore Cursor integration"><img src="/logos/cursor.svg" alt="Cursor" loading="lazy"></a><a href="/technology/integrations/" aria-label="Explore Copilot integration"><img src="/logos/copilot.svg" alt="Copilot" loading="lazy"></a><a href="/technology/integrations/" aria-label="Explore Jira integration"><img src="/logos/jira.svg" alt="Jira" loading="lazy"></a><a href="/technology/integrations/" aria-label="Explore Linear integration"><img src="/logos/linear.svg" alt="Linear" loading="lazy"></a></div><a class="text-link" href="/technology/integrations/">Explore integrations and setup</a></section>
+<section class="band price-teaser"><div><div class="eyebrow">A starting point for every team</div><h2>Start small.<br>Build your rulebook.</h2><p class="lede">CoFlow is in private build. We’re onboarding a small number of teams, one repository at a time.</p><a class="text-link" href="/pricing/">Explore planned pricing</a></div><div class="price-preview"><span class="plan-label">Planned Team pricing</span><p><b>$12</b> / developer / month</p><small>Billed annually · $15 with monthly billing</small><ul><li>Rules versioned in your repository</li><li>Proposals from reviews and checks</li><li>Delivery to your coding agents</li></ul><a class="btn btn-go" href="/pricing/#talk">Ask about the pilot</a><p class="fine">Planned pricing, not an active checkout.</p></div></section>
+<section class="band" id="faq"><div class="faq-layout"><div><div class="eyebrow">A few things to know</div><h2>Good questions.<br>Clear answers.</h2></div><div class="faq"><details><summary>Does CoFlow replace our coding agents?</summary><p>No. CoFlow gives Claude Code, Codex, Cursor and Copilot a shared, reviewed set of rules.</p></details><details><summary>Where do our rules live?</summary><p>As plain files in your repository, versioned and reviewed like code. If you stop using CoFlow, you keep the rules.</p></details><details><summary>Who approves what agents learn?</summary><p>Your team. CoFlow proposes rules from evidence. Your reviewers decide what gets approved.</p></details><details><summary>Do rule packs certify compliance?</summary><p>No. Mappings to standards help guide engineering work. They do not certify compliance or replace your own review.</p></details><details><summary>Can we try CoFlow today?</summary><p>The public playground is available without an account. The product is in private build; <a href="/pricing/#talk">ask about pilot onboarding</a>.</p></details></div></div></section>
+<section class="closing-cta"><div class="eyebrow">Build on what your team knows</div><h2>Better context.<br>Better next change.</h2><p>Start with one repository and the lessons already in your code.</p><div class="cta"><a class="btn btn-go" href="/pricing/#talk">Join the pilot</a><a class="btn btn-line" href="/playground/">Explore the playground</a></div></section>
 </main>
 
 <footer>
@@ -344,6 +86,6 @@
   <div class="f-bottom"><p class="f-legal">&copy; 2026 CoFlow. In private build. CoFlow is an independent product and is not affiliated with the vendors or standards bodies named on this site.</p><nav class="f-links" aria-label="Legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/privacy/#subprocessors">Subprocessors</a><a href="/support/">Support</a></nav></div>
 </footer>
 
-<script src="/site.js"></script>
+<script src="/site.js?v=20261120"></script>
 </body>
 </html>
