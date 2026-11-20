@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>One Rulebook for Claude Code, Codex, Cursor, Copilot | CoFlow</title>
 
-<meta name="description" content="CoFlow writes one approved rule set as AGENTS.md, Claude Code skills, Cursor rules and Copilot instructions, and keeps them in sync.">
+<meta name="description" content="Use task-specific instructions and approved exports with your coding workflow. Keep provider execution separate from CoFlow’s knowledge and review functions.">
 <link rel="canonical" href="https://getcoflow.ai/technology/coding-agents/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -14,18 +14,19 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CoFlow">
 <meta property="og:title" content="One Rulebook for Claude Code, Codex, Cursor, Copilot | CoFlow">
-<meta property="og:description" content="CoFlow writes one approved rule set as AGENTS.md, Claude Code skills, Cursor rules and Copilot instructions, and keeps them in sync.">
+<meta property="og:description" content="Use task-specific instructions and approved exports with your coding workflow. Keep provider execution separate from CoFlow’s knowledge and review functions.">
 <meta property="og:url" content="https://getcoflow.ai/technology/coding-agents/">
 <meta property="og:image" content="https://getcoflow.ai/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="One Rulebook for Claude Code, Codex, Cursor, Copilot | CoFlow">
-<meta name="twitter:description" content="CoFlow writes one approved rule set as AGENTS.md, Claude Code skills, Cursor rules and Copilot instructions, and keeps them in sync.">
+<meta name="twitter:description" content="Use task-specific instructions and approved exports with your coding workflow. Keep provider execution separate from CoFlow’s knowledge and review functions.">
 <meta name="twitter:image" content="https://getcoflow.ai/og.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getcoflow.ai/"},{"@type":"ListItem","position":2,"name":"Technology","item":"https://getcoflow.ai/technology/"},{"@type":"ListItem","position":3,"name":"One Rulebook for Claude Code, Codex, Cursor, Copilot","item":"https://getcoflow.ai/technology/coding-agents/"}]}</script>
 <link rel="stylesheet" href="/site.css">
-<link rel="stylesheet" href="/refresh.css?v=20261120-product-menu">
+<link rel="stylesheet" href="/refresh.css?v=docs-20261120">
+<link rel="stylesheet" href="/docs/docs.css">
 <link rel="stylesheet" href="/hex.css?v=20261120">
 </head>
 <body>
@@ -35,117 +36,15 @@
 
 <header class="nav">
 <a class="brand" href="/" aria-label="CoFlow home"><svg width="36" height="36" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a>
-<nav id="site-nav" aria-label="Pages"><div class="dd product-menu"><button class="dd-btn" type="button" aria-expanded="false" aria-controls="product-menu">Product</button><div class="dd-panel" id="product-menu"><div class="product-menu-grid"><a href="/technology/coding-standards/"><b>Standards and rule packs</b><small>Reviewed guidance for your engineering standards.</small></a><a href="/technology/review-agents/"><b>Review agents</b><small>Explore checks against your team’s rules.</small></a><a href="/technology/project-memory/"><b>Project memory</b><small>Keep engineering lessons available for future tasks.</small></a><a href="/technology/mcp-server/"><b>MCP server and CLI</b><small>Bring approved context into your coding workflow.</small></a><a href="/technology/evaluation/"><b>Evaluation</b><small>Connect instructions to checks and recorded outcomes.</small></a><a href="/technology/integrations/"><b>Integrations</b><small>Explore connections across your engineering tools.</small></a><a href="/technology/coding-agents/"><b>Coding agents</b><small>Shared guidance for the agents your team uses.</small></a></div><a class="product-menu-demo" href="/playground/"><span>See the rules change the code</span><b>Explore the Playground</b></a></div></div><div class="dd case-menu"><button class="dd-btn" type="button" aria-expanded="false" aria-controls="use-cases-menu">Use cases</button><div class="dd-panel" id="use-cases-menu"><div class="case-layout"><div class="case-links"><a href="/use-cases/security/" data-case="case-security" aria-describedby="case-description-security"><b>Security</b><small id="case-description-security">Auth, secrets and access control</small></a><a href="/use-cases/applications/" data-case="case-applications" aria-describedby="case-description-applications"><b>Applications</b><small id="case-description-applications">APIs and application backends</small></a><a href="/use-cases/firmware/" data-case="case-firmware" aria-describedby="case-description-firmware"><b>Hardware & firmware</b><small id="case-description-firmware">Embedded C and hardware workflows</small></a><a href="/use-cases/frontend/" data-case="case-frontend" aria-describedby="case-description-frontend"><b>Front end</b><small id="case-description-frontend">Design systems and accessibility</small></a><a href="/use-cases/data-pipelines/" data-case="case-data" aria-describedby="case-description-data"><b>Data pipelines</b><small id="case-description-data">Schemas, retries and sensitive data</small></a><a href="/use-cases/infrastructure-as-code/" data-case="case-infrastructure" aria-describedby="case-description-infrastructure"><b>Infrastructure as code</b><small id="case-description-infrastructure">Cloud configuration and deployment</small></a><a class="case-all" href="/use-cases/">Explore all use cases</a></div><div class="case-previews"><div class="case-preview" id="case-security"><span class="eyebrow">Security</span><h3>Bring security lessons into the next task.</h3><p>Review guidance for authentication, tenant isolation and sensitive data before following through on a change.</p><div class="case-example"><span>Example workflow</span><b>Tenant-scoped invoice lookups</b><small>Team knowledge · Reviewed guidance · Next task</small></div><a class="text-link" href="/use-cases/security/">Explore security</a></div><div class="case-preview" id="case-applications" hidden><span class="eyebrow">Applications</span><h3>Make your application conventions easier to follow.</h3><p>Give agents the relevant patterns for routes, queries and errors, alongside reviewed engineering lessons.</p><div class="case-example"><span>Example workflow</span><b>Consistent API response patterns</b><small>Team knowledge · Reviewed guidance · Next task</small></div><a class="text-link" href="/use-cases/applications/">Explore applications</a></div><div class="case-preview" id="case-firmware" hidden><span class="eyebrow">Hardware & firmware</span><h3>Carry engineering lessons from the bench to the next task.</h3><p>Explore standards mappings and examples around interrupts, memory allocation and hardware behavior.</p><div class="case-example"><span>Example workflow</span><b>Keep interrupt handlers short</b><small>Team knowledge · Reviewed guidance · Next task</small></div><a class="text-link" href="/use-cases/firmware/">Explore hardware & firmware</a></div><div class="case-preview" id="case-frontend" hidden><span class="eyebrow">Front end</span><h3>Keep new screens consistent with your product.</h3><p>Explore how shared components, design tokens and accessibility guidance can shape the next UI change.</p><div class="case-example"><span>Example workflow</span><b>Use the shared Button component</b><small>Team knowledge · Reviewed guidance · Next task</small></div><a class="text-link" href="/use-cases/frontend/">Explore front end</a></div><div class="case-preview" id="case-data" hidden><span class="eyebrow">Data pipelines</span><h3>Build on the lessons in your data workflows.</h3><p>Explore examples for validating schemas, handling reruns and keeping personal data out of shared tables.</p><div class="case-example"><span>Example workflow</span><b>Validate before loading data</b><small>Team knowledge · Reviewed guidance · Next task</small></div><a class="text-link" href="/use-cases/data-pipelines/">Explore data pipelines</a></div><div class="case-preview" id="case-infrastructure" hidden><span class="eyebrow">Infrastructure as code</span><h3>Bring your cloud conventions into every change.</h3><p>Explore guidance for infrastructure changes, public access and the review of deployment configuration.</p><div class="case-example"><span>Example workflow</span><b>Review public access settings</b><small>Team knowledge · Reviewed guidance · Next task</small></div><a class="text-link" href="/use-cases/infrastructure-as-code/">Explore infrastructure as code</a></div></div></div></div></div><a href="/compare/">Compare</a><a href="/pricing/">Pricing</a><a href="/technology/mcp-server/">Developer docs</a></nav>
+<nav id="site-nav" aria-label="Pages"><div class="dd product-menu"><button class="dd-btn" type="button" aria-expanded="false" aria-controls="product-menu">Product</button><div class="dd-panel" id="product-menu"><div class="product-menu-grid"><a href="/technology/coding-standards/"><b>Standards and rule packs</b><small>Reviewed guidance, including tenant and RLS requirements.</small></a><a href="/technology/review-agents/"><b>Review agents</b><small>Explore checks against your team’s rules.</small></a><a href="/technology/project-memory/"><b>Project memory</b><small>Keep engineering lessons available for future tasks.</small></a><a href="/technology/mcp-server/"><b>MCP server and CLI</b><small>Bring approved context into your coding workflow.</small></a><a href="/technology/evaluation/"><b>Evaluation</b><small>Connect instructions to checks and recorded outcomes.</small></a><a href="/technology/integrations/"><b>Integrations</b><small>Explore connections across your engineering tools.</small></a><a href="/technology/coding-agents/"><b>Coding agents</b><small>Shared guidance for the agents your team uses.</small></a></div><a class="product-menu-demo" href="/playground/"><span>See the rules change the code</span><b>Explore the Playground</b></a></div></div><div class="dd case-menu"><button class="dd-btn" type="button" aria-expanded="false" aria-controls="use-cases-menu">Use cases</button><div class="dd-panel" id="use-cases-menu"><div class="case-layout"><div class="case-links"><a href="/use-cases/security/" data-case="case-security" aria-describedby="case-description-security"><b>Security</b><small id="case-description-security">RLS, tenant isolation and access control</small></a><a href="/use-cases/applications/" data-case="case-applications" aria-describedby="case-description-applications"><b>Applications</b><small id="case-description-applications">APIs and application backends</small></a><a href="/use-cases/firmware/" data-case="case-firmware" aria-describedby="case-description-firmware"><b>Hardware & firmware</b><small id="case-description-firmware">Embedded C and hardware workflows</small></a><a href="/use-cases/frontend/" data-case="case-frontend" aria-describedby="case-description-frontend"><b>Front end</b><small id="case-description-frontend">Design systems and accessibility</small></a><a href="/use-cases/data-pipelines/" data-case="case-data" aria-describedby="case-description-data"><b>Data pipelines</b><small id="case-description-data">Schemas, retries and sensitive data</small></a><a href="/use-cases/infrastructure-as-code/" data-case="case-infrastructure" aria-describedby="case-description-infrastructure"><b>Infrastructure as code</b><small id="case-description-infrastructure">Cloud configuration and deployment</small></a><a class="case-all" href="/use-cases/">Explore all use cases</a></div><div class="case-previews"><div class="case-preview" id="case-security"><span class="eyebrow">Security</span><h3>Bring RLS and security requirements into the next task.</h3><p>Review guidance for authentication, tenant isolation and sensitive data before following through on a change.</p><div class="case-example"><span>Example workflow</span><b>Tenant-scoped invoice lookups</b><small>Team knowledge · Reviewed guidance · Next task</small></div><a class="text-link" href="/use-cases/security/">Explore security</a></div><div class="case-preview" id="case-applications" hidden><span class="eyebrow">Applications</span><h3>Make your application conventions easier to follow.</h3><p>Give agents the relevant patterns for routes, queries and errors, alongside reviewed engineering lessons.</p><div class="case-example"><span>Example workflow</span><b>Consistent API response patterns</b><small>Team knowledge · Reviewed guidance · Next task</small></div><a class="text-link" href="/use-cases/applications/">Explore applications</a></div><div class="case-preview" id="case-firmware" hidden><span class="eyebrow">Hardware & firmware</span><h3>Carry engineering lessons from the bench to the next task.</h3><p>Explore standards mappings and examples around interrupts, memory allocation and hardware behavior.</p><div class="case-example"><span>Example workflow</span><b>Keep interrupt handlers short</b><small>Team knowledge · Reviewed guidance · Next task</small></div><a class="text-link" href="/use-cases/firmware/">Explore hardware & firmware</a></div><div class="case-preview" id="case-frontend" hidden><span class="eyebrow">Front end</span><h3>Keep new screens consistent with your product.</h3><p>Explore how shared components, design tokens and accessibility guidance can shape the next UI change.</p><div class="case-example"><span>Example workflow</span><b>Use the shared Button component</b><small>Team knowledge · Reviewed guidance · Next task</small></div><a class="text-link" href="/use-cases/frontend/">Explore front end</a></div><div class="case-preview" id="case-data" hidden><span class="eyebrow">Data pipelines</span><h3>Build on the lessons in your data workflows.</h3><p>Explore examples for validating schemas, handling reruns and keeping personal data out of shared tables.</p><div class="case-example"><span>Example workflow</span><b>Validate before loading data</b><small>Team knowledge · Reviewed guidance · Next task</small></div><a class="text-link" href="/use-cases/data-pipelines/">Explore data pipelines</a></div><div class="case-preview" id="case-infrastructure" hidden><span class="eyebrow">Infrastructure as code</span><h3>Bring your cloud conventions into every change.</h3><p>Explore guidance for infrastructure changes, public access and the review of deployment configuration.</p><div class="case-example"><span>Example workflow</span><b>Review public access settings</b><small>Team knowledge · Reviewed guidance · Next task</small></div><a class="text-link" href="/use-cases/infrastructure-as-code/">Explore infrastructure as code</a></div></div></div></div></div><a href="/compare/">Compare</a><a href="/pricing/">Pricing</a><a href="/docs/">Docs</a></nav>
 <a class="btn btn-go" href="/pricing/#talk">Join the pilot</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button></header>
 
-<main id="main-content">
-<div class="phero">
-  <canvas class="hexbg" aria-hidden="true"></canvas>
-  <div class="eyebrow">Agents</div>
-  <h1>One rulebook. <span>Every agent your team uses.</span></h1>
-  <p class="lede">CoFlow does not replace your coding agents. It gives each of them the same reviewed set of rules, in the format that agent already reads, so a change made in Cursor meets the same standard as one made in Claude Code.</p>
-</div>
-
-<section class="band dark">
-  <div class="eyebrow">Supported agents</div>
-  <h2>Written out in each agent's own format.</h2>
-  <div class="agents">
-    <div class="agent">
-      <div class="agent-name"><img src="/logos/claude-code.svg" alt="" height="28" loading="lazy" onerror="this.remove()"><b>Claude Code</b></div>
-      <dl><div><dt>Reads</dt><dd>Skills and AGENTS.md</dd></div><div><dt>CoFlow writes</dt><dd>Each approved rule as a skill folder, plus the shared AGENTS.md.</dd></div></dl>
-    </div>
-    <div class="agent">
-      <div class="agent-name"><img src="/logos/codex.svg" alt="" height="28" loading="lazy" onerror="this.remove()"><b>Codex</b></div>
-      <dl><div><dt>Reads</dt><dd>AGENTS.md</dd></div><div><dt>CoFlow writes</dt><dd>Approved rules in AGENTS.md files, scoped to the folders they apply to.</dd></div></dl>
-    </div>
-    <div class="agent">
-      <div class="agent-name"><img src="/logos/cursor.svg" alt="" height="28" loading="lazy" onerror="this.remove()"><b>Cursor</b></div>
-      <dl><div><dt>Reads</dt><dd>Project rules</dd></div><div><dt>CoFlow writes</dt><dd>One project rule per approved rule, with its file patterns attached.</dd></div></dl>
-    </div>
-    <div class="agent">
-      <div class="agent-name"><img src="/logos/copilot.svg" alt="" height="28" loading="lazy" onerror="this.remove()"><b>Copilot</b></div>
-      <dl><div><dt>Reads</dt><dd>Repository instructions</dd></div><div><dt>CoFlow writes</dt><dd>Approved rules in the repository instruction files Copilot loads.</dd></div></dl>
-    </div>
-  </div>
-  <p class="fine">File locations follow each agent's documented conventions and are kept current as those conventions change.</p>
-</section>
-
-<section class="band">
-  <div class="split">
-    <div class="split-copy">
-      <div class="eyebrow">How a rule reaches an agent</div>
-      <h2>Approve once. Every agent gets it.</h2>
-      <ol class="steps">
-        <li><b>1</b><div><h3>One source of truth</h3><p>Each rule is a small file in your repository, with a scope and the evidence it came from.</p></div></li>
-        <li><b>2</b><div><h3>Compiled per agent</h3><p>CoFlow writes the approved rule out in the format each agent reads. Nobody maintains four copies.</p></div></li>
-        <li><b>3</b><div><h3>Loaded only when relevant</h3><p>Rules are scoped by path and technology, so a migration rule stays out of a CSS change and context cost stays flat.</p></div></li>
-        <li><b>4</b><div><h3>Kept in sync</h3><p>A required check fails if an agent's files drift from the approved rules.</p></div></li>
-      </ol>
-    </div>
-    <div>
-      <div class="compile" role="img" aria-label="One approved rule file compiled into four agent formats">
-      <div class="compile-src">
-        <div class="compile-cap">Approved rule</div>
-        <pre><span>---</span><span>applies_to: ["migrations/**"]</span><span>technologies: [postgres, alembic]</span><span>---</span><span>Run data backfills with the</span><span>tenant context set.</span></pre>
-      </div>
-      <div class="compile-out">
-        <div class="compile-cap">Written out for</div>
-        <div class="out" style="--i:0"><b>Claude Code</b><code>.claude/skills/tenant-context/</code></div>
-        <div class="out" style="--i:1"><b>Codex</b><code>migrations/AGENTS.md</code></div>
-        <div class="out" style="--i:2"><b>Cursor</b><code>.cursor/rules/tenant-context</code></div>
-        <div class="out" style="--i:3"><b>Copilot</b><code>repository instructions</code></div>
-      </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-<section class="band tint">
-  <div class="eyebrow">Beyond the instruction files</div>
-  <h2>Context is the start. Enforcement follows the agent.</h2>
-  <div class="cards">
-    <div class="card"><i>01</i><b>Plan checks</b><span>The agent's plan is checked against the rules that apply before any code exists.</span></div>
-    <div class="card t"><i>02</i><b>Guardrail hooks</b><span>For agents that support hooks, risky commands are blocked or need confirmation, and every decision is logged.</span></div>
-    <div class="card d"><i>03</i><b>Hosted MCP server</b><span>On Business, agents can ask CoFlow for the rules that apply to a file or task as they work.</span></div>
-  </div>
-</section>
-
-<section class="band">
-  <div class="split">
-    <div class="split-copy">
-      <div class="eyebrow">Mixed teams</div>
-      <h2>Let each developer keep the agent they like.</h2>
-      <p class="lede">Standardizing on one agent is a hard conversation and a short-lived decision. CoFlow makes the choice of agent a personal one and keeps the standard a team one.</p>
-    </div>
-    <div class="vs">
-      <div class="vs-card no"><h3><span class="mark" aria-hidden="true"></span>Four agents alone</h3><ul><li>Four rule files, maintained by hand.</li><li>Each one drifts from the others.</li><li>Review catches what the context missed.</li></ul></div>
-      <div class="vs-card yes"><h3><span class="mark" aria-hidden="true"></span>Four agents with CoFlow</h3><ul><li>One approved set of rules.</li><li>Written out for each agent automatically.</li><li>Adherence graded the same way for all four.</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<section class="band flush">
-  <div class="banners">
-    <a class="banner" href="/playground/"><div><div class="eyebrow">Playground</div><b>Switch the rules on and off yourself.</b><small>Four requests, and what the agent writes with and without each rule.</small></div><span class="go">Open the playground</span></a>
-    <a class="banner" href="/technology/integrations/"><div><div class="eyebrow">Integrations</div><b>Code hosts, trackers, chat and your stack.</b><small>GitHub, GitLab, Bitbucket, Jira, Linear, Slack and Microsoft Teams.</small></div><span class="go">See the integrations</span></a>
-  </div>
-</section>
-
-<section class="band flush">
-  <div class="talk">
-    <div>
-      <h2>Start with one repository.</h2>
-      <p class="lede">We are onboarding a small number of teams first.</p>
-    </div>
-    <a class="btn btn-go" href="/pricing/#talk">Talk to us</a>
-  </div>
-</section>
-</main>
+<main id="main-content"><section class="band tint"><div class="feature-intro"><div class="eyebrow">Coding agents</div><h1>Shared engineering context for the agents you choose.</h1><p class="lede">Use task-specific instructions and approved exports with your coding workflow. Keep provider execution separate from CoFlow’s knowledge and review functions.</p><div class="cta"><a class="btn btn-go" href="/docs/integrations/">Read the documentation</a><a class="btn btn-line" href="/pricing/#talk">Request pilot access</a></div></div></section><section class="band"><div class="built-features"><article><h3>Focused instructions</h3><p>Give the task and affected paths to the compiler. Inspect selection reasons and handle blocked packages before proceeding.</p></article><article><h3>Approved workspace exports</h3><p>Review AGENTS.md and MEMORY.md content and place it in the workspace your client reads.</p></article><article><h3>MCP compatibility</h3><p>Local integration depends on the coding client supporting stdio MCP and your configured authenticated API access.</p></article><article><h3>Activity is reported</h3><p>Agent lifecycle/activity features record pinned runs and reported heartbeats where enabled. They do not establish native provider discovery or execute coding agents.</p></article></div><p class="feature-status-note">This page describes implemented source capabilities. Access and activation depend on the deployed release and workspace configuration. <a href="/docs/feature-status/">Check feature availability</a>.</p><div class="links"><a class="text-link" href="/docs/security/rls/">Security and RLS guide</a><a class="text-link" href="/docs/integrations/">Explore the documentation</a></div></section></main>
 
 <footer>
   <div class="f-top">
     <div class="f-brand"><a class="brand" href="/" aria-label="CoFlow home"><svg width="30" height="30" aria-hidden="true"><use href="#logo"/></svg>CoFlow</a><p>Engineering, security and design standards for teams that build with coding agents.</p><code>getcoflow.ai</code></div>
-    <div class="f-col"><b>Technology</b><a href="/technology/coding-standards/">Standards and rule packs</a><a href="/technology/review-agents/">Review agents</a><a href="/technology/project-memory/">Project memory</a><a href="/technology/mcp-server/">MCP server and CLI</a><a href="/technology/evaluation/">Evaluation</a><a href="/technology/integrations/">Integrations</a><a href="/technology/coding-agents/">Coding agents</a></div>
+    <div class="f-col"><b>Technology</b><a href="/technology/coding-standards/">Standards and rule packs</a><a href="/technology/review-agents/">Review agents</a><a href="/technology/project-memory/">Project memory</a><a href="/docs/integrations/">MCP server and CLI</a><a href="/technology/evaluation/">Evaluation</a><a href="/technology/integrations/">Integrations</a><a href="/technology/coding-agents/">Coding agents</a></div>
     <div class="f-col"><b>Use cases</b><a href="/use-cases/security/">Security</a><a href="/use-cases/applications/">Applications</a><a href="/use-cases/firmware/">Hardware and firmware</a><a href="/use-cases/frontend/">Front end</a><a href="/use-cases/data-pipelines/">Data pipelines</a><a href="/use-cases/infrastructure-as-code/">Infrastructure as code</a><a href="/use-cases/">By situation</a></div>
     <div class="f-col"><b>Compare</b><a href="/compare/agents-md-and-cursor-rules/">vs AGENTS.md and Cursor rules</a><a href="/compare/straion/">vs Straion</a><a href="/compare/coderabbit/">vs CodeRabbit</a><a href="/compare/harness/">vs Harness</a></div><div class="f-col"><b>Company</b><a href="/playground/">Playground</a><a href="/pricing/">Pricing</a><a href="/pricing/#talk">Talk to us</a><a href="/support/">Support</a><a href="/#faq">Questions</a></div>
   </div>

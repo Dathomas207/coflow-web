@@ -37,3 +37,9 @@ The form validates input and prepares a `mailto:` draft to the site's public sup
 4. Resolve existing policy placeholders on support, privacy and terms pages before a broad launch. Confirm status-page, legal-entity and data-processing details.
 5. Verify the `getcoflow.ai` custom domain before promoting it; existing canonical metadata still targets that domain.
 6. Measure playground-to-pilot conversion and activation once an approved analytics plan is in place.
+
+## Public documentation
+
+`site/docs/` contains the public guides, responsive docs layout, and a browser-local search index. The docs follow the sidebar/article/table-of-contents pattern used by Plastics.com, with CoFlow's own styling and no new hosted service. Update `search-index.json` whenever a guide changes, and keep its URL and title aligned with the page.
+
+The November 20 docs were reviewed against engineering-memory source revision `6d7ba3d`, including the RLS/tenant implementation, workflow guide, acceptance contracts, compiler and outcome reporting. The source's older top-level README does not describe every later module. Public language distinguishes implemented code, configured features and verified live access. These docs do not enable backend flags, migrate databases or provision identities.
