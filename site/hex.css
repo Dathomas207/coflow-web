@@ -1,0 +1,53 @@
+/* CoFlow hexagon layer: brings the honeycomb, hex markers and the live hex field back on top of the launch refresh.
+   Loaded after refresh.css. Remove this file and hex.js to switch the motif off. */
+:root{--hx-o:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 106 121.5'%3E%3Cpolygon points='50.00,0.00 100.00,28.87 100.00,86.61 50.00,115.48 -0.00,86.61 -0.00,28.87' fill='none' stroke='%233549E8' stroke-width='2' vector-effect='non-scaling-stroke' stroke-linejoin='round'/%3E%3C/svg%3E");--hx-peach:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 106 121.5'%3E%3Cpolygon points='50.00,0.00 100.00,28.87 100.00,86.61 50.00,115.48 -0.00,86.61 -0.00,28.87' fill='none' stroke='%23F2915F' stroke-width='2' vector-effect='non-scaling-stroke' stroke-linejoin='round'/%3E%3C/svg%3E");--hx-white:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 106 121.5'%3E%3Cpolygon points='50.00,0.00 100.00,28.87 100.00,86.61 50.00,115.48 -0.00,86.61 -0.00,28.87' fill='none' stroke='%23FFFFFF' stroke-width='1.5' vector-effect='non-scaling-stroke' stroke-linejoin='round'/%3E%3C/svg%3E");--hx-fill:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 106 121.5'%3E%3Cpolygon points='50.00,0.00 100.00,28.87 100.00,86.61 50.00,115.48 -0.00,86.61 -0.00,28.87' fill='%233549E8' stroke='%233549E8' stroke-width='2' vector-effect='non-scaling-stroke' stroke-linejoin='round'/%3E%3C/svg%3E");--hx-card:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 106 121.5'%3E%3Cpolygon points='50.00,0.00 100.00,28.87 100.00,86.61 50.00,115.48 -0.00,86.61 -0.00,28.87' fill='%23FFFFFF' stroke='%233549E8' stroke-width='2' vector-effect='non-scaling-stroke' stroke-linejoin='round'/%3E%3C/svg%3E");--hx-ring:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 106 121.5'%3E%3Cpolygon points='50.00,0.00 100.00,28.87 100.00,86.61 50.00,115.48 -0.00,86.61 -0.00,28.87' fill='none' stroke='%238A98F5' stroke-width='1.6' vector-effect='non-scaling-stroke' stroke-linejoin='round'/%3E%3C/svg%3E");--honey:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48.497' height='84' viewBox='0 0 48.497 84'%3E%3Cg fill='none' stroke='%233549E8' stroke-width='1'%3E%3Cpolygon points='24.25,0.00 48.50,14.00 48.50,42.00 24.25,56.00 -0.00,42.00 0.00,14.00'/%3E%3Cpolygon points='0.00,-42.00 24.25,-28.00 24.25,-0.00 0.00,14.00 -24.25,-0.00 -24.25,-28.00'/%3E%3Cpolygon points='48.50,-42.00 72.75,-28.00 72.75,-0.00 48.50,14.00 24.25,-0.00 24.25,-28.00'/%3E%3Cpolygon points='0.00,42.00 24.25,56.00 24.25,84.00 0.00,98.00 -24.25,84.00 -24.25,56.00'/%3E%3Cpolygon points='48.50,42.00 72.75,56.00 72.75,84.00 48.50,98.00 24.25,84.00 24.25,56.00'/%3E%3C/g%3E%3C/svg%3E");--honey-size:48.50px 84px}
+
+/* live hex field behind the page headers */
+.launch-hero,.phero{position:relative;isolation:isolate}
+.launch-hero{overflow:visible}
+.hexfield{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1;display:block}
+.phero .hexbg{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1}
+.launch-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(transparent,#fff);z-index:-1;pointer-events:none}
+
+/* eyebrow marker */
+.eyebrow{display:inline-flex;align-items:center;gap:9px}
+.eyebrow::before{display:block!important;content:"";width:11px;height:13px;flex:none;background:var(--hx-peach) center/contain no-repeat}
+.section-intro .eyebrow{justify-self:center}
+
+/* honeycomb washes */
+.founder-story,.workflow-section,.price-teaser,.closing-cta,footer,.outcomes-pilot{position:relative;isolation:isolate}
+.founder-story::before,.workflow-section::before,.price-teaser::before,.closing-cta::before,footer::before{content:"";display:block!important;position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:var(--honey);background-size:var(--honey-size);opacity:.07}
+.founder-story::before{-webkit-mask-image:radial-gradient(ellipse 55% 90% at 0% 100%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse 55% 90% at 0% 100%,#000 10%,transparent 70%)}
+.workflow-section::before{-webkit-mask-image:radial-gradient(ellipse 60% 90% at 100% 50%,#000 10%,transparent 72%);mask-image:radial-gradient(ellipse 60% 90% at 100% 50%,#000 10%,transparent 72%)}
+.price-teaser::before{-webkit-mask-image:radial-gradient(ellipse 55% 90% at 0% 0%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse 55% 90% at 0% 0%,#000 10%,transparent 70%)}
+footer::before{opacity:.06;-webkit-mask-image:linear-gradient(90deg,transparent 40%,#000);mask-image:linear-gradient(90deg,transparent 40%,#000)}
+.closing-cta{overflow:hidden}
+.closing-cta::before{opacity:.09;-webkit-mask-image:radial-gradient(ellipse 70% 120% at 50% 100%,transparent 35%,#000 90%);mask-image:radial-gradient(ellipse 70% 120% at 50% 100%,transparent 35%,#000 90%)}
+.closing-cta::after{content:"";position:absolute;width:280px;height:323px;right:-70px;top:50%;translate:0 -50%;background:var(--hx-peach) center/contain no-repeat;opacity:.55;z-index:-1;pointer-events:none;}
+
+/* hexagon step badges */
+.step-icon{width:46px;height:53px;border:0;border-radius:0;background:var(--hx-card) center/contain no-repeat;transition:background-image .2s,color .2s,transform .4s cubic-bezier(.3,1.4,.5,1)}
+.workflow-steps li:hover .step-icon{background-image:var(--hx-fill);color:#fff;transform:rotate(30deg)}
+.workflow-steps li:hover .step-icon{transform:none}
+
+/* corner hexagons on cards */
+.outcome-card,.story-card,.price-preview,.vs-card,.type,.ragent,.agent{position:relative;overflow:hidden;isolation:isolate}
+.outcome-card::after,.story-card::after,.price-preview::after,.type::after{content:"";display:block!important;position:absolute;top:-40px;right:-36px;width:132px;height:152px;background:var(--hx-o) center/contain no-repeat;opacity:.12;z-index:-1;pointer-events:none;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.story-card::after{top:auto;bottom:-46px;right:-40px}
+.outcome-card:hover::after,.story-card:hover::after,.price-preview:hover::after,.type:hover::after{transform:rotate(30deg) scale(1.12);opacity:.26}
+.outcome-card{transition:transform .22s cubic-bezier(.2,.7,.2,1),box-shadow .22s}
+.outcome-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px #1920440c}
+
+/* rings behind the product window */
+.hx-ring{position:absolute;left:50%;top:46%;width:430px;height:496px;translate:-50% -50%;background:var(--hx-ring) center/contain no-repeat;opacity:0;z-index:-1;pointer-events:none}
+
+/* integration tiles */
+.integration-logos > *{transition:transform .22s cubic-bezier(.2,.7,.2,1),box-shadow .22s,border-color .22s}
+.integration-logos > *:hover{transform:translateY(-3px);border-color:#3549E8;box-shadow:4px 4px 0 #3549E8}
+
+@media (prefers-reduced-motion:no-preference){
+  .hx-ring{animation:hxring 4.2s cubic-bezier(.2,.7,.2,1) infinite}
+  .hx-ring.r2{animation-delay:2.1s}
+  @keyframes hxring{0%{transform:scale(.62);opacity:.85}100%{transform:scale(1.25);opacity:0}}
+}
+@media (max-width:900px){.hx-ring{display:none}.closing-cta::after{width:180px;height:208px;right:-70px;top:-50px}}
