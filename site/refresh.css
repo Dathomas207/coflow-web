@@ -1458,3 +1458,28 @@ footer .brand,.f-col b {
   justify-self:start
 }
 
+
+/* Founder-approved Plastics.com launch story. */
+.founder-story {
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:clamp(32px,6vw,90px);
+  align-items:start;
+  background:#f5f6ff;
+  border-bottom:1px solid var(--line);
+  scroll-margin-top:100px;
+}
+.founder-story-heading {display:grid;gap:22px;justify-items:start}
+.founder-story-heading h2 {font-size:clamp(32px,3.1vw,46px);max-width:530px}
+.founder-story-copy {display:grid;gap:20px;color:var(--soft);font-size:17px;line-height:1.75}
+.founder-story-lead {font-size:clamp(20px,1.7vw,24px);line-height:1.55;color:var(--ink);letter-spacing:-.025em}
+.founder-story-outcome {padding-left:20px;border-left:3px solid var(--blue);color:var(--ink)}
+.founder-story-caption {font-size:14px;color:var(--soft)}
+@media(max-width:900px) {
+  .founder-story {grid-template-columns:1fr;gap:30px}
+  .founder-story-heading h2 {max-width:660px}
+}
+@media(max-width:540px) {
+  .founder-story-copy {font-size:16px;gap:18px}
+  .founder-story-lead {font-size:21px}
+}
