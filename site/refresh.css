@@ -1557,3 +1557,31 @@ footer .brand,.f-col b {
  .nav .product-menu-demo {align-items:flex-start;flex-direction:column;gap:7px;padding:16px!important}
  .product-menu-grid b {font-size:16px}
 }
+
+/* Benefits tied to a practical, measurable pilot. */
+.outcomes-section {gap:32px}
+.outcomes-section .section-intro .lede {max-width:740px}
+.outcome-cards {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.outcome-card {display:flex;flex-direction:column;gap:18px;padding:28px;border:1px solid var(--line);border-radius:18px;background:#fff;min-width:0}
+.outcome-label {font-size:14px;font-weight:600;color:var(--blue)}
+.outcome-card h3 {font-size:25px;letter-spacing:-.035em;line-height:1.2}
+.outcome-card>p {font-size:16px;line-height:1.7;color:var(--soft)}
+.outcome-measure {display:grid;gap:8px;padding-top:18px;margin-top:auto;border-top:1px solid var(--line)}
+.outcome-measure b {font-size:14px;color:var(--ink)}
+.outcome-measure span {font-size:14px;color:var(--soft);line-height:1.6}
+.outcomes-pilot {display:flex;align-items:center;gap:40px;padding:28px 32px;border-radius:16px;background:#f2f4ff;border:1px solid #e0e5ff}
+.outcomes-pilot>div {flex:1;display:grid;gap:12px}
+.outcomes-pilot h3 {font-size:23px;line-height:1.3;letter-spacing:-.03em}
+.outcomes-pilot p {font-size:16px;line-height:1.65;color:var(--soft);max-width:860px}
+.outcomes-pilot p.fine {font-size:13px}
+.outcomes-pilot .btn {flex:none}
+@media(max-width:900px) {
+ .outcome-cards {grid-template-columns:1fr}
+ .outcome-card {padding:24px}
+ .outcomes-pilot {align-items:flex-start;flex-direction:column;gap:24px}
+}
+@media(max-width:540px) {
+ .outcomes-pilot {padding:24px}
+ .outcome-card h3 {font-size:24px}
+ .outcomes-pilot .btn {width:100%}
+}
