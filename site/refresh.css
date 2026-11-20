@@ -191,6 +191,16 @@ h1 span {
   text-align:center;
   margin-top:auto
 }
+.plan {
+  grid-template-rows:auto auto 1fr auto;
+  align-content:stretch
+}
+.plan ul {
+  align-content:start
+}
+.plan.main {
+  padding:29px
+}
 .plan ul {
   line-height:1.7
 }
