@@ -1534,3 +1534,26 @@ footer .brand,.f-col b {
   .f-brand p,.f-brand code {grid-column:auto;grid-row:auto}
   .f-brand p {max-width:38ch}
 }
+
+/* Full product overview, with short explanations and a demo entry point. */
+.nav .product-menu .dd-panel {width:min(760px,calc(100vw - 64px));padding:14px;left:50%;translate:-35% 0}
+.product-menu-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 12px}
+.nav .product-menu-grid>a {display:grid;gap:6px;padding:14px!important;white-space:normal;text-decoration:none;align-content:start}
+.product-menu-grid b {font-size:17px;letter-spacing:-.02em;color:var(--ink)}
+.product-menu-grid small {font-size:14px;color:var(--soft);line-height:1.5}
+.product-menu-grid a:hover,.product-menu-grid a:focus-visible {background:#f0f2ff}
+.product-menu-grid a:hover b,.product-menu-grid a:focus-visible b {color:var(--blue)}
+.nav .product-menu-demo {display:flex;justify-content:space-between;gap:20px;align-items:center;background:var(--navy);color:#fff;padding:18px 20px!important;margin-top:14px;border-radius:10px;text-decoration:none;white-space:normal}
+.product-menu-demo span {font-size:14px;color:#c6cee9}
+.product-menu-demo b {font-size:16px;color:#fff}
+.nav .product-menu-demo:hover {background:#263362}
+@media(min-width:761px) and (max-width:1000px) {
+ .nav .product-menu .dd-panel {position:fixed;top:100%;left:24px;right:24px;width:auto;translate:none;margin-top:0}
+}
+@media(max-width:760px) {
+ .nav .product-menu .dd-panel {position:static;width:auto;left:auto;translate:none;padding:0 0 12px;margin-top:0}
+ .product-menu-grid {grid-template-columns:1fr;gap:3px}
+ .nav .product-menu-grid>a {padding:12px!important}
+ .nav .product-menu-demo {align-items:flex-start;flex-direction:column;gap:7px;padding:16px!important}
+ .product-menu-grid b {font-size:16px}
+}
